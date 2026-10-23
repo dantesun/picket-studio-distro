@@ -100,8 +100,10 @@ jobs:
         working-directory: community
         shell: bash
         run: |
+          # skip search_index: traverseUI 在 headless 容器内偶发 exit 255（官方 CI 的 update target 同样跳过该步骤）
           docker run --rm --user "$(id -u)" -v "${PWD}:/community" \
-            myide_build_env -Dintellij.build.target.os=${{ inputs.os_target }}
+            myide_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
+            -Dintellij.build.skip.build.steps=search_index
 
       - name: Upload artifacts
         if: ${{ inputs.dry_run != true }}
