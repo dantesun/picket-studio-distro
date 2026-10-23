@@ -1,0 +1,66 @@
+diff --git a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
+index 3fc5d3f16b..c4674a3d40 100644
+--- a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
++++ b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
+@@ -120,7 +120,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+ 
+     @Suppress("SpellCheckingInspection")
+     qodanaProductProperties = QodanaProductProperties("QDJVMC", "Qodana Community for JVM")
+-    additionalVmOptions = persistentListOf("-Dllm.show.ai.promotion.window.on.start=false")
++    additionalVmOptions = persistentListOf(
++      "-Dllm.show.ai.promotion.window.on.start=false",
++      // MyIDE distribution: usage statistics and crash reporting are disabled by default
++      "-Didea.send.statistics=false",
++      "-Didea.log.upload.disabled=true",
++    )
+   }
+ 
+   override val baseFileName: String
+@@ -153,12 +158,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+   override fun createMacCustomizer(projectHome: Path): MacDistributionCustomizer = ideaCommunityMacCustomizer(communityHomeDir)
+ 
+   override fun getSystemSelector(appInfo: ApplicationInfoProperties, buildNumber: String): String {
+-    return "IdeaIC${appInfo.majorVersion}.${appInfo.minorVersionMainPart}"
++    return "MyIDE${appInfo.majorVersion}.${appInfo.minorVersionMainPart}"
+   }
+ 
+-  override fun getBaseArtifactName(appInfo: ApplicationInfoProperties, buildNumber: String): String = "ideaIC-$buildNumber"
++  override fun getBaseArtifactName(appInfo: ApplicationInfoProperties, buildNumber: String): String = "myide-$buildNumber"
+ 
+-  override fun getOutputDirectoryName(appInfo: ApplicationInfoProperties): String = "idea-ce"
++  override fun getOutputDirectoryName(appInfo: ApplicationInfoProperties): String = "myide-ce"
+ }
+ 
+ @Suppress("unused")
+@@ -255,8 +260,8 @@ inline fun ideaCommunityWindowsCustomizer(
+ ): WindowsDistributionCustomizer = windowsCustomizer(projectHome) {
+   fileAssociations = listOf("java", "gradle", "groovy", "kt", "kts", "pom")
+ 
+-  fullName { "IntelliJ IDEA Open Source" }
+-  installDirNameHandler { "IntelliJ IDEA OSS" }
++  fullName { "MyIDE" }
++  installDirNameHandler { "MyIDE" }
+ 
+   uninstallFeedbackUrl { appInfo ->
+     "https://www.jetbrains.com/idea/uninstall/?edition=IC-${appInfo.majorVersion}.${appInfo.minorVersion}"
+@@ -272,9 +277,9 @@ inline fun ideaCommunityMacCustomizer(
+   urlSchemes = listOf("idea")
+   associateIpr = true
+   fileAssociations = FileAssociation.from("java", "groovy", "kt", "kts")
+-  bundleIdentifier = "com.jetbrains.intellij.ce"
++  bundleIdentifier = "com.myide.ce"
+ 
+-  rootDirectoryName { _, _ -> "IntelliJ IDEA OSS.app" }
++  rootDirectoryName { _, _ -> "MyIDE.app" }
+ 
+   executableFilePatterns { base, _, _, _ ->
+     val kotlinExecutables = KotlinBinaries.kotlinCompilerExecutables
+@@ -289,7 +294,7 @@ inline fun ideaCommunityLinuxCustomizer(
+   configure: LinuxCustomizerBuilder.() -> Unit = {},
+ ): LinuxDistributionCustomizer = linuxCustomizer(projectHome) {
+ 
+-  rootDirectoryName { _, _ -> "idea-oss" }
++  rootDirectoryName { _, _ -> "myide-oss" }
+ 
+   executableFilePatterns { base, _, _, _, _ ->
+     base.plus(KotlinBinaries.kotlinCompilerExecutables).filterNot { it == "plugins/**/*.sh" }

@@ -1,0 +1,31 @@
+diff --git a/community-resources/resources/idea/IdeaApplicationInfo.xml b/community-resources/resources/idea/IdeaApplicationInfo.xml
+index 820ac8badb..baefb8f060 100644
+--- a/community-resources/resources/idea/IdeaApplicationInfo.xml
++++ b/community-resources/resources/idea/IdeaApplicationInfo.xml
+@@ -1,11 +1,11 @@
+ <component xmlns="http://jetbrains.org/intellij/schema/application-info">
+   <version major="2027" minor="1" eap="true"/>
+-  <company name="JetBrains s.r.o." url="https://www.jetbrains.com"/>
++  <company name="MyIDE Project" url="https://example.com/myide"/>
+   <build number="IC-__BUILD__" date="__BUILD_DATE__"/> <!--majorReleaseDate="20170321"-->
+-  <logo url="/idea_community_logo.png"/>
++  <logo url="/myide_logo.svg"/>
+   <icon svg="/idea-ce.svg" svg-small="/idea-ce_16.svg"/>
+   <icon-eap svg="/idea-ce-eap.svg" svg-small="/idea-ce-eap_16.svg"/>
+-  <names product="IDEA" fullname="IntelliJ IDEA" script="idea" motto="The Leading IDE for Professional Development in Java and Kotlin"/>
++  <names product="IDEA" fullname="MyIDE" script="idea" motto="A clean community IDE distribution"/>
+ 
+   <essential-plugin>com.intellij.idea.customization</essential-plugin>
+   <essential-plugin>com.intellij.java</essential-plugin>
+diff --git a/community-resources/resources/myide_logo.svg b/community-resources/resources/myide_logo.svg
+new file mode 100644
+index 0000000000..b9171284f3
+--- /dev/null
++++ b/community-resources/resources/myide_logo.svg
+@@ -0,0 +1,6 @@
++<!-- MyIDE about/splash logo. Based on IntelliJ Platform (Apache 2.0). -->
++<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
++<rect width="512" height="512" rx="112" fill="#1468C8"/>
++<path d="M136 376V136L256 264L376 136V376" stroke="white" stroke-width="56" stroke-linejoin="round" fill="none"/>
++<path d="M136 376H376" stroke="white" stroke-width="56" stroke-linecap="round"/>
++</svg>

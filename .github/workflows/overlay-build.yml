@@ -1,0 +1,113 @@
+name: MyIDE Overlay Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: "intellij-community 上游 ref（分支或 tag，如 master / idea/2026.2.3）"
+        default: "master"
+        required: true
+      os_target:
+        description: "目标平台：current / linux / windows / mac"
+        default: "current"
+        required: false
+      dry_run:
+        description: "仅验证 patch 与 Bazel 构建图，不执行完整构建"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  overlay-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Free disk space
+        shell: bash
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/share/swift /usr/share/miniconda \
+            /usr/local/lib/android /usr/local/share/boost /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules /opt/ghc /opt/hostedtoolcache \
+            /var/cache/apt/archives || true
+          sudo apt-get -y clean || true
+          docker image prune --all --force || true
+
+      - name: Expand swap (IDE build is memory hungry)
+        shell: bash
+        run: |
+          sudo swapoff -a || true
+          sudo fallocate -l 16G /mnt/swapfile || sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=16384
+          sudo chmod 600 /mnt/swapfile
+          sudo mkswap /mnt/swapfile
+          sudo swapon /mnt/swapfile
+
+      - name: Checkout overlay repo (this repo)
+        uses: actions/checkout@v4
+        with:
+          path: overlay
+
+      - name: Checkout upstream intellij-community
+        uses: actions/checkout@v4
+        with:
+          repository: JetBrains/intellij-community
+          ref: ${{ inputs.upstream_ref }}
+          path: community
+          fetch-depth: 1
+
+      - name: Fetch android modules (required for IDEA distributions)
+        working-directory: community
+        shell: bash
+        run: |
+          if [ ! -d android ]; then
+            git clone --depth 1 --branch master https://github.com/JetBrains/android.git android \
+              || git clone --depth 1 https://github.com/JetBrains/android.git android \
+              || echo "WARN: android module fetch failed, continuing anyway"
+          fi
+
+      - name: Apply overlay patches
+        working-directory: community
+        shell: bash
+        run: |
+          for p in ../overlay/patches/*.patch; do
+            echo "== apply $(basename "$p") =="
+            git apply --3way "$p"
+          done
+          echo "patches applied OK"
+          git status --short
+
+      - name: Verify build graph with Bazel query
+        working-directory: community
+        shell: bash
+        run: |
+          ./bazel.cmd query //build:idea_community >/dev/null
+          echo "build target //build:idea_community resolves OK"
+
+      - name: Dry-run complete
+        if: ${{ inputs.dry_run == true }}
+        shell: bash
+        run: echo "dry-run done: patches applied, build graph OK"
+
+      - name: Build Docker build environment
+        if: ${{ inputs.dry_run != true }}
+        working-directory: community
+        shell: bash
+        run: docker build . --target intellij_idea --tag myide_build_env
+
+      - name: Build MyIDE installers
+        if: ${{ inputs.dry_run != true }}
+        working-directory: community
+        shell: bash
+        run: |
+          docker run --rm --user "$(id -u)" -v "${PWD}:/community" \
+            myide_build_env -Dintellij.build.target.os=${{ inputs.os_target }}
+
+      - name: Upload artifacts
+        if: ${{ inputs.dry_run != true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: myide-${{ inputs.upstream_ref }}-${{ inputs.os_target }}
+          path: community/out/**
+          if-no-files-found: error
+          retention-days: 7

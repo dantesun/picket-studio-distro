@@ -1,0 +1,57 @@
+diff --git a/community-resources/resources/idea-ce.svg b/community-resources/resources/idea-ce.svg
+index 113ea852a5..9db9136fda 100644
+--- a/community-resources/resources/idea-ce.svg
++++ b/community-resources/resources/idea-ce.svg
+@@ -1,19 +1,6 @@
+-<!-- Copyright 2000-2024 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
++<!-- MyIDE logo. Based on IntelliJ Platform (Apache 2.0). No JetBrains trademark used. -->
+ <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+-<g clip-path="url(#clip0_4372_11172)">
+-<path d="M59.9273 0H24.9606C23.8807 0 22.8445 0.4288 22.0806 1.19273L1.19273 22.08C0.4288 22.8439 0 23.8796 0 24.96V59.9273C0 62.1766 1.82342 64 4.07273 64H39.0388C40.1199 64 41.1567 63.57 41.9206 62.8055L62.8073 41.895C63.57 41.1316 63.9983 40.096 63.9983 39.0167L64 4.07273C64 1.82342 62.1766 0 59.9273 0Z" fill="url(#paint0_radial_4372_11172)"/>
+-<path d="M52 12H12V52H52V12Z" fill="black"/>
+-<path d="M33 44H17V47H33V44Z" fill="white"/>
+-<path d="M17 29.3856H19.9788V19.6144H17V17H25.839V19.6144H22.8602V29.3856H25.839V32H17V29.3856Z" fill="white"/>
+-<path d="M27.3389 29.3002H29.4926C29.9281 29.3002 30.316 29.2074 30.6552 29.0218C30.9944 28.8361 31.2568 28.5737 31.4424 28.2345C31.6281 27.8953 31.7209 27.508 31.7209 27.072V17H34.6458V27.2748C34.6458 28.1749 34.4384 28.984 34.0242 29.7019C33.6099 30.4198 33.0387 30.9824 32.3099 31.3892C31.5811 31.7966 30.7635 32 29.8565 32H27.3389V29.3002Z" fill="white"/>
+-</g>
+-<defs>
+-<radialGradient id="paint0_radial_4372_11172" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(62.25 1.75) rotate(135) scale(85.5599)">
+-<stop offset="0.0810525" stop-color="#FE2857"/>
+-<stop offset="0.720942" stop-color="#007EFF"/>
+-</radialGradient>
+-<clipPath id="clip0_4372_11172">
+-<rect width="64" height="64" fill="white"/>
+-</clipPath>
+-</defs>
++<rect width="64" height="64" rx="14" fill="#1468C8"/>
++<path d="M18 47V19L32 34L46 19V47" stroke="white" stroke-width="7" stroke-linejoin="round" fill="none"/>
++<path d="M18 47H46" stroke="white" stroke-width="7" stroke-linecap="round"/>
+ </svg>
+diff --git a/community-resources/resources/idea-ce_16.svg b/community-resources/resources/idea-ce_16.svg
+index 658d4bc832..1f493c255f 100644
+--- a/community-resources/resources/idea-ce_16.svg
++++ b/community-resources/resources/idea-ce_16.svg
+@@ -1,20 +1,6 @@
+-<!-- Copyright 2000-2024 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
++<!-- MyIDE logo (16px). Based on IntelliJ Platform (Apache 2.0). -->
+ <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+-<g clip-path="url(#clip0_4372_11168)">
+-<g clip-path="url(#clip1_4372_11168)">
+-<path d="M16 0H0V16H16V0Z" fill="#087CFA"/>
+-<path d="M15 1H1V15H15V1Z" fill="black"/>
+-<path d="M8 12H3V13H8V12Z" fill="white"/>
+-<path d="M3 7.12853H3.99293V3.87147H3V3H5.94633V3.87147H4.9534V7.12853H5.94633V8H3V7.12853Z" fill="white"/>
+-<path d="M6.44585 7.10008H7.16376C7.30891 7.10008 7.43821 7.06914 7.55127 7.00726C7.66433 6.94538 7.75181 6.85791 7.81368 6.74484C7.87556 6.63178 7.9065 6.50267 7.9065 6.35733V3H8.88148V6.42494C8.88148 6.72498 8.81235 6.99465 8.67427 7.23396C8.53618 7.47326 8.34577 7.66081 8.10284 7.79641C7.8599 7.9322 7.58737 8 7.28504 8H6.44585V7.10008Z" fill="white"/>
+-</g>
+-</g>
+-<defs>
+-<clipPath id="clip0_4372_11168">
+-<rect width="16" height="16" fill="white"/>
+-</clipPath>
+-<clipPath id="clip1_4372_11168">
+-<rect width="16" height="16" fill="white"/>
+-</clipPath>
+-</defs>
++<rect width="16" height="16" rx="4" fill="#1468C8"/>
++<path d="M4 11V5L8 8.5L12 5V11" stroke="white" stroke-width="1.8" stroke-linejoin="round" fill="none"/>
++<path d="M4 11H12" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+ </svg>
