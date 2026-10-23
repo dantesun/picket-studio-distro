@@ -34,11 +34,11 @@ jobs:
           sudo apt-get -y clean || true
           docker image prune --all --force || true
 
-      - name: Expand swap (IDE build is memory hungry)
+      - name: Expand swap (IDE build is memory hungry, JetBrains CI uses 30G)
         shell: bash
         run: |
           sudo swapoff -a || true
-          sudo fallocate -l 16G /mnt/swapfile || sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=16384
+          sudo fallocate -l 30G /mnt/swapfile || sudo dd if=/dev/zero of=/mnt/swapfile bs=1M count=30720
           sudo chmod 600 /mnt/swapfile
           sudo mkswap /mnt/swapfile
           sudo swapon /mnt/swapfile
