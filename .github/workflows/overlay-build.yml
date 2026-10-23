@@ -1,4 +1,4 @@
-name: MyIDE Overlay Build
+name: Picket Studio Overlay Build
 
 "on":
   workflow_dispatch:
@@ -93,23 +93,23 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         working-directory: community
         shell: bash
-        run: docker build . --target intellij_idea --tag myide_build_env
+        run: docker build . --target intellij_idea --tag picket_build_env
 
-      - name: Build MyIDE installers
+      - name: Build Picket Studio installers
         if: ${{ inputs.dry_run != true }}
         working-directory: community
         shell: bash
         run: |
           # skip search_index: traverseUI 在 headless 容器内偶发 exit 255（官方 CI 的 update target 同样跳过该步骤）
           docker run --rm --user "$(id -u)" -v "${PWD}:/community" \
-            myide_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
+            picket_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
             -Dintellij.build.skip.build.steps=search_index
 
       - name: Upload artifacts
         if: ${{ inputs.dry_run != true }}
         uses: actions/upload-artifact@v4
         with:
-          name: myide-${{ inputs.upstream_ref }}-${{ inputs.os_target }}
+          name: picket-studio-${{ inputs.upstream_ref }}-${{ inputs.os_target }}
           path: community/out/**
           if-no-files-found: error
           retention-days: 7

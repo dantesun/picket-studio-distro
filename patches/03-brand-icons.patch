@@ -4,7 +4,7 @@ index 113ea852a5..9db9136fda 100644
 +++ b/community-resources/resources/idea-ce.svg
 @@ -1,19 +1,6 @@
 -<!-- Copyright 2000-2024 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
-+<!-- MyIDE logo. Based on IntelliJ Platform (Apache 2.0). No JetBrains trademark used. -->
++<!-- Picket Studio logo. Based on IntelliJ Platform (Apache 2.0). No JetBrains trademark used. -->
  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 -<g clip-path="url(#clip0_4372_11172)">
 -<path d="M59.9273 0H24.9606C23.8807 0 22.8445 0.4288 22.0806 1.19273L1.19273 22.08C0.4288 22.8439 0 23.8796 0 24.96V59.9273C0 62.1766 1.82342 64 4.07273 64H39.0388C40.1199 64 41.1567 63.57 41.9206 62.8055L62.8073 41.895C63.57 41.1316 63.9983 40.096 63.9983 39.0167L64 4.07273C64 1.82342 62.1766 0 59.9273 0Z" fill="url(#paint0_radial_4372_11172)"/>
@@ -32,7 +32,7 @@ index 658d4bc832..1f493c255f 100644
 +++ b/community-resources/resources/idea-ce_16.svg
 @@ -1,20 +1,6 @@
 -<!-- Copyright 2000-2024 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
-+<!-- MyIDE logo (16px). Based on IntelliJ Platform (Apache 2.0). -->
++<!-- Picket Studio logo (16px). Based on IntelliJ Platform (Apache 2.0). -->
  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 -<g clip-path="url(#clip0_4372_11168)">
 -<g clip-path="url(#clip1_4372_11168)">

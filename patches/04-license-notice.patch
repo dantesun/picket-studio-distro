@@ -94,11 +94,11 @@ index 60fd1a0a36..988f482feb 100644
 -understand the content of all of its clauses, negotiate its terms, and seek independent professional legal advice
 -in that respect before entering into it. Consequently, any statutory “form contract” (“adhesion contract”) regulations
 -shall not be applicable to these terms.
-+MYIDE OPEN-SOURCE DISTRIBUTION TERMS
++PICKET STUDIO OPEN-SOURCE DISTRIBUTION TERMS
 +
 +Version 1.0
 +
-+This software is a distribution ("MyIDE") built from the open-source
++This software is a distribution ("Picket Studio") built from the open-source
 +IntelliJ Platform Community codebase (JetBrains intellij-community),
 +which is licensed under the Apache License 2.0. The source code of
 +this distribution is available at <your source repository URL>.
@@ -131,7 +131,7 @@ index 7297ca08d4..e385b459cd 100644
 -This software includes code from IntelliJ IDEA
 -Copyright (C) JetBrains s.r.o.
 -https://www.jetbrains.com/idea/
-+MyIDE is a community distribution based on the IntelliJ Platform.
++Picket Studio is a community distribution based on the IntelliJ Platform.
 +
 +This product includes software developed by JetBrains s.r.o. and
 +contributors:

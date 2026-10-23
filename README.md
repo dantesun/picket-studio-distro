@@ -1,4 +1,4 @@
-# MyIDE Overlay Distro — 基于 intellij-community 的轻量发行版构建仓
+# Picket Studio Overlay Distro — 基于 intellij-community 的轻量发行版构建仓
 
 本项目不 fork 上游，只维护**极小补丁集 + GitHub Actions 流水线**：每次 CI 从上游
 JetBrains/intellij-community 拉取指定 ref → 应用 patches → 用官方构建管线产出三平台发行包。
@@ -13,7 +13,7 @@ JetBrains/intellij-community 拉取指定 ref → 应用 patches → 用官方�
 ├── .github/workflows/overlay-build.yml   # 主构建流水线（手动触发）
 ├── patches/                              # 补丁集（基于上游 master 生成）
 │   ├── 01-product-properties.patch       # 产品名/安装名/输出名/遥测默认关闭
-│   ├── 02-application-info.patch         # 应用信息（公司/全名/motto/logo）+ 新增 myide_logo.svg
+│   ├── 02-application-info.patch         # 应用信息（公司/全名/motto/logo）+ 新增 picket_logo.svg
 │   ├── 03-brand-icons.patch              # 替换 64/16 图标（无 JetBrains 商标元素）
 │   └── 04-license-notice.patch           # 替换 LICENSE.txt / NOTICE.txt 为自制发行版条款
 └── scripts/
@@ -32,7 +32,7 @@ bash scripts/verify.sh /tmp/community
 ## 在 GitHub Actions 上构建
 
 1. 把本仓库推到 GitHub（`gh repo create` / `git push`）。
-2. 仓库页面 Actions → **MyIDE Overlay Build** → Run workflow。
+2. 仓库页面 Actions → **Picket Studio Overlay Build** → Run workflow。
 3. 参数：
    - `upstream_ref`：上游分支或 tag。默认 `master`（与本补丁集基线一致）。
      切到稳定 tag（如 `idea/2026.2.3`）更可复现，但若补丁上下文漂移，需按第 5 节更新。
@@ -45,8 +45,8 @@ bash scripts/verify.sh /tmp/community
 
 | Patch | 修改点 | 效果 |
 |---|---|---|
-| 01 | `IdeaCommunityProperties.kt` | 安装名/目录名/输出名改 MyIDE；`-Didea.send.statistics=false`、`-Didea.log.upload.disabled=true` 默认注入 |
-| 02 | `IdeaApplicationInfo.xml` + 新 logo | About/启动画面显示 MyIDE，公司名 MyIDE Project |
+| 01 | `IdeaCommunityProperties.kt` | 安装名/目录名/输出名改 Picket Studio；`-Didea.send.statistics=false`、`-Didea.log.upload.disabled=true` 默认注入 |
+| 02 | `IdeaApplicationInfo.xml` + 新 logo | About/启动画面显示 Picket Studio，公司名 Picket Studio |
 | 03 | `idea-ce.svg`、`idea-ce_16.svg` | 桌面/窗口图标替换（无商标元素） |
 | 04 | `LICENSE.txt`、`NOTICE.txt` | 发行包内许可文本替换为自制发行版条款 |
 
@@ -73,7 +73,7 @@ IDEA 社区版。若需要完全独立的 `platformPrefix`（配置目录、产�
 - 本补丁集已替换发行包内的 LICENSE/NOTICE 为自制条款（含 Apache 2.0 指引），并移除
   JetBrains 商标文案；请自行替换 README/官网等对外材料中的品牌。
 - 构建仍会下载 JetBrains Runtime（JBR），发行包内含 JBR；如需自有运行时请另行处理。
-- 本项目示例品牌名 MyIDE 及 example.com 为占位，发布前请全局替换。
+- 本项目示例品牌名 Picket Studio 及 example.com 为占位，发布前请全局替换。
 
 ## 已知限制
 

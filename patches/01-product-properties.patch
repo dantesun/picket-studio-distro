@@ -9,7 +9,7 @@ index 3fc5d3f16b..c4674a3d40 100644
 -    additionalVmOptions = persistentListOf("-Dllm.show.ai.promotion.window.on.start=false")
 +    additionalVmOptions = persistentListOf(
 +      "-Dllm.show.ai.promotion.window.on.start=false",
-+      // MyIDE distribution: usage statistics and crash reporting are disabled by default
++      // Picket Studio distribution: usage statistics and crash reporting are disabled by default
 +      "-Didea.send.statistics=false",
 +      "-Didea.log.upload.disabled=true",
 +    )
@@ -21,14 +21,14 @@ index 3fc5d3f16b..c4674a3d40 100644
  
    override fun getSystemSelector(appInfo: ApplicationInfoProperties, buildNumber: String): String {
 -    return "IdeaIC${appInfo.majorVersion}.${appInfo.minorVersionMainPart}"
-+    return "MyIDE${appInfo.majorVersion}.${appInfo.minorVersionMainPart}"
++    return "PicketStudio${appInfo.majorVersion}.${appInfo.minorVersionMainPart}"
    }
  
 -  override fun getBaseArtifactName(appInfo: ApplicationInfoProperties, buildNumber: String): String = "ideaIC-$buildNumber"
-+  override fun getBaseArtifactName(appInfo: ApplicationInfoProperties, buildNumber: String): String = "myide-$buildNumber"
++  override fun getBaseArtifactName(appInfo: ApplicationInfoProperties, buildNumber: String): String = "picket-studio-$buildNumber"
  
 -  override fun getOutputDirectoryName(appInfo: ApplicationInfoProperties): String = "idea-ce"
-+  override fun getOutputDirectoryName(appInfo: ApplicationInfoProperties): String = "myide-ce"
++  override fun getOutputDirectoryName(appInfo: ApplicationInfoProperties): String = "picket-studio-ce"
  }
  
  @Suppress("unused")
@@ -38,8 +38,8 @@ index 3fc5d3f16b..c4674a3d40 100644
  
 -  fullName { "IntelliJ IDEA Open Source" }
 -  installDirNameHandler { "IntelliJ IDEA OSS" }
-+  fullName { "MyIDE" }
-+  installDirNameHandler { "MyIDE" }
++  fullName { "Picket Studio" }
++  installDirNameHandler { "Picket Studio" }
  
    uninstallFeedbackUrl { appInfo ->
      "https://www.jetbrains.com/idea/uninstall/?edition=IC-${appInfo.majorVersion}.${appInfo.minorVersion}"
@@ -48,10 +48,10 @@ index 3fc5d3f16b..c4674a3d40 100644
    associateIpr = true
    fileAssociations = FileAssociation.from("java", "groovy", "kt", "kts")
 -  bundleIdentifier = "com.jetbrains.intellij.ce"
-+  bundleIdentifier = "com.myide.ce"
++  bundleIdentifier = "com.picketstudio.ce"
  
 -  rootDirectoryName { _, _ -> "IntelliJ IDEA OSS.app" }
-+  rootDirectoryName { _, _ -> "MyIDE.app" }
++  rootDirectoryName { _, _ -> "PicketStudio.app" }
  
    executableFilePatterns { base, _, _, _ ->
      val kotlinExecutables = KotlinBinaries.kotlinCompilerExecutables
@@ -60,7 +60,7 @@ index 3fc5d3f16b..c4674a3d40 100644
  ): LinuxDistributionCustomizer = linuxCustomizer(projectHome) {
  
 -  rootDirectoryName { _, _ -> "idea-oss" }
-+  rootDirectoryName { _, _ -> "myide-oss" }
++  rootDirectoryName { _, _ -> "picket-studio" }
  
    executableFilePatterns { base, _, _, _, _ ->
      base.plus(KotlinBinaries.kotlinCompilerExecutables).filterNot { it == "plugins/**/*.sh" }
