@@ -87,7 +87,7 @@ jobs:
       - name: Dry-run complete
         if: ${{ inputs.dry_run == true }}
         shell: bash
-        run: echo "dry-run done: patches applied, build graph OK"
+        run: echo 'dry-run done, patches applied, build graph OK'
 
       - name: Build Docker build environment
         if: ${{ inputs.dry_run != true }}
