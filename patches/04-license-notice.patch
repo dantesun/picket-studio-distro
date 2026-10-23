@@ -1,5 +1,5 @@
 diff --git a/LICENSE.txt b/LICENSE.txt
-index 60fd1a0a36..988f482feb 100644
+index 60fd1a0a36..bdc1db421e 100644
 --- a/LICENSE.txt
 +++ b/LICENSE.txt
 @@ -1,91 +1,29 @@
@@ -124,7 +124,7 @@ index 60fd1a0a36..988f482feb 100644
 +
 +Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0
 diff --git a/NOTICE.txt b/NOTICE.txt
-index 7297ca08d4..e385b459cd 100644
+index 7297ca08d4..aaa3aea4e6 100644
 --- a/NOTICE.txt
 +++ b/NOTICE.txt
 @@ -1,3 +1,8 @@

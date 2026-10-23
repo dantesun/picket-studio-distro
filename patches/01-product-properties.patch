@@ -1,8 +1,8 @@
 diff --git a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
-index 3fc5d3f16b..c4674a3d40 100644
+index 5ab43058bc..c810bd9071 100644
 --- a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
 +++ b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
-@@ -120,7 +120,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+@@ -114,7 +114,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
  
      @Suppress("SpellCheckingInspection")
      qodanaProductProperties = QodanaProductProperties("QDJVMC", "Qodana Community for JVM")
@@ -16,7 +16,7 @@ index 3fc5d3f16b..c4674a3d40 100644
    }
  
    override val baseFileName: String
-@@ -153,12 +158,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+@@ -147,12 +152,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
    override fun createMacCustomizer(projectHome: Path): MacDistributionCustomizer = ideaCommunityMacCustomizer(communityHomeDir)
  
    override fun getSystemSelector(appInfo: ApplicationInfoProperties, buildNumber: String): String {
@@ -32,7 +32,7 @@ index 3fc5d3f16b..c4674a3d40 100644
  }
  
  @Suppress("unused")
-@@ -255,8 +260,8 @@ inline fun ideaCommunityWindowsCustomizer(
+@@ -232,8 +237,8 @@ inline fun ideaCommunityWindowsCustomizer(
  ): WindowsDistributionCustomizer = windowsCustomizer(projectHome) {
    fileAssociations = listOf("java", "gradle", "groovy", "kt", "kts", "pom")
  
@@ -43,7 +43,7 @@ index 3fc5d3f16b..c4674a3d40 100644
  
    uninstallFeedbackUrl { appInfo ->
      "https://www.jetbrains.com/idea/uninstall/?edition=IC-${appInfo.majorVersion}.${appInfo.minorVersion}"
-@@ -272,9 +277,9 @@ inline fun ideaCommunityMacCustomizer(
+@@ -249,9 +254,9 @@ inline fun ideaCommunityMacCustomizer(
    urlSchemes = listOf("idea")
    associateIpr = true
    fileAssociations = FileAssociation.from("java", "groovy", "kt", "kts")
@@ -55,8 +55,8 @@ index 3fc5d3f16b..c4674a3d40 100644
  
    executableFilePatterns { base, _, _, _ ->
      val kotlinExecutables = KotlinBinaries.kotlinCompilerExecutables
-@@ -289,7 +294,7 @@ inline fun ideaCommunityLinuxCustomizer(
-   configure: LinuxCustomizerBuilder.() -> Unit = {},
+@@ -266,7 +271,7 @@ inline fun ideaCommunityLinuxCustomizer(
+   configure: LinuxCustomizerBuilder.() -> Unit = {}
  ): LinuxDistributionCustomizer = linuxCustomizer(projectHome) {
  
 -  rootDirectoryName { _, _ -> "idea-oss" }

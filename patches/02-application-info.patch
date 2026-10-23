@@ -1,13 +1,13 @@
 diff --git a/community-resources/resources/idea/IdeaApplicationInfo.xml b/community-resources/resources/idea/IdeaApplicationInfo.xml
-index 820ac8badb..baefb8f060 100644
+index 13fe9d3cbd..119665e6ff 100644
 --- a/community-resources/resources/idea/IdeaApplicationInfo.xml
 +++ b/community-resources/resources/idea/IdeaApplicationInfo.xml
 @@ -1,11 +1,11 @@
  <component xmlns="http://jetbrains.org/intellij/schema/application-info">
-   <version major="2027" minor="1" eap="true"/>
+   <version eap="false" major="2026" minor="2.3"/>
 -  <company name="JetBrains s.r.o." url="https://www.jetbrains.com"/>
 +  <company name="Picket Studio" url="https://example.com/picket-studio"/>
-   <build number="IC-__BUILD__" date="__BUILD_DATE__"/> <!--majorReleaseDate="20170321"-->
+   <build number="IC-__BUILD__" date="__BUILD_DATE__" majorReleaseDate="20260716"/>
 -  <logo url="/idea_community_logo.png"/>
 +  <logo url="/picket_logo.svg"/>
    <icon svg="/idea-ce.svg" svg-small="/idea-ce_16.svg"/>
@@ -15,11 +15,11 @@ index 820ac8badb..baefb8f060 100644
 -  <names product="IDEA" fullname="IntelliJ IDEA" script="idea" motto="The Leading IDE for Professional Development in Java and Kotlin"/>
 +  <names product="IDEA" fullname="Picket Studio" script="idea" motto="A clean community IDE distribution"/>
  
-   <essential-plugin>com.intellij.idea.customization</essential-plugin>
    <essential-plugin>com.intellij.java</essential-plugin>
+   <essential-plugin>com.intellij.java.ide</essential-plugin>
 diff --git a/community-resources/resources/picket_logo.svg b/community-resources/resources/picket_logo.svg
 new file mode 100644
-index 0000000000..b9171284f3
+index 0000000000..fbb5ff6032
 --- /dev/null
 +++ b/community-resources/resources/picket_logo.svg
 @@ -0,0 +1,6 @@
