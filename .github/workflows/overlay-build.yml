@@ -1,6 +1,6 @@
 name: MyIDE Overlay Build
 
-on:
+"on":
   workflow_dispatch:
     inputs:
       upstream_ref:
