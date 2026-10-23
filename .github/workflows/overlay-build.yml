@@ -109,11 +109,18 @@ jobs:
             picket_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
             -Dintellij.build.skip.build.steps=search_index
 
+      - name: Compute artifact name (sanitize ref)
+        if: ${{ inputs.dry_run != true }}
+        id: artname
+        run: |
+          SAFE_REF=$(echo "${{ inputs.upstream_ref }}" | tr '/' '-' | tr '[:upper:]' '[:lower:]')
+          echo "name=picket-studio-${SAFE_REF}-${{ inputs.os_target }}" >> "$GITHUB_OUTPUT"
+
       - name: Upload artifacts
         if: ${{ inputs.dry_run != true }}
         uses: actions/upload-artifact@v4
         with:
-          name: picket-studio-${{ inputs.upstream_ref }}-${{ inputs.os_target }}
+          name: ${{ steps.artname.outputs.name }}
           path: community/out/**
           if-no-files-found: error
           retention-days: 7
