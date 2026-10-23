@@ -60,8 +60,12 @@ jobs:
         working-directory: community
         shell: bash
         run: |
+          # android 模块 ref 必须与 upstream_ref 匹配（tag 版源码引用对应 tag 的 iml 文件）
+          ANDROID_REF="${{ inputs.upstream_ref }}"
+          if [ "$ANDROID_REF" = "master" ] || [ "$ANDROID_REF" = "main" ]; then ANDROID_REF="master"; fi
           if [ ! -d android ]; then
-            git clone --depth 1 --branch master https://github.com/JetBrains/android.git android \
+            git clone --depth 1 --branch "$ANDROID_REF" https://github.com/JetBrains/android.git android \
+              || git clone --depth 1 --branch master https://github.com/JetBrains/android.git android \
               || git clone --depth 1 https://github.com/JetBrains/android.git android \
               || echo "WARN: android module fetch failed, continuing anyway"
           fi
