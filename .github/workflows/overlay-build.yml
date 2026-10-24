@@ -15,9 +15,13 @@ name: Picket Studio Overlay Build
         description: "仅验证 patch 与 Bazel 构建图，不执行完整构建"
         type: boolean
         default: false
+      publish_release:
+        description: "构建成功后发布 GitHub Release（tag: picket-studio-<ref>）"
+        type: boolean
+        default: false
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   overlay-build:
@@ -115,6 +119,8 @@ jobs:
         run: |
           SAFE_REF=$(echo "${{ inputs.upstream_ref }}" | tr '/' '-' | tr '[:upper:]' '[:lower:]')
           echo "name=picket-studio-${SAFE_REF}-${{ inputs.os_target }}" >> "$GITHUB_OUTPUT"
+          echo "safe_ref=${SAFE_REF}" >> "$GITHUB_OUTPUT"
+          echo "tag=picket-studio-${SAFE_REF}" >> "$GITHUB_OUTPUT"
 
       - name: Upload artifacts
         if: ${{ inputs.dry_run != true }}
@@ -124,3 +130,21 @@ jobs:
           path: community/out/**
           if-no-files-found: error
           retention-days: 7
+
+      - name: Publish GitHub Release
+        if: ${{ inputs.dry_run != true && inputs.publish_release == true }}
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.artname.outputs.tag }}
+          name: Picket Studio ${{ inputs.upstream_ref }}
+          body: |
+            Picket Studio 发行版（基于 IntelliJ Platform Community）
+            - 上游: ${{ inputs.upstream_ref }}
+            - 构建: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            - 许可: Apache 2.0（见发行包内 LICENSE/NOTICE），未受 JetBrains 背书
+            - 安装: 解压后运行 bin/idea（内置 JBR）
+          files: |
+            community/out/**/artifacts/*.tar.gz
+            community/out/**/artifacts/*.sha256
+            community/out/**/artifacts/*.product-info.json
+          fail_on_unmatched_assertions: false
