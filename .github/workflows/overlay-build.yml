@@ -48,12 +48,12 @@ jobs:
           sudo swapon /mnt/swapfile
 
       - name: Checkout overlay repo (this repo)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           path: overlay
 
       - name: Checkout upstream intellij-community
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: JetBrains/intellij-community
           ref: ${{ inputs.upstream_ref }}
@@ -124,7 +124,7 @@ jobs:
 
       - name: Upload artifacts
         if: ${{ inputs.dry_run != true }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ steps.artname.outputs.name }}
           path: community/out/**
