@@ -1,0 +1,49 @@
+diff --git a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
+index 5ab43058bc..66ecd118ed 100644
+--- a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
++++ b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
+@@ -16,6 +16,29 @@ import org.jetbrains.intellij.build.productLayout.ProductModulesContentSpec
+ import org.jetbrains.intellij.build.productLayout.productModules
+ import java.nio.file.Path
+ 
++/**
++ * Picket Studio: bundled plugin trimming set (Picket Code principle).
++ * Removed: cloud/hosting integrations (GitHub/GitLab/repository search),
++ * non-essential language & framework tooling (Android, Compose, JavaFX,
++ * Eclipse import, TextMate), test framework (TestNG, JUnit kept), and
++ * preset/benchmark extras (performance testing, extra keymaps).
++ */
++val CUT_BUNDLED_PLUGINS: Set<String> = setOf(
++  "intellij.android.gradle.declarative.lang.ide",
++  "intellij.android.gradle.dsl",
++  "intellij.compose.ide.plugin",
++  "intellij.eclipse",
++  "intellij.javaFX.community",
++  "intellij.keymap.eclipse",
++  "intellij.keymap.netbeans",
++  "intellij.performanceTesting",
++  "intellij.repository.search",
++  "intellij.testng",
++  "intellij.textmate.plugin",
++  "intellij.vcs.github",
++  "intellij.vcs.gitlab",
++)
++
+ val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
+   "intellij.tools.jps.build.standalone",
+   "intellij.devkit.jps",
+@@ -58,9 +81,11 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+       "intellij.idea.community.customization",
+     )
+ 
+-    productLayout.bundledPluginModules = IDEA_BUNDLED_PLUGINS + sequenceOf(
+-      "intellij.javaFX.community"
+-    )
++    // Picket Studio: plugin trimming aligned with the Picket Code principle
++    // (offline-first minimal distribution: no cloud/vendor integrations, no
++    // non-essential language/framework tooling, minimal test/preset extras).
++    val trimmedBundledPlugins = IDEA_BUNDLED_PLUGINS.filterNot { it in CUT_BUNDLED_PLUGINS }
++    productLayout.bundledPluginModules = trimmedBundledPlugins
+ 
+     productLayout.prepareCustomPluginRepositoryForPublishedPlugins = false
+     productLayout.buildAllCompatiblePlugins = true

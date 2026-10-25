@@ -81,3 +81,18 @@ IDEA 社区版。若需要完全独立的 `platformPrefix`（配置目录、产�
   （完整构建可能 1–3 小时/次），建议以 dry_run 验证为主，正式构建按需触发。
 - Docker 构建环境基础镜像来自 `registry.jetbrains.team`，拉取依赖网络。
 - 产物为未签名包（开源构建默认跳过签名），首次运行系统可能提示未知开发者。
+
+## 内置插件裁剪（Picket Code 原则）
+
+对齐 Picket Code「离线优先、最小发行」原则，patch 07 从内置插件列表中移除 13 个插件：
+
+| 类别 | 移除插件 | 理由（对照 Picket Code） |
+|---|---|---|
+| 云/托管集成 | vcs-github、vcs-gitlab、repository-search | 对应 Picket Code 移除 github / github-base / github-authentication，默认离线 |
+| 非核心语言/框架工具 | android-gradle-declarative-lang-ide、android-gradle-dsl、compose-ide-plugin、javaFX、eclipse（导入）、textmate-plugin | 对应语言扩展最小化；保留 Java/Kotlin/Groovy 核心语言 |
+| 测试框架 | testng | 最小测试集：保留 junit，删 testng |
+| 预设/基准类 | performanceTesting、keymap-eclipse、keymap-netbeans | 保留 visualStudio 键位映射，删冗余预设 |
+
+保留：Java 全家、Kotlin、Groovy、Gradle/Maven 集成、终端、Git（vcs-git 本地）、
+全部 platform-* 平台部件、markdown/json/yaml/toml/properties、MCP Server（mcpserver）、
+拼写（grazie）、shell（sh-plugin）、webp 等编辑器核心。
