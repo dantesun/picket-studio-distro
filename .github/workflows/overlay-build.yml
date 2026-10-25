@@ -19,6 +19,10 @@ name: Picket Studio Overlay Build
         description: "构建成功后发布 GitHub Release（tag: picket-studio-<ref>）"
         type: boolean
         default: false
+      build_number:
+        description: "覆盖构建号（如 262.10968.63）；空则用上游默认（SNAPSHOT）"
+        default: ""
+        required: false
 
 permissions:
   contents: write
@@ -84,6 +88,17 @@ jobs:
           done
           echo "patches applied OK"
           git status --short
+
+      - name: Override build number (optional, e.g. 262.10968.63)
+        working-directory: community
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.build_number }}" ]; then
+            echo "${{ inputs.build_number }}" > build.txt
+            echo "build.txt -> $(cat build.txt)"
+          else
+            echo "keep upstream default build.txt: $(cat build.txt)"
+          fi
 
       - name: Verify build graph with Bazel query
         working-directory: community

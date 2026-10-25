@@ -1,0 +1,21 @@
+diff --git a/platform/build-scripts/src/org/jetbrains/intellij/build/impl/SnapshotBuildNumber.kt b/platform/build-scripts/src/org/jetbrains/intellij/build/impl/SnapshotBuildNumber.kt
+index 45a911bfac..e2272bb7c2 100644
+--- a/platform/build-scripts/src/org/jetbrains/intellij/build/impl/SnapshotBuildNumber.kt
++++ b/platform/build-scripts/src/org/jetbrains/intellij/build/impl/SnapshotBuildNumber.kt
+@@ -16,12 +16,13 @@ object SnapshotBuildNumber {
+   const val SNAPSHOT_SUFFIX: String = ".SNAPSHOT"
+ 
+   /**
+-   * `${BASE}.SNAPSHOT`, specified in [PATH]
++   * Build number from [PATH]: `${BASE}.SNAPSHOT` (upstream) or an explicit build number
++   * (e.g. `262.10968.63`) injected by the distribution overlay.
+    */
+   val VALUE: String by lazy {
+     val snapshotBuildNumber = Files.readString(PATH).trim()
+-    check(snapshotBuildNumber.endsWith(SNAPSHOT_SUFFIX)) {
+-      "$PATH: '$snapshotBuildNumber' is expected to have a '$SNAPSHOT_SUFFIX' suffix"
++    check(snapshotBuildNumber.isNotEmpty()) {
++      "$PATH: '$snapshotBuildNumber' is expected to be non-empty"
+     }
+     snapshotBuildNumber
+   }
