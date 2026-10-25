@@ -1,0 +1,10 @@
+<products>
+  <!-- Picket Studio update channel: served from this repo, points at GitHub Releases -->
+  <product name="Picket Studio" code="IC">
+    <channel id="stable" name="Picket Studio Stable">
+      <build number="262.10968.63" version="2026.2.3" type="release" date="20261024">
+        <download url="https://github.com/dantesun/picket-studio-distro/releases/latest/download/picket-studio-262.10968.63.tar.gz"/>
+      </build>
+    </channel>
+  </product>
+</products>

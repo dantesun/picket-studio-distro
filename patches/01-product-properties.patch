@@ -1,8 +1,8 @@
 diff --git a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
-index 5ab43058bc..c810bd9071 100644
+index 5ab43058bc..89952a8b71 100644
 --- a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
 +++ b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
-@@ -114,7 +114,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+@@ -114,7 +114,14 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
  
      @Suppress("SpellCheckingInspection")
      qodanaProductProperties = QodanaProductProperties("QDJVMC", "Qodana Community for JVM")
@@ -12,11 +12,13 @@ index 5ab43058bc..c810bd9071 100644
 +      // Picket Studio distribution: usage statistics and crash reporting are disabled by default
 +      "-Didea.send.statistics=false",
 +      "-Didea.log.upload.disabled=true",
++      // Picket Studio: check updates against our GitHub Releases instead of JetBrains servers
++      "-Didea.updates.url=https://raw.githubusercontent.com/dantesun/picket-studio-distro/main/updates.xml",
 +    )
    }
  
    override val baseFileName: String
-@@ -147,12 +152,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
+@@ -147,12 +154,12 @@ open class IdeaCommunityProperties(private val communityHomeDir: Path) : JetBrai
    override fun createMacCustomizer(projectHome: Path): MacDistributionCustomizer = ideaCommunityMacCustomizer(communityHomeDir)
  
    override fun getSystemSelector(appInfo: ApplicationInfoProperties, buildNumber: String): String {
@@ -32,7 +34,7 @@ index 5ab43058bc..c810bd9071 100644
  }
  
  @Suppress("unused")
-@@ -232,8 +237,8 @@ inline fun ideaCommunityWindowsCustomizer(
+@@ -232,8 +239,8 @@ inline fun ideaCommunityWindowsCustomizer(
  ): WindowsDistributionCustomizer = windowsCustomizer(projectHome) {
    fileAssociations = listOf("java", "gradle", "groovy", "kt", "kts", "pom")
  
@@ -43,7 +45,7 @@ index 5ab43058bc..c810bd9071 100644
  
    uninstallFeedbackUrl { appInfo ->
      "https://www.jetbrains.com/idea/uninstall/?edition=IC-${appInfo.majorVersion}.${appInfo.minorVersion}"
-@@ -249,9 +254,9 @@ inline fun ideaCommunityMacCustomizer(
+@@ -249,9 +256,9 @@ inline fun ideaCommunityMacCustomizer(
    urlSchemes = listOf("idea")
    associateIpr = true
    fileAssociations = FileAssociation.from("java", "groovy", "kt", "kts")
@@ -55,7 +57,7 @@ index 5ab43058bc..c810bd9071 100644
  
    executableFilePatterns { base, _, _, _ ->
      val kotlinExecutables = KotlinBinaries.kotlinCompilerExecutables
-@@ -266,7 +271,7 @@ inline fun ideaCommunityLinuxCustomizer(
+@@ -266,7 +273,7 @@ inline fun ideaCommunityLinuxCustomizer(
    configure: LinuxCustomizerBuilder.() -> Unit = {}
  ): LinuxDistributionCustomizer = linuxCustomizer(projectHome) {
  

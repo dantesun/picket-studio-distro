@@ -1,0 +1,2765 @@
+diff --git a/aether-dependency-resolver/plugin/resources/META-INF/plugin.xml b/aether-dependency-resolver/plugin/resources/META-INF/plugin.xml
+index 73db25e0c2..2d10e9bfa7 100644
+--- a/aether-dependency-resolver/plugin/resources/META-INF/plugin.xml
++++ b/aether-dependency-resolver/plugin/resources/META-INF/plugin.xml
+@@ -3,7 +3,7 @@
+   <id>intellij.java.aetherDependencyResolver.plugin</id>
+   <name>Aether Dependency Resolver</name>
+   <description>Provides Aether dependency resolver modules for IntelliJ-based IDEs.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.java.aetherDependencyResolver" loading="required"/>
+     <module name="intellij.libraries.maven.resolver.provider" loading="embedded"/>
+diff --git a/grid/plugin/resources/META-INF/plugin.xml b/grid/plugin/resources/META-INF/plugin.xml
+index bf5351bff2..91789c58b0 100644
+--- a/grid/plugin/resources/META-INF/plugin.xml
++++ b/grid/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <id>intellij.grid.core.plugin</id>
+   <name>Grid Core</name>
+   <description>Provides Grid Core platform modules for the IDE.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.grid"/>
+     <module name="intellij.grid.core.impl"/>
+diff --git a/images/resources/META-INF/plugin.xml b/images/resources/META-INF/plugin.xml
+index 307645a47d..5ca92eaba9 100644
+--- a/images/resources/META-INF/plugin.xml
++++ b/images/resources/META-INF/plugin.xml
+@@ -1,5 +1,5 @@
+ <idea-plugin>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <name>Images</name>
+   <id>com.intellij.platform.images</id>
+   <description><![CDATA[
+diff --git a/java/ide-customization/resources/META-INF/plugin.xml b/java/ide-customization/resources/META-INF/plugin.xml
+index 309dbb7bd0..64c33eda23 100644
+--- a/java/ide-customization/resources/META-INF/plugin.xml
++++ b/java/ide-customization/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>com.intellij.java.ide</id>
+   <name>Java IDE Customization</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>IDE Settings</category>
+   <description>
+     Provides customization for IDEs which main language is Java (e.g., IntelliJ IDEA, Android Studio).
+diff --git a/java/plugin/resources/META-INF/plugin.xml b/java/plugin/resources/META-INF/plugin.xml
+index e62dc89134..0e4da5c471 100644
+--- a/java/plugin/resources/META-INF/plugin.xml
++++ b/java/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+     Adds support for the Java language, including Java projects, language syntax highlighting, inspections, and all other coding assistance features.
+   ]]></description>
+ 
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <resource-bundle>messages.ActionsBundle</resource-bundle>
+ 
+diff --git a/json/resources/META-INF/plugin.xml b/json/resources/META-INF/plugin.xml
+index e1f7eea87b..ecb22a4023 100644
+--- a/json/resources/META-INF/plugin.xml
++++ b/json/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   because historically the module was bundled into the platform,
+   and dependent plugins used only module dependency -->
+   <id>com.intellij.modules.json</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <description><![CDATA[
+     Provides syntax highlighting and editor features for
+diff --git a/libraries/misc/plugin/resources/META-INF/plugin.xml b/libraries/misc/plugin/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 34f25581ec..0000000000
+--- a/libraries/misc/plugin/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,15 +0,0 @@
+-<!--suppress PluginXmlPluginLogo -->
+-<idea-plugin implementation-detail="true">
+-  <id>intellij.libraries.misc.plugin</id>
+-  <name>Library Modules: Misc</name>
+-  <description>Provides miscellaneous library content modules for IntelliJ-based IDEs.</description>
+-  <vendor>JetBrains</vendor>
+-  <content namespace="jetbrains">
+-    <module name="intellij.libraries.javax.activation"/>
+-    <module name="intellij.libraries.opencsv"/>
+-    <module name="intellij.libraries.lucene.common"/>
+-    <module name="intellij.libraries.jettison"/>
+-    <module name="intellij.libraries.xstream"/>
+-    <module name="intellij.libraries.commons.text" loading="required"/>
+-  </content>
+-</idea-plugin>
+diff --git a/mps/build/build/manifests/java-impl.jar/META-INF/plugin.xml b/mps/build/build/manifests/java-impl.jar/META-INF/plugin.xml
+index b622cb6139..0269870ba7 100644
+--- a/mps/build/build/manifests/java-impl.jar/META-INF/plugin.xml
++++ b/mps/build/build/manifests/java-impl.jar/META-INF/plugin.xml
+@@ -6,7 +6,7 @@
+   <description><![CDATA[
+     Adds support for the Java language, including Java projects, language syntax highlighting, inspections, and all other coding assistance features.
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <resource-bundle>messages.ActionsBundle</resource-bundle>
+ 
+diff --git a/platform/acp/plugin/resources/META-INF/plugin.xml b/platform/acp/plugin/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 6cd2581087..0000000000
+--- a/platform/acp/plugin/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,16 +0,0 @@
+-<idea-plugin>
+-  <id>com.intellij.platform.acp</id>
+-  <name>Agent Client Protocol</name>
+-  <vendor>JetBrains</vendor>
+-  <category>IDE Settings</category>
+-
+-  <description><![CDATA[
+-    Provides the Agent Client Protocol (ACP) API for launching ACP agent processes
+-    and discovering available agents from any plugin. Used by AI Assistant, code review,
+-    coding agents, and other plugins that need to integrate ACP agents.
+-  ]]></description>
+-
+-  <content namespace="jetbrains">
+-    <module name="intellij.platform.acp"/>
+-  </content>
+-</idea-plugin>
+diff --git a/platform/bookmarks/plugin/resources/META-INF/plugin.xml b/platform/bookmarks/plugin/resources/META-INF/plugin.xml
+index 24ee162716..cc51de275f 100644
+--- a/platform/bookmarks/plugin/resources/META-INF/plugin.xml
++++ b/platform/bookmarks/plugin/resources/META-INF/plugin.xml
+@@ -6,7 +6,7 @@
+   <description>Marks lines of code, files, folders, classes, and editor tabs for quick navigation,
+     supports anonymous and mnemonic bookmarks accessible via keyboard shortcuts,
+     and organizes them into named lists in a dedicated tool window.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.bookmarks" loading="required"/>
+     <module name="intellij.platform.bookmarks.backend"/>
+diff --git a/platform/build-scripts/testPlugins/testPluginWithMissingDependencies/resources/META-INF/plugin.xml b/platform/build-scripts/testPlugins/testPluginWithMissingDependencies/resources/META-INF/plugin.xml
+index dffaa78dc1..a07696c751 100644
+--- a/platform/build-scripts/testPlugins/testPluginWithMissingDependencies/resources/META-INF/plugin.xml
++++ b/platform/build-scripts/testPlugins/testPluginWithMissingDependencies/resources/META-INF/plugin.xml
+@@ -3,7 +3,7 @@
+   <id>TestPluginWithMissingDependencies</id>
+   <!--suppress PluginXmlValidity -->
+   <name>Test Plugin with Missing Dependencies</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description>
+     This is a test plugin. It's used in PluginDependenciesValidatorTest to check that PluginDependenciesValidator correctly reports missing
+     dependencies in XML descriptors.
+diff --git a/platform/execution.serviceView/plugin/resources/META-INF/plugin.xml b/platform/execution.serviceView/plugin/resources/META-INF/plugin.xml
+index 8b6248dab7..7cbf112ae6 100644
+--- a/platform/execution.serviceView/plugin/resources/META-INF/plugin.xml
++++ b/platform/execution.serviceView/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <id>intellij.execution.serviceView.plugin</id>
+   <name>Services View</name>
+   <description>Provides Services tool window and actions</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.execution.serviceView"/>
+     <module name="intellij.platform.clouds"/>
+diff --git a/platform/navbar/plugin/resources/META-INF/plugin.xml b/platform/navbar/plugin/resources/META-INF/plugin.xml
+index 0ad8bc8e3d..1a30dbc7cf 100644
+--- a/platform/navbar/plugin/resources/META-INF/plugin.xml
++++ b/platform/navbar/plugin/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   <id>intellij.navbar.plugin</id>
+   <name>Navbar</name>
+   <description>Provides Navigation Bar platform modules.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.navbar" loading="required"/>
+     <module name="intellij.platform.navbar.backend"/>
+diff --git a/platform/recentFiles/plugin/resources/META-INF/plugin.xml b/platform/recentFiles/plugin/resources/META-INF/plugin.xml
+index a1f8e1c36c..1dceac7ad0 100644
+--- a/platform/recentFiles/plugin/resources/META-INF/plugin.xml
++++ b/platform/recentFiles/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <id>intellij.recentFiles.plugin</id>
+   <name>Recent Files</name>
+   <description>Provides Recent Files platform modules for the IDE.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.recentFiles"/>
+     <module name="intellij.platform.recentFiles.backend"/>
+diff --git a/platform/smart-update/resources/META-INF/plugin.xml b/platform/smart-update/resources/META-INF/plugin.xml
+index b3d2c8b8f2..d966ce043d 100644
+--- a/platform/smart-update/resources/META-INF/plugin.xml
++++ b/platform/smart-update/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.smartUpdate">
+   <id>com.intellij.smartUpdate</id>
+   <name>Smart Update</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description><![CDATA[
+     Enables <b>Auto Update</b> action that schedules automatic IDE and plugin updates.
+   ]]></description>
+diff --git a/platform/structuralsearch/plugin/resources/META-INF/plugin.xml b/platform/structuralsearch/plugin/resources/META-INF/plugin.xml
+index 437b234da7..211d787d9e 100644
+--- a/platform/structuralsearch/plugin/resources/META-INF/plugin.xml
++++ b/platform/structuralsearch/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <id>intellij.structuralSearch.plugin</id>
+   <name>Structural Search</name>
+   <description>Provides Structural Search platform modules for the IDE.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.structuralSearch"/>
+   </content>
+diff --git a/platform/structure-view-impl/plugin/resources/META-INF/plugin.xml b/platform/structure-view-impl/plugin/resources/META-INF/plugin.xml
+index c8c20e4bf6..a883677654 100644
+--- a/platform/structure-view-impl/plugin/resources/META-INF/plugin.xml
++++ b/platform/structure-view-impl/plugin/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   <id>intellij.structureView.plugin</id>
+   <name>Structure View</name>
+   <description>Provides Structure View tool window and actions</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.structureView"/>
+     <module name="intellij.platform.structureView.backend"/>
+diff --git a/platform/testRunner/plugin/resources/META-INF/plugin.xml b/platform/testRunner/plugin/resources/META-INF/plugin.xml
+index af97b37817..a0d5ce34cb 100644
+--- a/platform/testRunner/plugin/resources/META-INF/plugin.xml
++++ b/platform/testRunner/plugin/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   <id>intellij.testRunner.plugin</id>
+   <name>Test Runner</name>
+   <description>Provides test runner platform modules for the IDE.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.testRunner" loading="required"/>
+     <module name="intellij.platform.smRunner" loading="required"/>
+diff --git a/platform/todo/plugin/resources/META-INF/plugin.xml b/platform/todo/plugin/resources/META-INF/plugin.xml
+index 327c2297fc..f42d7ba32c 100644
+--- a/platform/todo/plugin/resources/META-INF/plugin.xml
++++ b/platform/todo/plugin/resources/META-INF/plugin.xml
+@@ -6,7 +6,7 @@
+   <name>TODO Comments</name>
+   <description>Highlights TODO and FIXME comments in the editor and lists every occurrence in the TODO tool window,
+     with grouping and filtering.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.todo"/>
+     <module name="intellij.platform.todo.backend"/>
+diff --git a/platform/tracing-ide/resources/META-INF/plugin.xml b/platform/tracing-ide/resources/META-INF/plugin.xml
+index eb93a964c2..cc8b57b85c 100644
+--- a/platform/tracing-ide/resources/META-INF/plugin.xml
++++ b/platform/tracing-ide/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.tracing.ide">
+   <id>com.intellij.tracing.ide</id>
+   <name>JPS Build Tracing</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description>
+     Infrastructure to conveniently gather tracing information from JPS builds: duration and spans.
+   </description>
+diff --git a/platform/vcs/plugin/resources/META-INF/plugin.xml b/platform/vcs/plugin/resources/META-INF/plugin.xml
+index ef8a7cc4d2..d7e6aa1981 100644
+--- a/platform/vcs/plugin/resources/META-INF/plugin.xml
++++ b/platform/vcs/plugin/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <id>intellij.vcs.plugin</id>
+   <name>VCS</name>
+   <description>Provides VCS platform modules for the IDE.</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <content namespace="jetbrains">
+     <module name="intellij.platform.vcs.impl"/>
+     <module name="intellij.platform.vcs.impl.exec"/>
+diff --git a/plugins/ByteCodeViewer/resources/META-INF/plugin.xml b/plugins/ByteCodeViewer/resources/META-INF/plugin.xml
+index fd53fef9f3..860e70db05 100644
+--- a/plugins/ByteCodeViewer/resources/META-INF/plugin.xml
++++ b/plugins/ByteCodeViewer/resources/META-INF/plugin.xml
+@@ -11,7 +11,7 @@
+       If you select a <code>.java</code> file, make sure that you've compiled it before triggering "Show Bytecode" action.
+      ]]>
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <module name="intellij.java.backend"/>
+diff --git a/plugins/ant/resources/META-INF/plugin.xml b/plugins/ant/resources/META-INF/plugin.xml
+index 3b7a599727..95e1a3eaea 100644
+--- a/plugins/ant/resources/META-INF/plugin.xml
++++ b/plugins/ant/resources/META-INF/plugin.xml
+@@ -9,7 +9,7 @@
+ <li>Possibility to execute tasks</li></ul>
+ To use the <b>Ant</b> tool window, select <b>View > Tool Windows > Ant</b>.
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+diff --git a/plugins/classic-ui/resources/META-INF/plugin.xml b/plugins/classic-ui/resources/META-INF/plugin.xml
+index 538b0f87d5..5375835037 100644
+--- a/plugins/classic-ui/resources/META-INF/plugin.xml
++++ b/plugins/classic-ui/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+     <name>Classic UI</name>
+     <id>com.intellij.classic.ui</id>
+-    <vendor>JetBrains</vendor>
++    <vendor>Picket Studio</vendor>
+ 
+     <incompatible-with>com.intellij.jetbrains.client</incompatible-with>
+ 
+diff --git a/plugins/color-schemes/all-hallows-eve-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/all-hallows-eve-color-scheme/resources/META-INF/plugin.xml
+index 0862766f6e..dfac9be6a3 100644
+--- a/plugins/color-schemes/all-hallows-eve-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/all-hallows-eve-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>All Hallow's Eve Color Scheme</name>
+   <id>com.intellij.plugins.all_hallows_eve.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <description>
+     All Hallow's Eve editor color scheme for all IntelliJ-based IDEs.
+diff --git a/plugins/color-schemes/blackboard-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/blackboard-color-scheme/resources/META-INF/plugin.xml
+index a59758293b..e90fd0eb33 100644
+--- a/plugins/color-schemes/blackboard-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/blackboard-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>Blackboard Color Scheme</name>
+   <id>com.intellij.plugins.blackboard.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/cobalt-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/cobalt-color-scheme/resources/META-INF/plugin.xml
+index 3a228eecb1..1e802f65b8 100644
+--- a/plugins/color-schemes/cobalt-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/cobalt-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>Cobalt Color Scheme</name>
+   <id>com.intellij.plugins.cobalt.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/github-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/github-color-scheme/resources/META-INF/plugin.xml
+index 46942baa7a..81f572fff8 100644
+--- a/plugins/color-schemes/github-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/github-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>GitHub Color Scheme</name>
+   <id>com.intellij.plugins.github.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/monokai-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/monokai-color-scheme/resources/META-INF/plugin.xml
+index 9d393661a7..40df5135c1 100644
+--- a/plugins/color-schemes/monokai-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/monokai-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>Monokai Color Scheme</name>
+   <id>com.intellij.plugins.monokai.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/rails-casts-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/rails-casts-color-scheme/resources/META-INF/plugin.xml
+index 1d01575bd2..cb2c32a6c9 100644
+--- a/plugins/color-schemes/rails-casts-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/rails-casts-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>Railscasts Color Scheme</name>
+   <id>com.intellij.plugins.rails_casts.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/twilight-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/twilight-color-scheme/resources/META-INF/plugin.xml
+index 475aab4f86..d7a2c2d9eb 100644
+--- a/plugins/color-schemes/twilight-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/twilight-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>Twilight Color Scheme</name>
+   <id>com.intellij.plugins.twilight.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/vibrant-ink-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/vibrant-ink-color-scheme/resources/META-INF/plugin.xml
+index 4fa9c97590..54169dc98d 100644
+--- a/plugins/color-schemes/vibrant-ink-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/vibrant-ink-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>VibrantInk Color Scheme</name>
+   <id>com.intellij.plugins.vibrantink.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/color-schemes/warm-neon-color-scheme/resources/META-INF/plugin.xml b/plugins/color-schemes/warm-neon-color-scheme/resources/META-INF/plugin.xml
+index fe62f1d0d3..01ee68d5e5 100644
+--- a/plugins/color-schemes/warm-neon-color-scheme/resources/META-INF/plugin.xml
++++ b/plugins/color-schemes/warm-neon-color-scheme/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>WarmNeon Color Scheme</name>
+   <id>com.intellij.plugins.warmneon.colorscheme</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>UI</category>
+   <depends>com.intellij.modules.lang</depends>
+   <description>
+diff --git a/plugins/commander/resources/META-INF/plugin.xml b/plugins/commander/resources/META-INF/plugin.xml
+index b7c004fb81..6565f24bfa 100644
+--- a/plugins/commander/resources/META-INF/plugin.xml
++++ b/plugins/commander/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>com.intellij.commander</id>
+   <name>Commander</name>
+   <description>Provides a two-panel view for navigating and working with the project structure</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+     <module name="intellij.java.psi"/>
+diff --git a/plugins/compilation-charts/resources/META-INF/plugin.xml b/plugins/compilation-charts/resources/META-INF/plugin.xml
+index 2e61bb01e9..847168bc81 100644
+--- a/plugins/compilation-charts/resources/META-INF/plugin.xml
++++ b/plugins/compilation-charts/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.compilation.charts">
+   <id>intellij.compilation.charts</id>
+   <name>Compilation Charts</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Build Tools</category>
+   <description><![CDATA[
+     Provides compilation charts for profiling and analyzing compilation time.
+diff --git a/plugins/completion-ml-ranking-models/resources/META-INF/plugin.xml b/plugins/completion-ml-ranking-models/resources/META-INF/plugin.xml
+index 52bd82c9d3..b07b9aec11 100644
+--- a/plugins/completion-ml-ranking-models/resources/META-INF/plugin.xml
++++ b/plugins/completion-ml-ranking-models/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin implementation-detail="true">
+   <id>com.intellij.completion.ml.ranking.models</id>
+   <name>Machine Learning Code Completion Models</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/completion-ml-ranking/resources/META-INF/plugin.xml b/plugins/completion-ml-ranking/resources/META-INF/plugin.xml
+index bf748d1911..84d3d45b3b 100644
+--- a/plugins/completion-ml-ranking/resources/META-INF/plugin.xml
++++ b/plugins/completion-ml-ranking/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude" package="com.intellij.completion.ml">
+   <id>com.intellij.completion.ml.ranking</id>
+   <name>Machine Learning Code Completion</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/compose/resources/META-INF/plugin.xml b/plugins/compose/resources/META-INF/plugin.xml
+index 2e2af3fc4b..549f14b7aa 100644
+--- a/plugins/compose/resources/META-INF/plugin.xml
++++ b/plugins/compose/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.compose.ide.plugin">
+   <id>com.intellij.compose</id>
+   <name>Compose Multiplatform</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Kotlin Frameworks</category>
+   <description>
+     <![CDATA[
+diff --git a/plugins/configuration-script/resources/META-INF/plugin.xml b/plugins/configuration-script/resources/META-INF/plugin.xml
+index 66853efd56..2f43bea316 100644
+--- a/plugins/configuration-script/resources/META-INF/plugin.xml
++++ b/plugins/configuration-script/resources/META-INF/plugin.xml
+@@ -2,12 +2,12 @@
+   <name>Configuration Script</name>
+   <id>com.intellij.configurationScript</id>
+   <category>IDE Settings</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description><![CDATA[
+     <p>Supports configuring the IDE using text files (YAML, JSON). Experimental.</p>
+   ]]>
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <module name="intellij.json.backend"/>
+diff --git a/plugins/copyright/resources/META-INF/plugin.xml b/plugins/copyright/resources/META-INF/plugin.xml
+index 3b5db648c5..4c58a1339e 100644
+--- a/plugins/copyright/resources/META-INF/plugin.xml
++++ b/plugins/copyright/resources/META-INF/plugin.xml
+@@ -10,7 +10,7 @@
+ 
+     To configure, open the <b>Settings / Preferences</b> dialog and select <b>Editor | Copyright</b>.
+     ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   
+   <dependencies>
+     <plugin id="com.intellij.modules.lang"/>
+diff --git a/plugins/coverage/resources/META-INF/plugin.xml b/plugins/coverage/resources/META-INF/plugin.xml
+index 554dd252db..a08fbe7a56 100644
+--- a/plugins/coverage/resources/META-INF/plugin.xml
++++ b/plugins/coverage/resources/META-INF/plugin.xml
+@@ -31,7 +31,7 @@ Results are displayed in the <b>Coverage</b> tool window, in the <b>Project</b>
+ <p>
+ To configure, open <b>Settings/Preferences | Build, Execution, Deployment | Coverage</b>.]]>
+    </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <extensions defaultExtensionNs="com.intellij">
+     <runConfigurationExtension implementation="com.intellij.execution.coverage.CoverageJavaRunConfigurationExtension"/>
+diff --git a/plugins/dev/intellij.dev/resources/META-INF/plugin.xml b/plugins/dev/intellij.dev/resources/META-INF/plugin.xml
+index 5f896b83a9..0bfab86a2f 100644
+--- a/plugins/dev/intellij.dev/resources/META-INF/plugin.xml
++++ b/plugins/dev/intellij.dev/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.intellij.dev</id>
+   <name>DevKit Runtime</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Platform Development</category>
+   <description><![CDATA[
+     <p>Provides tools for IDE and plugin development,
+diff --git a/plugins/devkit/resources/META-INF/plugin.xml b/plugins/devkit/resources/META-INF/plugin.xml
+index 1dfa155734..777df2a83e 100644
+--- a/plugins/devkit/resources/META-INF/plugin.xml
++++ b/plugins/devkit/resources/META-INF/plugin.xml
+@@ -3,7 +3,7 @@
+   <!--suppress PluginXmlValidity -->
+   <name>Plugin DevKit</name>
+   <category>Plugin Development</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     <p>Provides a powerful foundation for developing plugins for JetBrains IDEs and other products based on the
+diff --git a/plugins/eclipse/resources/META-INF/plugin.xml b/plugins/eclipse/resources/META-INF/plugin.xml
+index a350e1a52e..89217e9a7f 100644
+--- a/plugins/eclipse/resources/META-INF/plugin.xml
++++ b/plugins/eclipse/resources/META-INF/plugin.xml
+@@ -16,7 +16,7 @@
+       ]]>
+     </description>
+ 
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <dependencies>
+     <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+     <module name="intellij.java"/>
+diff --git a/plugins/editorconfig/resources/META-INF/plugin.xml b/plugins/editorconfig/resources/META-INF/plugin.xml
+index ffc8ab6b79..aab50f0b3b 100644
+--- a/plugins/editorconfig/resources/META-INF/plugin.xml
++++ b/plugins/editorconfig/resources/META-INF/plugin.xml
+@@ -3,7 +3,7 @@
+   <id>org.editorconfig.editorconfigjetbrains</id>
+   <name>EditorConfig</name>
+   <category>IDE Settings</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     <p>Handles properties in <i>.editorconfig</i> files and applies them to all supported languages in all JetBrains IDEs.
+diff --git a/plugins/env-files-support/src/main/resources/META-INF/plugin.xml b/plugins/env-files-support/src/main/resources/META-INF/plugin.xml
+index 9d25b9916a..eb7d288178 100644
+--- a/plugins/env-files-support/src/main/resources/META-INF/plugin.xml
++++ b/plugins/env-files-support/src/main/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin xmlns:xi="http://www.w3.org/2001/XInclude" package="ru.adelf.idea.dotenv" allow-bundled-update="true">
+     <id>ru.adelf.idea.dotenv</id>
+     <name>.env files</name>
+-    <vendor>JetBrains</vendor>
++    <vendor>Picket Studio</vendor>
+ 
+     <description><![CDATA[
+     <a href="https://plugins.jetbrains.com/plugin/9525--env-files-support">Homepage</a> | <a href="https://github.com/adelf/idea-php-dotenv-plugin/">Github</a> | <a href="https://github.com/adelf/idea-php-dotenv-plugin/issues">Issues</a>.<br />
+diff --git a/plugins/evaluation-plugin/resources/META-INF/plugin.xml b/plugins/evaluation-plugin/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 16a1bc48c7..0000000000
+--- a/plugins/evaluation-plugin/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,125 +0,0 @@
+-<idea-plugin package="com.intellij.cce">
+-  <id>com.intellij.completion.evaluation</id>
+-  <!--suppress PluginXmlValidity -->
+-  <name>Evaluation Plugin</name>
+-  <vendor>JetBrains</vendor>
+-  <category>Platform Development</category>
+-  <!--suppress PluginXmlValidity -->
+-  <idea-version since-build="211"/>
+-  <description><![CDATA[
+-    <p>The plugin deals with the quality evaluation of IDE features based on artificial queries.</p>
+-  ]]></description>
+-  
+-  <content namespace="jetbrains">
+-    <module name="intellij.evaluationPlugin.languages.java"/>
+-    <module name="intellij.evaluationPlugin.languages.python"/>
+-    <module name="intellij.evaluationPlugin.languages.kotlin"/>
+-
+-    <module name="intellij.evaluationPlugin.languages.cppClassic"/>
+-    <module name="intellij.evaluationPlugin.languages.cppNova"/>
+-    <module name="intellij.evaluationPlugin.languages.cppRider"/>
+-    <module name="intellij.evaluationPlugin.languages.csharp"/>
+-    <module name="intellij.evaluationPlugin.languages.go"/>
+-    <module name="intellij.evaluationPlugin.languages.js"/>
+-    <module name="intellij.evaluationPlugin.languages.json"/>
+-    <module name="intellij.evaluationPlugin.languages.markdown"/>
+-    <module name="intellij.evaluationPlugin.languages.php"/>
+-    <module name="intellij.evaluationPlugin.languages.properties"/>
+-    <module name="intellij.evaluationPlugin.languages.pythonDocker"/>
+-    <module name="intellij.evaluationPlugin.languages.ruby"/>
+-    <module name="intellij.evaluationPlugin.languages.rust"/>
+-    <module name="intellij.evaluationPlugin.languages.sql"/>
+-    <module name="intellij.evaluationPlugin.languages.terraform"/>
+-    <module name="intellij.evaluationPlugin.languages.xml"/>
+-    <module name="intellij.evaluationPlugin.languages.terminal"/>
+-    <module name="intellij.evaluationPlugin.languages.yaml"/>
+-    <module name="intellij.evaluationPlugin.inlineCompletion"/>
+-    <module name="intellij.evaluationPlugin.fullLine"/>
+-    <module name="intellij.evaluationPlugin.agent"/>
+-    <module name="intellij.evaluationPlugin.llm"/>
+-    <module name="intellij.evaluationPlugin.ijnext"/>
+-  </content>
+-
+-  <dependencies>
+-    <module name="intellij.libraries.ktor.client"/>
+-    <module name="intellij.libraries.kotlinx.io"/>
+-    <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+-    <module name="intellij.libraries.commons.text"/>
+-    <module name="intellij.platform.warmup"/>
+-    <!-- endregion -->
+-  </dependencies>
+-
+-  <extensions defaultExtensionNs="com.intellij">
+-    <appStarter id="ml-evaluate" implementation="com.intellij.cce.actions.CompletionEvaluationStarter" internal="true"/>
+-
+-    <registryKey key="evaluation.plugin.disable.sdk.check" defaultValue="false"
+-                 description="Disables check that project sdk configured properly" restartRequired="false"/>
+-  </extensions>
+-
+-  <extensionPoints>
+-    <extensionPoint qualifiedName="com.intellij.cce.command"
+-                    interface="com.intellij.cce.commands.EvaluationCommandExtension"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.completionEvaluationVisitor"
+-                    interface="com.intellij.cce.visitor.EvaluationVisitor"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.callGraphBuilder"
+-                    interface="com.intellij.evaluationPlugin.languages.callGraphs.CallGraphBuilder"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.lineCompletionVisitorFactory"
+-                    interface="com.intellij.cce.visitor.LineCompletionVisitorFactory"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.codeCompletionHandlerFactory" area="IDEA_PROJECT"
+-                    interface="com.intellij.cce.evaluation.CodeCompletionHandlerFactory"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.suggestionsProvider" area="IDEA_PROJECT"
+-                    interface="com.intellij.cce.evaluation.SuggestionsProvider"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.openProjectMethodProvider"
+-                    interface="com.intellij.cce.actions.OpenProjectMethodProvider"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.setupSdkStep" area="IDEA_PROJECT"
+-                    interface="com.intellij.cce.evaluation.SetupSdkStepFactory"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.evaluableFeature"
+-                    interface="com.intellij.cce.evaluable.EvaluableFeature"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.apiCallExtractor"
+-                    interface="com.intellij.cce.metric.ApiCallExtractorProvider"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.exposedApiExtractor"
+-                    interface="com.intellij.cce.evaluable.ExposedApiExtractor"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.datasetActionProvider"
+-                    interface="com.intellij.cce.ui.DatasetActionProvider"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.codeExecutionManager"
+-                    interface="com.intellij.cce.execution.manager.CodeExecutionManager"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.extraEvaluationStepProvider"
+-                    interface="com.intellij.cce.evaluation.step.ExtraEvaluationStepProvider"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.testRunner"
+-                    interface="com.intellij.cce.test.TestRunner"
+-                    dynamic="true"/>
+-    <extensionPoint qualifiedName="com.intellij.cce.projectSyncInvoker"
+-                interface="com.intellij.cce.project.ProjectSyncInvoker"
+-                dynamic="true"/>
+-  </extensionPoints>
+-
+-  <extensions defaultExtensionNs="com.intellij.cce">
+-    <evaluableFeature implementation="com.intellij.cce.evaluable.rename.RenameFeature"/>
+-    <evaluableFeature implementation="com.intellij.cce.evaluable.docGeneration.DocGenerationFeature"/>
+-    <evaluableFeature implementation="com.intellij.cce.evaluable.completion.TokenCompletionFeature"/>
+-    <evaluableFeature implementation="com.intellij.cce.actions.ContextCollectionFeature"/>
+-    <evaluableFeature implementation="com.intellij.cce.evaluable.standaloneExample.StandaloneExampleFeature"/>
+-    <evaluableFeature implementation="com.intellij.cce.evaluable.conflictResolution.ConflictResolutionFeature"/>
+-    <suggestionsProvider implementation="com.intellij.cce.evaluable.completion.DefaultCompletionProvider"/>
+-  </extensions>
+-
+-  <actions resource-bundle="messages.EvaluationPluginBundle">
+-    <action id="EvaluationDatasetTool" class="com.intellij.cce.ui.EvaluationDatasetToolAction" internal="true">
+-      <add-to-group group-id="ToolsMenu" anchor="last"/>
+-    </action>
+-  </actions>
+-</idea-plugin>
+diff --git a/plugins/filePrediction/resources/META-INF/plugin.xml b/plugins/filePrediction/resources/META-INF/plugin.xml
+index c27ce43e8f..036c3cff17 100644
+--- a/plugins/filePrediction/resources/META-INF/plugin.xml
++++ b/plugins/filePrediction/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.jetbrains.filePrediction</id>
+   <name>Next File Prediction</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <resource-bundle>messages.FilePredictionBundle</resource-bundle>
+ 
+   <description><![CDATA[Predicts next file which will be open in IDE to start long running analysis and pre-load caches.]]></description>
+diff --git a/plugins/findUsagesMl/resources/META-INF/plugin.xml b/plugins/findUsagesMl/resources/META-INF/plugin.xml
+index 3e8d795e4e..61841e31b7 100644
+--- a/plugins/findUsagesMl/resources/META-INF/plugin.xml
++++ b/plugins/findUsagesMl/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+     and find usages features. It will introduce this model for the 253 version.
+     </p>
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+   <id>com.intellij.findusages.ml</id>
+ 
+diff --git a/plugins/git-modal-commit/resources/META-INF/plugin.xml b/plugins/git-modal-commit/resources/META-INF/plugin.xml
+index c416e7a7d5..cc95b40ce8 100644
+--- a/plugins/git-modal-commit/resources/META-INF/plugin.xml
++++ b/plugins/git-modal-commit/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Modal Commit Interface</name>
+   <id>intellij.git.commit.modal</id>
+   <category>Version Controls</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description><![CDATA[
+     This plugin restores the modal commit option for Git and Mercurial in JetBrains IDEs,
+     which was the default before the introduction of the non-modal commit window.
+diff --git a/plugins/git4idea/resources/META-INF/plugin.xml b/plugins/git4idea/resources/META-INF/plugin.xml
+index 1c7af0fdd5..8ac4549f52 100644
+--- a/plugins/git4idea/resources/META-INF/plugin.xml
++++ b/plugins/git4idea/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Git</name>
+   <id>Git4Idea</id>
+   <category>Version Controls</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     Provides integration with <a href="https://git-scm.com/">Git</a>.
+diff --git a/plugins/git4idea/testResources/META-INF/plugin.xml b/plugins/git4idea/testResources/META-INF/plugin.xml
+deleted file mode 100644
+index 9edd097037..0000000000
+--- a/plugins/git4idea/testResources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,20 +0,0 @@
+-<idea-plugin>
+-  <name>Git Integration Tests</name>
+-  <id>Git4Idea-Tests</id>
+-  <description>Overriding services for tests.</description>
+-
+-  <dependencies>
+-    <module name="intellij.vcs.git.backend"/>
+-    <module name="intellij.vcs.git.shared"/>
+-  </dependencies>
+-
+-  <extensions defaultExtensionNs="com.intellij">
+-    <applicationService serviceInterface="git4idea.commands.GitHttpAuthService"
+-                        serviceImplementation="git4idea.test.GitHttpAuthTestService"
+-                        overrides="true" />
+-    <applicationService serviceInterface="git4idea.DialogManager"
+-                        serviceImplementation="git4idea.test.TestDialogManager"
+-                        overrides="true" />
+-  </extensions>
+-
+-</idea-plugin>
+diff --git a/plugins/github/github-core/resources/META-INF/plugin.xml b/plugins/github/github-core/resources/META-INF/plugin.xml
+index 08a2b220b8..95a84a709e 100644
+--- a/plugins/github/github-core/resources/META-INF/plugin.xml
++++ b/plugins/github/github-core/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <name>GitHub</name>
+   <id>org.jetbrains.plugins.github</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Version Controls</category>
+   <description>
+     <![CDATA[
+diff --git a/plugins/gitlab/gitlab-core/resources/META-INF/plugin.xml b/plugins/gitlab/gitlab-core/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 875ef78ee7..0000000000
+--- a/plugins/gitlab/gitlab-core/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,61 +0,0 @@
+-<idea-plugin allow-bundled-update="true">
+-
+-  <!-- Warn: remember to sync the following {name, id, vendor, category, description} tags
+-             with plugin.xml in intellij.vcs.gitlab.ultimate module-->
+-  <name>GitLab</name>
+-  <id>org.jetbrains.plugins.gitlab</id>
+-  <vendor>JetBrains</vendor>
+-  <category>Version Controls</category>
+-  <description>
+-    <![CDATA[
+-      <p>Provides integration with GitLab.</p>
+-
+-      <p><b>Access your GitLab projects without leaving the IDE</b><br>
+-      Log in to your GitLab account to access all your projects from the IDE.<br>
+-      Switch between multiple GitLab accounts to do your main job and contribute to your private projects.</p>
+-
+-      <p><b>Clone projects</b><br>
+-      Clone a project that you want to contribute to directly from the IDE and create a new project based on it.</p>
+-
+-      <p><b>Work with merge requests</b><br>
+-      Manage incoming merge requests:
+-      <li>Filter requests by state, author, assignee, reviewer, and label.
+-      <li>Keep up with the changes by checking the timeline.
+-      <li>Jump to a merge request on GitLab if necessary.<br><br>
+-
+-      Review merge requests:
+-      <li>View the diff between the suggested changes and the base revision.
+-      <li>Leave your comments and suggestions.
+-      <li>Merge or close merge requests.<br><br>
+-
+-      View and apply suggested changes:
+-      <li>Answer the comments to your merge request.
+-      <li>Close or save your merge request as a draft.</p>
+-
+-      <p>To configure, open <b>Settings / Preferences</b> and go to Version Control | GitLab.</p>
+-      <p>Requires the Git plugin.</p>
+-      ]]>
+-  </description>
+-
+-  <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+-  <dependencies>
+-    <plugin id="Git4Idea"/>
+-    <module name="intellij.platform.collaborationTools"/>
+-    <module name="intellij.platform.vcs.dvcs.impl"/>
+-    <module name="intellij.platform.vcs.dvcs.impl.shared"/>
+-    <module name="intellij.platform.vcs.impl"/>
+-    <module name="intellij.platform.vcs.impl.shared"/>
+-    <module name="intellij.platform.vcs.log"/>
+-    <module name="intellij.platform.vcs.log.impl"/>
+-    <module name="intellij.vcs.git.backend"/>
+-    <module name="intellij.vcs.git.shared"/>
+-  </dependencies>
+-  <!-- endregion -->
+-  <content namespace="jetbrains">
+-    <module name="intellij.vcs.gitlab" loading="embedded"/>
+-    <module name="intellij.vcs.gitlab.git"/>
+-    <module name="intellij.vcs.gitlab.yaml"/>
+-    <module name="intellij.vcs.gitlab.ultimate.features"/>
+-    <module name="intellij.vcs.gitlab.ultimate.ci.sh"/>
+-  </content>
+-</idea-plugin>
+\ No newline at end of file
+diff --git a/plugins/gradle/gradle-declarative-sync/resources/META-INF/plugin.xml b/plugins/gradle/gradle-declarative-sync/resources/META-INF/plugin.xml
+index 6bbabbef9e..75d7da6b2f 100644
+--- a/plugins/gradle/gradle-declarative-sync/resources/META-INF/plugin.xml
++++ b/plugins/gradle/gradle-declarative-sync/resources/META-INF/plugin.xml
+@@ -7,7 +7,7 @@
+     Plugin provides static project model creation for Declarative Gradle projects
+     ]]>
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+diff --git a/plugins/gradle/java/plugin/resources/META-INF/plugin.xml b/plugins/gradle/java/plugin/resources/META-INF/plugin.xml
+index 63cf4f207b..8bd75c4d9d 100644
+--- a/plugins/gradle/java/plugin/resources/META-INF/plugin.xml
++++ b/plugins/gradle/java/plugin/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Gradle for Java</name>
+   <!-- "org.jetbrains.plugins.gradle" id has been reused to avoid dependent plugins breakage-->
+   <id>org.jetbrains.plugins.gradle</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Build Tools</category>
+   <description>
+     Provides Java Gradle projects import, run configuration and profiler integrations.
+diff --git a/plugins/gradle/plugin/resources/META-INF/plugin.xml b/plugins/gradle/plugin/resources/META-INF/plugin.xml
+index 58318cbd99..e5c3a3ee68 100644
+--- a/plugins/gradle/plugin/resources/META-INF/plugin.xml
++++ b/plugins/gradle/plugin/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Gradle</name>
+   <id>com.intellij.gradle</id>
+   <category>Build Tools</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description>
+     <![CDATA[
+       Provides integration with <a href="https://www.gradle.org">Gradle</a> for automation of building, testing, publishing, and deployment of software packages.
+diff --git a/plugins/grazie/resources/META-INF/plugin.xml b/plugins/grazie/resources/META-INF/plugin.xml
+index 40ebdcc0e9..445cd3d56e 100644
+--- a/plugins/grazie/resources/META-INF/plugin.xml
++++ b/plugins/grazie/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.grazie" allow-bundled-update="true">
+   <id>tanvd.grazi</id>
+   <name>Natural Languages</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+ 
+   <incompatible-with>com.intellij.jetbrains.client</incompatible-with>
+diff --git a/plugins/groovy-live-templates/resources/META-INF/plugin.xml b/plugins/groovy-live-templates/resources/META-INF/plugin.xml
+index 929e992733..94d2c7d96d 100644
+--- a/plugins/groovy-live-templates/resources/META-INF/plugin.xml
++++ b/plugins/groovy-live-templates/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   <description><![CDATA[
+   Adds support for Groovy in IDE live templates.
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <plugin id="com.intellij.groovy.scripting"/>
+diff --git a/plugins/groovy-scripting/resources/META-INF/plugin.xml b/plugins/groovy-scripting/resources/META-INF/plugin.xml
+index 1f0bc7dcb9..a6c8cb2ee2 100644
+--- a/plugins/groovy-scripting/resources/META-INF/plugin.xml
++++ b/plugins/groovy-scripting/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>com.intellij.groovy.scripting</id>
+   <name>Groovy Scripting</name>
+   <category>Languages</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     Provides the Groovy JSR223 scripting engine for the IDE Scripting Console.
+diff --git a/plugins/groovy/resources/META-INF/plugin.xml b/plugins/groovy/resources/META-INF/plugin.xml
+index 9b82474c8b..fc7df0159d 100644
+--- a/plugins/groovy/resources/META-INF/plugin.xml
++++ b/plugins/groovy/resources/META-INF/plugin.xml
+@@ -11,7 +11,7 @@
+      <a href="https://gant.github.io/">Gant</a> for scripting Ant tasks using Groovy</li>
+    </ul>
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <content namespace="jetbrains">
+     <module name="intellij.groovy.duplicates"/>
+diff --git a/plugins/hg4idea/resources/META-INF/plugin.xml b/plugins/hg4idea/resources/META-INF/plugin.xml
+index e5572105fb..4dc2166688 100644
+--- a/plugins/hg4idea/resources/META-INF/plugin.xml
++++ b/plugins/hg4idea/resources/META-INF/plugin.xml
+@@ -13,7 +13,7 @@
+       ]]>
+   </description>
+   <category>Version Controls</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+     <module name="intellij.platform.vcs"/>
+diff --git a/plugins/htmltools/resources/META-INF/plugin.xml b/plugins/htmltools/resources/META-INF/plugin.xml
+index d8e2b77dee..05336e68df 100644
+--- a/plugins/htmltools/resources/META-INF/plugin.xml
++++ b/plugins/htmltools/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <description>Provides advanced features for HTML/CSS editing: inspections, quickfixes, smart navigation actions and more.</description>
+ 
+   <category>HTML and XML</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+diff --git a/plugins/ide-features-trainer/res/META-INF/plugin.xml b/plugins/ide-features-trainer/res/META-INF/plugin.xml
+index 24c9fb6876..591cd76142 100644
+--- a/plugins/ide-features-trainer/res/META-INF/plugin.xml
++++ b/plugins/ide-features-trainer/res/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="training" allow-bundled-update="true">
+   <id>training</id>
+   <name>IDE Features Trainer</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     <p>
+diff --git a/plugins/java-decompiler/plugin/resources/META-INF/plugin.xml b/plugins/java-decompiler/plugin/resources/META-INF/plugin.xml
+index 62757bbf37..71c314aa11 100644
+--- a/plugins/java-decompiler/plugin/resources/META-INF/plugin.xml
++++ b/plugins/java-decompiler/plugin/resources/META-INF/plugin.xml
+@@ -7,7 +7,7 @@
+       Extends the standard <code>.class</code> file viewer with the Fernflower Java decompiler.
+     ]]>
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+diff --git a/plugins/java-i18n/resources/META-INF/plugin.xml b/plugins/java-i18n/resources/META-INF/plugin.xml
+index c371ed42ca..78a81ca1d5 100644
+--- a/plugins/java-i18n/resources/META-INF/plugin.xml
++++ b/plugins/java-i18n/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>com.intellij.java-i18n</id>
+   <name>Java Internationalization</name>
+   <category>JVM Tools</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <module name="intellij.java.indexing"/>
+diff --git a/plugins/javaFX/community/resources/META-INF/plugin.xml b/plugins/javaFX/community/resources/META-INF/plugin.xml
+index 42d86b837d..b0ad31797b 100644
+--- a/plugins/javaFX/community/resources/META-INF/plugin.xml
++++ b/plugins/javaFX/community/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>JavaFX</name>
+   <id>org.jetbrains.plugins.javaFX</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>JVM Frameworks</category>
+   <description><![CDATA[
+     Enables <a href="https://openjfx.io/">JavaFX</a> support.
+diff --git a/plugins/jcef/plugin/resources/META-INF/plugin.xml b/plugins/jcef/plugin/resources/META-INF/plugin.xml
+index 5784872c2f..9ebce6e196 100644
+--- a/plugins/jcef/plugin/resources/META-INF/plugin.xml
++++ b/plugins/jcef/plugin/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>com.intellij.modules.jcef</id>
+   <name>Web Browser (JCEF)</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Other Tools</category>
+   <description><![CDATA[
+     Provides web browser integration based on JCEF, a framework for embedding Chromium-based browsers in Java applications.
+diff --git a/plugins/jshell/resources/META-INF/plugin.xml b/plugins/jshell/resources/META-INF/plugin.xml
+index a700f8db3a..182b237f40 100644
+--- a/plugins/jshell/resources/META-INF/plugin.xml
++++ b/plugins/jshell/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>intellij.java.jshell</id>
+   <name>JShell</name>
+   <category>JVM Tools</category>
+-  <vendor url="https://www.jetbrains.com/">JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <content namespace="jetbrains">
+     <module name="intellij.java.jshell.console"/>
+diff --git a/plugins/jsonpath/resources/META-INF/plugin.xml b/plugins/jsonpath/resources/META-INF/plugin.xml
+index e593030b3b..f3c850ef4a 100644
+--- a/plugins/jsonpath/resources/META-INF/plugin.xml
++++ b/plugins/jsonpath/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.jsonpath" allow-bundled-update="true">
+   <id>com.intellij.jsonpath</id>
+   <name>JSONPath</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <description><![CDATA[
+     <p>Provides JSONPath language for injected code fragments and dedicated Evaluate JSONPath tool window.</p>
+diff --git a/plugins/junit/resources/META-INF/plugin.xml b/plugins/junit/resources/META-INF/plugin.xml
+index 44cdd3e6d9..23f7f48ce5 100644
+--- a/plugins/junit/resources/META-INF/plugin.xml
++++ b/plugins/junit/resources/META-INF/plugin.xml
+@@ -15,7 +15,7 @@
+    </description>
+   <category>Test Tools</category>
+   <depends optional="true" config-file="junit-properties.xml">com.intellij.properties</depends>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <dependencies>
+     <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+     <module name="intellij.java"/>
+diff --git a/plugins/keymaps/eclipse-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/eclipse-keymap/resources/META-INF/plugin.xml
+index f0614cb16c..0101ef2c0f 100644
+--- a/plugins/keymaps/eclipse-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/eclipse-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Eclipse Keymap</name>
+ <id>com.intellij.plugins.eclipsekeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Eclipse keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/netbeans5.6-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/netbeans5.6-keymap/resources/META-INF/plugin.xml
+index 0896395835..5990c70232 100644
+--- a/plugins/keymaps/netbeans5.6-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/netbeans5.6-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>NetBeans Keymap</name>
+ <id>com.intellij.plugins.netbeanskeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   NetBeans keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/qtcreator-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/qtcreator-keymap/resources/META-INF/plugin.xml
+index 216a1737bf..7997253e88 100644
+--- a/plugins/keymaps/qtcreator-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/qtcreator-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>QtCreator Keymap</name>
+ <id>com.intellij.plugins.qtcreatorkeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   QtCreator keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/resharper-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/resharper-keymap/resources/META-INF/plugin.xml
+index 50699636cc..9c9b89c09b 100644
+--- a/plugins/keymaps/resharper-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/resharper-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>ReSharper Keymap</name>
+ <id>com.intellij.plugins.resharperkeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   ReSharper keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/visual-assist-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/visual-assist-keymap/resources/META-INF/plugin.xml
+index 2e1b9ede4e..96d0f9dec9 100644
+--- a/plugins/keymaps/visual-assist-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/visual-assist-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Visual Assist Keymap</name>
+ <id>com.intellij.plugins.visualassistkeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Visual Assist keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/visual-studio-for-mac-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/visual-studio-for-mac-keymap/resources/META-INF/plugin.xml
+index 2898042913..0587f42149 100644
+--- a/plugins/keymaps/visual-studio-for-mac-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/visual-studio-for-mac-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Visual Studio for Mac Keymap</name>
+ <id>com.intellij.plugins.visualstudioformackeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Visual Studio for Mac keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/visual-studio-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/visual-studio-keymap/resources/META-INF/plugin.xml
+index addc6f1c7c..b3892a57e7 100644
+--- a/plugins/keymaps/visual-studio-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/visual-studio-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Visual Studio Keymap</name>
+ <id>com.intellij.plugins.visualstudiokeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Visual Studio keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/visual-studio2022-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/visual-studio2022-keymap/resources/META-INF/plugin.xml
+index a03210d278..214724f21f 100644
+--- a/plugins/keymaps/visual-studio2022-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/visual-studio2022-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Visual Studio 2022 Keymap</name>
+ <id>com.intellij.plugins.visualstudio2022keymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Visual Studio 2022 keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/vscode-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/vscode-keymap/resources/META-INF/plugin.xml
+index 1c39e68863..8d4055224e 100644
+--- a/plugins/keymaps/vscode-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/vscode-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <name>VSCode Keymap</name>
+   <id>com.intellij.plugins.vscodekeymap</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Keymap</category>
+   <description>
+     VSCode keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/keymaps/xcode-keymap/resources/META-INF/plugin.xml b/plugins/keymaps/xcode-keymap/resources/META-INF/plugin.xml
+index 043848b578..7c2a473886 100644
+--- a/plugins/keymaps/xcode-keymap/resources/META-INF/plugin.xml
++++ b/plugins/keymaps/xcode-keymap/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+ <name>Xcode Keymap</name>
+ <id>com.intellij.plugins.xcodekeymap</id>
+-<vendor>JetBrains</vendor>
++<vendor>Picket Studio</vendor>
+ <category>Keymap</category>
+ <description>
+   Xcode keymap for all IntelliJ-based IDEs.
+diff --git a/plugins/kotlin/plugin/resources/META-INF/plugin.xml b/plugins/kotlin/plugin/resources/META-INF/plugin.xml
+index 37fe1dad0e..2e8e164fb5 100644
+--- a/plugins/kotlin/plugin/resources/META-INF/plugin.xml
++++ b/plugins/kotlin/plugin/resources/META-INF/plugin.xml
+@@ -13,7 +13,7 @@
+   <version>@snapshot@</version>
+ 
+   <!--suppress PluginXmlValidity -->
+-  <vendor url="https://www.jetbrains.com">JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <!-- IJ/AS-DEPENDENCY-PLACEHOLDER -->
+diff --git a/plugins/kotlin/scripting-plugin/resources/META-INF/plugin.xml b/plugins/kotlin/scripting-plugin/resources/META-INF/plugin.xml
+index 4e602eb883..482681a563 100644
+--- a/plugins/kotlin/scripting-plugin/resources/META-INF/plugin.xml
++++ b/plugins/kotlin/scripting-plugin/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>org.intellij.kotlinScripting</id>
+   <name>Kotlin Scripting Support</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <depends>com.intellij.modules.lang</depends>
+ 
+diff --git a/plugins/laf/macos/resources/META-INF/plugin.xml b/plugins/laf/macos/resources/META-INF/plugin.xml
+index 129da70525..1271e76a18 100644
+--- a/plugins/laf/macos/resources/META-INF/plugin.xml
++++ b/plugins/laf/macos/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>com.intellij.laf.macos</id>
+   <name>macOS Light Theme</name>
+ 
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Themes</category>
+ 
+   <description><![CDATA[Provides macOS Look And Feel that mimics macOS native Blue and Graphite themes]]></description>
+diff --git a/plugins/laf/win10/resources/META-INF/plugin.xml b/plugins/laf/win10/resources/META-INF/plugin.xml
+index 9a31fa421f..13dff0da60 100644
+--- a/plugins/laf/win10/resources/META-INF/plugin.xml
++++ b/plugins/laf/win10/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.laf.win10">
+   <id>com.intellij.laf.win10</id>
+   <name>Windows 10 Light Theme</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Themes</category>
+ 
+   <description><![CDATA[Provides Windows 10 Look And Feel that mimics Windows 10 system UI]]></description>
+diff --git a/plugins/lombok/src/main/resources/META-INF/plugin.xml b/plugins/lombok/src/main/resources/META-INF/plugin.xml
+deleted file mode 100644
+index b5d9173e8b..0000000000
+--- a/plugins/lombok/src/main/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,351 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<idea-plugin>
+-  <id>Lombook Plugin</id>
+-  <name>Lombok</name>
+-  <vendor>JetBrains</vendor>
+-  <resource-bundle>messages.LombokBundle</resource-bundle>
+-  <description><![CDATA[
+-<h1>IntelliJ Lombok plugin</h1>
+-<br/>
+-<b>A plugin that adds first-class support for Project Lombok</b>
+-<br/>
+-<b>Features</b>
+-<ul>
+-  <li><a href="https://projectlombok.org/features/GetterSetter.html">@Getter and @Setter</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/FieldNameConstants">@FieldNameConstants</a></li>
+-  <li><a href="https://projectlombok.org/features/ToString.html">@ToString</a></li>
+-  <li><a href="https://projectlombok.org/features/EqualsAndHashCode.html">@EqualsAndHashCode</a></li>
+-  <li><a href="https://projectlombok.org/features/constructor">@AllArgsConstructor, @RequiredArgsConstructor and
+-    @NoArgsConstructor</a></li>
+-  <li><a href="https://projectlombok.org/features/log">@Log, @Log4j, @Log4j2, @Slf4j, @XSlf4j, @CommonsLog,
+-    @JBossLog, @Flogger, @CustomLog</a></li>
+-  <li><a href="https://projectlombok.org/features/Data.html">@Data</a></li>
+-  <li><a href="https://projectlombok.org/features/Builder.html">@Builder</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/SuperBuilder">@SuperBuilder</a></li>
+-  <li><a href="https://projectlombok.org/features/Builder.html#singular">@Singular</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/Jacksonized">@Jacksonized</a></li>
+-  <li><a href="https://projectlombok.org/features/Delegate.html">@Delegate</a></li>
+-  <li><a href="https://projectlombok.org/features/Value.html">@Value</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/Accessors.html">@Accessors</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/Tolerate">@Tolerate</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/Wither.html">@Wither</a></li>
+-  <li><a href="https://projectlombok.org/features/With.html">@With</a></li>
+-  <li><a href="https://projectlombok.org/features/SneakyThrows.html">@SneakyThrows</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/StandardException">@StandardException</a></li>
+-  <li><a href="https://projectlombok.org/features/val.html">@val</a></li>
+-  <li><a href="https://projectlombok.org/features/var.html">@var</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/var.html">experimental @var</a></li>
+-  <li><a href="https://projectlombok.org/features/experimental/UtilityClass.html">@UtilityClass</a></li>
+-  <li><a href="https://projectlombok.org/features/configuration.html">Lombok config system</a></li>
+-  <li>Code inspections</li>
+-  <li>Refactoring actions (lombok and delombok)</li>
+-</ul>
+-<br/>]]></description>
+-  <category>JVM Frameworks</category>
+-
+-  <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+-  <dependencies>
+-    <module name="intellij.java.frontback.psi"/>
+-    <module name="intellij.java.psi"/>
+-    <module name="intellij.java.syntax"/>
+-    <module name="intellij.platform.structureView"/>
+-  </dependencies>
+-  <!-- endregion -->
+-  <depends>com.intellij.modules.lang</depends>
+-  <depends>com.intellij.modules.platform</depends>
+-  <depends>com.intellij.java</depends>
+-
+-  <extensions defaultExtensionNs="com.intellij">
+-    <applicationService serviceImplementation="de.plushnikov.intellij.plugin.lombokconfig.ConfigDiscovery"/>
+-
+-    <lang.psiAugmentProvider implementation="de.plushnikov.intellij.plugin.provider.LombokAugmentProvider"/>
+-    <lang.jvm.annotationPackageSupport implementation="de.plushnikov.intellij.plugin.provider.LombokAnnotationSupport"/>
+-    <lang.jvm.ignoreAnnotationParamSupport implementation="de.plushnikov.intellij.plugin.provider.LombokDefaultAnnotationParamSupport"/>
+-    <lang.jvm.ignoreVariableCanBeFinalSupport implementation="de.plushnikov.intellij.plugin.provider.LombokIgnoreVariableCanBeFinalSupport"/>
+-    <implicitUsageProvider implementation="de.plushnikov.intellij.plugin.provider.LombokImplicitUsageProvider"/>
+-    <projectConfigurable groupId="language"
+-                         key="plugin.settings.title" bundle="messages.LombokBundle"
+-                         instance="de.plushnikov.intellij.plugin.settings.ProjectSettingsPage"/>
+-
+-    <treeGenerator implementation="de.plushnikov.intellij.plugin.extension.LombokLightMethodTreeGenerator"/>
+-
+-    <lang.structureViewExtension implementation="de.plushnikov.intellij.plugin.extension.LombokStructureViewExtension"/>
+-    <propertyAccessorDetector implementation="de.plushnikov.intellij.plugin.extension.LombokPropertyAccessorDetector"/>
+-
+-    <lang.java.javaErrorFilter implementation="de.plushnikov.intellij.plugin.extension.LombokHighlightErrorFilter"/>
+-
+-    <lang.inferredAnnotationProvider implementation="de.plushnikov.intellij.plugin.extension.LombokInferredAnnotationProvider"/>
+-
+-    <fileType implementationClass="de.plushnikov.intellij.plugin.language.LombokConfigFileType" name="LOMBOK_CONFIG"
+-              language="Lombok.Config" fieldName="INSTANCE" fileNames="lombok.config"/>
+-    <lang.parserDefinition language="Lombok.Config"
+-                           implementationClass="de.plushnikov.intellij.plugin.language.LombokConfigParserDefinition"/>
+-    <lang.syntaxHighlighterFactory language="Lombok.Config"
+-                                   implementationClass="de.plushnikov.intellij.plugin.language.LombokConfigSyntaxHighlighterFactory"/>
+-    <colorSettingsPage implementation="de.plushnikov.intellij.plugin.language.LombokConfigColorSettingsPage"/>
+-    <completion.contributor language="Lombok.Config"
+-                            implementationClass="de.plushnikov.intellij.plugin.language.LombokConfigCompletionContributor"/>
+-
+-    <completion.contributor language="JAVA"
+-                            implementationClass="de.plushnikov.intellij.plugin.extension.LombokBuilderCompletionContributor" />
+-    <completion.contributor language="JAVA"
+-                            implementationClass="de.plushnikov.intellij.plugin.completion.LombokExtensionMethodCompletionContributor" />
+-
+-    <modcompletion.completionItemFilter language="JAVA"
+-                            implementationClass="de.plushnikov.intellij.plugin.completion.LombokOnXCompletionContributorFilter"/>
+-    <lang.commenter language="Lombok.Config"
+-                    implementationClass="de.plushnikov.intellij.plugin.language.LombokConfigCommentor"/>
+-    <fileBasedIndex implementation="de.plushnikov.intellij.plugin.lombokconfig.LombokConfigIndex"/>
+-
+-    <custom.exception.handler implementation="de.plushnikov.intellij.plugin.handler.SneakyThrowsExceptionHandler"/>
+-    <java.errorFixProvider
+-      implementation="de.plushnikov.intellij.plugin.handler.AddSneakyThrowsAnnotationCommandAction$AddSneakyThrowProvider"/>
+-
+-    <implicit.resource.closer
+-      implementation="de.plushnikov.intellij.plugin.extension.LombokCleanUpImplicitResourceCloser"/>
+-
+-    <findUsagesHandlerFactory
+-      implementation="de.plushnikov.intellij.plugin.extension.LombokFieldFindUsagesHandlerFactory"/>
+-    <readWriteAccessDetector implementation="de.plushnikov.intellij.plugin.extension.LombokReadWriteAccessDetector" id="lombok" order="before java"/>
+-
+-    <renameHandler implementation="de.plushnikov.intellij.plugin.extension.LombokElementRenameHandler" order="first"/>
+-    <renameHandler implementation="de.plushnikov.intellij.plugin.extension.LombokElementRenameVetoHandler"
+-                   order="first"/>
+-    <renamePsiElementProcessor implementation="de.plushnikov.intellij.plugin.extension.LombokRenameMethodProcessor"
+-                               order="first"/>
+-    <renamePsiElementProcessor
+-      implementation="de.plushnikov.intellij.plugin.extension.LombokRenameFieldReferenceProcessor"/>
+-
+-    <java.elementFinder implementation="de.plushnikov.intellij.plugin.extension.LombokElementFinder" order="last"/>
+-
+-    <inlineActionHandler implementation="de.plushnikov.intellij.plugin.action.inline.LombokInlineMethodHandler"/>
+-
+-    <canBeFinal implementation="de.plushnikov.intellij.plugin.extension.LombokCanBeFinalHandler"/>
+-
+-    <hierarchy.elementProvider implementation="de.plushnikov.intellij.plugin.hierarchy.LombokFieldHierarchyElementProvider"/>
+-
+-    <localInspection groupPath="Java" language="JAVA" shortName="LombokGetterMayBeUsed" enabledByDefault="true" level="WARNING"
+-                     bundle="messages.LombokBundle" key="inspection.lombok.getter.may.be.used.display.name"
+-                     groupBundle="messages.InspectionsBundle" groupKey="group.names.verbose.or.redundant.code.constructs"
+-                     implementationClass="de.plushnikov.intellij.plugin.inspection.LombokGetterMayBeUsedInspection" />
+-
+-    <localInspection groupPath="Java" language="JAVA" shortName="LombokSetterMayBeUsed" enabledByDefault="true" level="WARNING"
+-                     bundle="messages.LombokBundle" key="inspection.lombok.setter.may.be.used.display.name"
+-                     groupBundle="messages.InspectionsBundle" groupKey="group.names.verbose.or.redundant.code.constructs"
+-                     implementationClass="de.plushnikov.intellij.plugin.inspection.LombokSetterMayBeUsedInspection" />
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java"
+-      groupKey="inspection.lombok.group.name.lombok"
+-      groupBundle="messages.LombokBundle"
+-      shortName="Lombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.LombokInspection"
+-      key="inspection.lombok.display.name"
+-      bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java"
+-      groupKey="inspection.lombok.group.name.lombok"
+-      groupBundle="messages.LombokBundle"
+-      shortName="LombokFlagUsage"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.LombokFlagUsageInspection"
+-      key="inspection.lombok.flag.usage.display.name"
+-      bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java"
+-      groupKey="inspection.lombok.group.name.lombok"
+-      groupBundle="messages.LombokBundle"
+-      shortName="SpringQualifierCopyableLombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.SpringQualifierCopyableLombokAnnotationInspection"
+-      key="inspection.springqualifiercopyable.lombok.display.name"
+-      bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java"
+-      groupKey="inspection.lombok.group.name.lombok"
+-      groupBundle="messages.LombokBundle"
+-      shortName="DeprecatedLombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.DeprecatedLombokAnnotationInspection"
+-      key="inspection.deprecated.lombok.display.name" bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java"
+-      groupKey="inspection.lombok.group.name.lombok"
+-      groupBundle="messages.LombokBundle"
+-      shortName="StaticMethodImportLombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.StaticMethodImportLombokInspection"
+-      key="inspection.builder.static.import.name" bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java,Lombok"
+-      groupKey="inspection.lombok.group.name.redundant.modifiers"
+-      groupBundle="messages.LombokBundle"
+-      shortName="RedundantModifiersValueLombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.modifiers.RedundantModifiersOnValueLombokAnnotationInspection"
+-      key="inspection.redundant.modifiers.value.lombok.display.name" bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java,Lombok"
+-      groupKey="inspection.lombok.group.name.redundant.modifiers"
+-      groupBundle="messages.LombokBundle"
+-      shortName="RedundantModifiersUtilityClassLombok"
+-      enabledByDefault="false"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.modifiers.RedundantModifiersOnUtilityClassLombokAnnotationInspection"
+-      key="inspection.redundant.modifiers.utility.class.lombok.display.name" bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java,Lombok"
+-      groupKey="inspection.lombok.group.name.redundant.modifiers"
+-      groupBundle="messages.LombokBundle"
+-      shortName="RedundantModifiersValLombok"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.modifiers.RedundantModifiersOnValLombokAnnotationInspection"
+-      key="inspection.redundant.modifiers.val.lombok.display.name" bundle="messages.LombokBundle"/>
+-
+-    <localInspection
+-      language="JAVA"
+-      groupPath="Java,Lombok"
+-      groupKey="inspection.lombok.group.name.redundant.definitions"
+-      groupBundle="messages.LombokBundle"
+-      shortName="RedundantSlf4jDefinition"
+-      enabledByDefault="true"
+-      implementationClass="de.plushnikov.intellij.plugin.inspection.RedundantSlf4jDefinitionInspection"
+-      key="inspection.redundant.slf.4.j.definition.display.name" bundle="messages.LombokBundle"/>
+-
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.valvar.to.ReplaceExplicitTypeWithValIntentionAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.valvar.to.ReplaceExplicitTypeWithVarIntentionAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.valvar.from.ReplaceValWithExplicitTypeIntentionAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.valvar.from.ReplaceVarWithExplicitTypeIntentionAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.ReplaceWithLombokAnnotationAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.ReplaceSynchronizedWithLombokAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.AddAllLombokBuilderMethodsAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-    <intentionAction>
+-      <language>JAVA</language>
+-      <className>de.plushnikov.intellij.plugin.intention.AddRequiredLombokBuilderMethodsAction</className>
+-      <bundleName>messages.LombokBundle</bundleName>
+-      <categoryKey>intention.category.lombok</categoryKey>
+-    </intentionAction>
+-
+-    <codeInsight.template.postfixTemplateProvider language="JAVA"
+-                                                  implementationClass="de.plushnikov.intellij.plugin.extension.postfix.LombokPostfixTemplateProvider"/>
+-    <codeInsight.externalLibraryResolver implementation="de.plushnikov.intellij.plugin.resolver.LombokExternalLibraryResolver"/>
+-
+-    <buildProcess.parametersProvider implementation="de.plushnikov.intellij.plugin.jps.LombokBuildProcessParametersProvider"/>
+-    <notificationGroup id="Lombok plugin" displayType="BALLOON" bundle="messages.LombokBundle" key="notification.group.lombok"/>
+-
+-    <dependencySupport coordinate="org.projectlombok:lombok" kind="java" displayName="Lombok"/>
+-
+-    <jvm.logging implementation="de.plushnikov.intellij.plugin.logging.LombokSlf4jLogger"/>
+-    <jvm.logging implementation="de.plushnikov.intellij.plugin.logging.LombokLog4j2Logger"/>
+-    <jvm.logging implementation="de.plushnikov.intellij.plugin.logging.LombokLog4jLogger"/>
+-    <jvm.logging implementation="de.plushnikov.intellij.plugin.logging.LombokApacheCommonsLogger"/>
+-
+-    <registryKey key="lombok.dumb.mode.enabled" defaultValue="true" restartRequired="true"
+-                 description="Lombok augment works in dumb mode"/>
+-    <registryKey key="lombok.incomplete.mode.enabled" defaultValue="true" restartRequired="true"
+-                 description="Lombok supports incomplete mode"/>
+-    <registryKey key="lombok.slow.jar.detection.enabled" defaultValue="false" restartRequired="true"
+-                 description="Enable slow detection of Lombok JARs attached directly from disk"/>
+-  </extensions>
+-
+-  <projectListeners>
+-    <listener class="de.plushnikov.intellij.plugin.activity.LombokBuildManagerListener"
+-              topic="com.intellij.compiler.server.BuildManagerListener"/>
+-  </projectListeners>
+-
+-  <applicationListeners>
+-    <listener class="de.plushnikov.intellij.plugin.lombokconfig.LombokConfigChangeListener"
+-              topic="com.intellij.openapi.vfs.newvfs.BulkFileListener"/>
+-  </applicationListeners>
+-
+-  <actions>
+-    <group id="LombokActionGroup" class="de.plushnikov.intellij.plugin.action.LombokMenuGroup" icon="LombokIcons.Lombok" popup="true">
+-      <action id="defaultLombokData" class="de.plushnikov.intellij.plugin.action.lombok.LombokDataAction"/>
+-      <separator/>
+-      <action id="defaultLombokGetter" class="de.plushnikov.intellij.plugin.action.lombok.LombokGetterAction"/>
+-      <action id="defaultLombokSetter" class="de.plushnikov.intellij.plugin.action.lombok.LombokSetterAction"/>
+-      <action id="defaultLombokEqualsAndHashcode" class="de.plushnikov.intellij.plugin.action.lombok.LombokEqualsAndHashcodeAction"/>
+-      <action id="defaultLombokToString" class="de.plushnikov.intellij.plugin.action.lombok.LombokToStringAction"/>
+-      <separator/>
+-      <action id="defaultLombokLogger" class="de.plushnikov.intellij.plugin.action.lombok.LombokLoggerAction"/>
+-
+-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+-    </group>
+-
+-    <group id="DelombokActionGroup" class="de.plushnikov.intellij.plugin.action.LombokMenuGroup" icon="LombokIcons.Lombok" popup="true">
+-      <action id="delombokAny" class="de.plushnikov.intellij.plugin.action.delombok.DelombokEverythingAction"/>
+-      <separator/>
+-      <action id="delombokData" class="de.plushnikov.intellij.plugin.action.delombok.DelombokDataAction"/>
+-      <action id="delombokValue" class="de.plushnikov.intellij.plugin.action.delombok.DelombokValueAction"/>
+-      <action id="delombokWither" class="de.plushnikov.intellij.plugin.action.delombok.DelombokWitherAction"/>
+-      <action id="delombokDelegate" class="de.plushnikov.intellij.plugin.action.delombok.DelombokDelegateAction"/>
+-      <action id="delombokBuilder" class="de.plushnikov.intellij.plugin.action.delombok.DelombokBuilderAction"/>
+-      <action id="delombokSuperBuilder" class="de.plushnikov.intellij.plugin.action.delombok.DelombokSuperBuilderAction"/>
+-      <separator/>
+-      <action id="delombokConstructor" class="de.plushnikov.intellij.plugin.action.delombok.DelombokConstructorAction"/>
+-      <action id="delombokGetter" class="de.plushnikov.intellij.plugin.action.delombok.DelombokGetterAction"/>
+-      <action id="delombokSetter" class="de.plushnikov.intellij.plugin.action.delombok.DelombokSetterAction"/>
+-      <action id="delombokEqualsAndHashCode"
+-              class="de.plushnikov.intellij.plugin.action.delombok.DelombokEqualsAndHashCodeAction"/>
+-      <action id="delombokToString" class="de.plushnikov.intellij.plugin.action.delombok.DelombokToStringAction"/>
+-      <separator/>
+-      <action id="delombokLogger" class="de.plushnikov.intellij.plugin.action.delombok.DelombokLoggerAction"/>
+-      <action id="delombokFieldNameCostants"
+-              class="de.plushnikov.intellij.plugin.action.delombok.DelombokFieldNameConstantsAction"/>
+-      <action id="delombokUtilityClass" class="de.plushnikov.intellij.plugin.action.delombok.DelombokUtilityClassAction"/>
+-      <action id="delombokStandardException" class="de.plushnikov.intellij.plugin.action.delombok.DelombokStandardExceptionAction"/>
+-
+-      <add-to-group group-id="RefactoringMenu" anchor="last"/>
+-    </group>
+-  </actions>
+-</idea-plugin>
+diff --git a/plugins/lsp.ui/resources/META-INF/plugin.xml b/plugins/lsp.ui/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 8859ed6c84..0000000000
+--- a/plugins/lsp.ui/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,27 +0,0 @@
+-<idea-plugin package="com.intellij.lsp.ui" allow-bundled-update="true">
+-  <name>LSP Servers</name>
+-  <id>com.intellij.lsp.ui</id>
+-  <category>Other Tools</category>
+-  <description><![CDATA[
+-    This plugin provides a UI for managing LSP servers.
+-  ]]></description>
+-  <vendor>JetBrains</vendor>
+-
+-  <dependencies>
+-    <module name="intellij.platform.frontend"/>
+-  </dependencies>
+-
+-  <extensions defaultExtensionNs="com.intellij">
+-    <projectConfigurable id="lsp.servers"
+-                         bundle="messages.LspUiBundle"
+-                         key="lsp.settings.display.name"
+-                         instance="com.intellij.lsp.ui.settings.LspServersConfigurable"
+-                         parentId="tools"/>
+-    <platform.lsp.integrationProvider implementation="com.intellij.lsp.ui.ConfigurableLspIntegrationProvider"/>
+-
+-    <!-- Statistics -->
+-    <statistics.projectUsagesCollector implementation="com.intellij.lsp.ui.statistics.LspServerUsagesCollector"/>
+-    <projectSettings service="com.intellij.lsp.ui.settings.LspServerSettings"/>
+-  </extensions>
+-  <resource-bundle>messages.LspUiBundle</resource-bundle>
+-</idea-plugin>
+\ No newline at end of file
+diff --git a/plugins/markdown/core/resources/META-INF/plugin.xml b/plugins/markdown/core/resources/META-INF/plugin.xml
+index 13f527fb8f..63103d66c5 100644
+--- a/plugins/markdown/core/resources/META-INF/plugin.xml
++++ b/plugins/markdown/core/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>org.intellij.plugins.markdown</id>
+   <name>Markdown</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <resource-bundle>messages.MarkdownBundle</resource-bundle>
+ 
+diff --git a/plugins/marketplace-ml/resources/META-INF/plugin.xml b/plugins/marketplace-ml/resources/META-INF/plugin.xml
+index e2b1875252..4774399a81 100644
+--- a/plugins/marketplace-ml/resources/META-INF/plugin.xml
++++ b/plugins/marketplace-ml/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="com.intellij.marketplaceMl">
+   <id>com.intellij.marketplace.ml</id>
+   <name>Machine Learning in Marketplace</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/maven/plugin/resources/META-INF/plugin.xml b/plugins/maven/plugin/resources/META-INF/plugin.xml
+index c02dd1322f..3c7d6d73b4 100644
+--- a/plugins/maven/plugin/resources/META-INF/plugin.xml
++++ b/plugins/maven/plugin/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>org.jetbrains.idea.maven</id>
+   <name>Maven</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Build Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/mcp-server/resources/META-INF/plugin.xml b/plugins/mcp-server/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 4ac911ccc4..0000000000
+--- a/plugins/mcp-server/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,134 +0,0 @@
+-<idea-plugin package="com.intellij.mcpserver" allow-bundled-update="true">
+-  <name>MCP Server</name>
+-  <id>com.intellij.mcpServer</id>
+-  <category>AI-Powered</category>
+-  <description><![CDATA[
+-    MCP (Model Context Protocol) Server for JetBrains IDEs
+-    This plugin integrates the MCP server into JetBrains IDEs, enabling seamless communication between LLMsc
+-    and your development environment. It provides tools for interacting with the IDE, including:
+-    <ul>
+-      <li>Reading the current file</li>
+-      <li>Executing terminal commands</li>
+-      <li>Setting breakpoints</li>
+-      <li>Searching project files</li>
+-      <li>And more</li>
+-    </ul>
+-  ]]></description>
+-  <vendor>JetBrains</vendor>
+-
+-  <dependencies>
+-    <module name="intellij.libraries.kotlinx.io"/>
+-    <module name="intellij.libraries.ktor.client"/>
+-    <module name="intellij.libraries.ktor.io"/>
+-    <module name="intellij.libraries.ktor.network.tls"/>
+-    <module name="intellij.libraries.ktor.server.cio"/>
+-    <module name="intellij.libraries.ktor.client.cio"/>
+-    <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+-    <module name="intellij.platform.compose"/>
+-    <!-- endregion -->
+-  </dependencies>
+-  <content namespace="jetbrains">
+-    <module name="intellij.mcpserver.vcs"/>
+-    <module name="intellij.mcpserver.terminal"/>
+-    <module name="intellij.mcpserver.terminal.frontend"/>
+-  </content>
+-
+-  <extensionPoints>
+-    <extensionPoint name="mcpToolsProvider" interface="com.intellij.mcpserver.McpToolsProvider" dynamic="true" />
+-    <extensionPoint name="mcpToolFilterProvider" interface="com.intellij.mcpserver.McpToolFilterProvider" dynamic="true" />
+-    <extensionPoint name="mcpToolset" interface="com.intellij.mcpserver.McpToolset" dynamic="true" />
+-    <extensionPoint name="mcpProjectPathCustomizer" interface="com.intellij.mcpserver.McpProjectPathCustomizer" dynamic="true" />
+-    <extensionPoint name="mcpManagedSessionSupport" interface="com.intellij.mcpserver.McpManagedSessionSupport" dynamic="true" />
+-    <extensionPoint name="elicitationProvider" interface="com.intellij.mcpserver.elicitation.McpElicitationProvider" dynamic="true" />
+-    <extensionPoint name="projectDependenciesProvider" interface="com.intellij.mcpserver.McpProjectDependenciesProvider" dynamic="true" />
+-    <extensionPoint name="statusBarWidgetProvider" interface="com.intellij.mcpserver.widget.McpServerStatusBarWidgetProvider" dynamic="true" />
+-  </extensionPoints>
+-
+-  <extensions defaultExtensionNs="com.intellij">
+-    <applicationService serviceImplementation="com.intellij.mcpserver.impl.util.network.McpServerConnectionAddressProvider"/>
+-    <applicationService serviceImplementation="com.intellij.mcpserver.impl.McpServerService"/>
+-
+-    <applicationService serviceImplementation="com.intellij.mcpserver.toolsets.general.SymbolSearchEngine" open="true"/>
+-
+-    <serviceViewContributor implementation="com.intellij.mcpserver.services.McpServiceViewContributor"/>
+-
+-    <statistics.counterUsagesCollector implementationClass="com.intellij.mcpserver.statistics.McpServerCounterUsagesCollector"/>
+-    <statistics.validation.customValidationRule implementation="com.intellij.mcpserver.statistics.McpServerCounterUsagesCollector$McpToolNameValidator"/>
+-    <statistics.applicationUsagesCollector implementation="com.intellij.mcpserver.statistics.McpServerApplicationUsagesCollector"/>
+-
+-    <appStarter id="mcpServer" implementation="com.intellij.mcpserver.McpServerHeadlessStarter" internal="true"/>
+-    <backgroundPostStartupActivity implementation="com.intellij.mcpserver.impl.McpServerService$MyProjectListener" />
+-    <notificationGroup id="MCP Server" displayType="BALLOON" bundle="messages.McpServerBundle" key="notification.group.mcp.server"
+-      notificationIds="mcp.client.detected;mcp.client.autoconfigured;mcp.client.error.autoconfigured;mcp.client.wrong.port.detected"/>
+-
+-    <mcpServer.mcpToolsProvider implementation="com.intellij.mcpserver.impl.ReflectionToolsProvider" />
+-    <mcpServer.elicitationProvider implementation="com.intellij.mcpserver.elicitation.McpElicitationCliProvider" />
+-    <mcpServer.mcpToolFilterProvider implementation="com.intellij.mcpserver.impl.DisallowListBasedMcpToolFilterProvider" />
+-    <mcpServer.mcpToolFilterProvider implementation="com.intellij.mcpserver.impl.SettingsBasedMcpToolFilterProvider" />
+-    <mcpServer.mcpToolFilterProvider implementation="com.intellij.mcpserver.impl.RegistryKeyMcpToolFilterProvider" />
+-    <mcpServer.mcpToolFilterProvider implementation="com.intellij.mcpserver.impl.IndividualRegistryKeyMcpToolFilterProvider" />
+-    <mcpServer.projectDependenciesProvider implementation="com.intellij.mcpserver.toolsets.general.JpsDependenciesProvider" />
+-
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.ExecutionToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.AnalysisToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.FileToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.FormattingToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.UniversalToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.ReadToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.PatchToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.SearchToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.CodeInsightToolset" />
+-    <mcpServer.mcpToolset implementation="com.intellij.mcpserver.toolsets.general.RefactoringToolset" />
+-
+-    <registryKey defaultValue="true"
+-                 description="Whether to return output schema and structured output from tools"
+-                 key="mcp.server.structured.tool.output"/>
+-    <registryKey defaultValue="false"
+-                 description="Support legacy MCP server name"
+-                 key="mcp.server.write.legacy.key"/>
+-    <registryKey defaultValue="true"
+-                 description="Enable OT tracer for MCP tool calls"
+-                 key="mcp.server.ot.trace"/>
+-    <registryKey defaultValue=""
+-                 description="Filter for MCP tools, like -*,+com.intellij.mcpserver.toolsets.general.*,-*.read_file"
+-                 key="mcp.server.tools.filter"/>
+-    <registryKey defaultValue="false"
+-                 description="Show advanced filter options UI in MCP tool filter settings"
+-                 key="mcp.server.show.advanced.filter.options.ui"/>
+-    <registryKey defaultValue="1000"
+-                 description="Throttle interval in milliseconds for MCP progress notifications and keep-alives"
+-                 key="mcp.server.progress.notification.interval.ms"/>
+-
+-    <statusBarWidgetFactory id="McpServerStatusBarWidget"
+-                             implementation="com.intellij.mcpserver.widget.McpServerStatusBarWidgetFactory"
+-                             order="after PowerSaveMode"/>
+-
+-    <applicationConfigurable
+-      instance="com.intellij.mcpserver.settings.McpServerSettingsConfigurable"
+-      id="com.intellij.mcpserver.settings"
+-      key="mcp.server.configurable.name"
+-      bundle="messages.McpServerBundle"
+-      dynamic="true"
+-      parentId="tools"/>
+-
+-    <applicationConfigurable
+-      instance="com.intellij.mcpserver.settings.McpToolFilterConfigurable"
+-      id="com.intellij.mcpserver.settings.filter"
+-      key="configurable.mcp.tool.filter"
+-      bundle="messages.McpServerBundle"
+-      dynamic="true"
+-      parentId="com.intellij.mcpserver.settings"/>
+-
+-    <applicationSettings service="com.intellij.mcpserver.settings.McpServerSettings"/>
+-    <applicationSettings service="com.intellij.mcpserver.settings.McpToolDisallowListSettings"/>
+-    <applicationSettings service="com.intellij.mcpserver.settings.McpToolFilterSettings"/>
+-  </extensions>
+-
+-  <resource-bundle>messages.McpServerBundle</resource-bundle>
+-
+-  <actions>
+-    <action id="com.intellij.mcpserver.actions.ShowMcpToolsAction" class="com.intellij.mcpserver.actions.ShowMcpToolsAction">
+-      <add-to-group group-id="ToolsMenu" anchor="last"/>
+-    </action>
+-  </actions>
+-</idea-plugin>
+diff --git a/plugins/mcp-server/tests/plugin/testResources/META-INF/plugin.xml b/plugins/mcp-server/tests/plugin/testResources/META-INF/plugin.xml
+deleted file mode 100644
+index f0a1bd86ab..0000000000
+--- a/plugins/mcp-server/tests/plugin/testResources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,32 +0,0 @@
+-<idea-plugin>
+-  <id>intellij.mcpserver.tests.plugin</id>
+-  <name>MCP Server Tests Plugin for intellij.mcpserver.tests module</name>
+-  <vendor>JetBrains</vendor>
+-
+-  <content namespace="jetbrains">
+-    <module name="intellij.java.rt"/>
+-    <module name="intellij.libraries.hamcrest"/>
+-    <module name="intellij.libraries.junit4"/>
+-    <module name="intellij.libraries.junit5"/>
+-    <module name="intellij.libraries.junit5.jupiter"/>
+-    <module name="intellij.libraries.junit5.launcher"/>
+-    <module name="intellij.libraries.junit5.params"/>
+-    <module name="intellij.libraries.junit5.vintage"/>
+-    <module name="intellij.libraries.kotlinTest"/>
+-    <module name="intellij.libraries.kotlinTestAssertionsCoreJvm"/>
+-    <module name="intellij.mcpserver.tests"/>
+-    <module name="intellij.platform.testFramework"/>
+-    <module name="intellij.platform.testFramework.common"/>
+-    <module name="intellij.platform.testFramework.core"/>
+-    <module name="intellij.platform.testFramework.impl"/>
+-    <module name="intellij.platform.testFramework.teamCity"/>
+-    <module name="intellij.codeowners"/>
+-    <module name="intellij.codeowners.monorepo.resolver"/>
+-    <module name="intellij.codeowners.runtime.resolver"/>
+-    <module name="intellij.platform.testFramework.junit5"/>
+-    <module name="intellij.tools.testsBootstrap"/>
+-  </content>
+-  <content>
+-    <module name="intellij.libraries.assertj.core"/>
+-  </content>
+-</idea-plugin>
+diff --git a/plugins/mermaid/resources/META-INF/plugin.xml b/plugins/mermaid/resources/META-INF/plugin.xml
+index 5290809e58..67c79bcd55 100644
+--- a/plugins/mermaid/resources/META-INF/plugin.xml
++++ b/plugins/mermaid/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.intellij.mermaid</id>
+   <name>Mermaid</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description><![CDATA[
+     Provides editing support and diagram preview for
+     <a href="https://mermaid.js.org/">Mermaid</a> diagramming and charting language.
+diff --git a/plugins/ml-local-models/resources/META-INF/plugin.xml b/plugins/ml-local-models/resources/META-INF/plugin.xml
+index 6d657669c4..3dd638ed26 100644
+--- a/plugins/ml-local-models/resources/META-INF/plugin.xml
++++ b/plugins/ml-local-models/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin implementation-detail="true">
+   <id>com.intellij.ml.local.models</id>
+   <name>Machine Learning Local Models</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/performanceTesting/core/resources/META-INF/plugin.xml b/plugins/performanceTesting/core/resources/META-INF/plugin.xml
+index 4e61d1161e..2895e5168b 100644
+--- a/plugins/performanceTesting/core/resources/META-INF/plugin.xml
++++ b/plugins/performanceTesting/core/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>com.jetbrains.performancePlugin</id>
+   <name>Performance Testing</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Platform Development</category>
+   <resource-bundle>messages.PerformanceTestingBundle</resource-bundle>
+ 
+diff --git a/plugins/performanceTesting/scripts-ui/resources/META-INF/plugin.xml b/plugins/performanceTesting/scripts-ui/resources/META-INF/plugin.xml
+index f1cb9cb3f6..73c6ba4317 100644
+--- a/plugins/performanceTesting/scripts-ui/resources/META-INF/plugin.xml
++++ b/plugins/performanceTesting/scripts-ui/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.jetbrains.performanceScripts</id>
+   <name>Performance Scripts UI</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description>
+     Provides UI to execute performance scripts written in IJPerf language.
+diff --git a/plugins/properties/properties-common/resources/META-INF/plugin.xml b/plugins/properties/properties-common/resources/META-INF/plugin.xml
+index 94a9239c74..9ab1870eed 100644
+--- a/plugins/properties/properties-common/resources/META-INF/plugin.xml
++++ b/plugins/properties/properties-common/resources/META-INF/plugin.xml
+@@ -5,7 +5,7 @@
+   <description>
+     Enables smart editing of .properties files.
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <resource-bundle>messages.PropertiesBundle</resource-bundle>
+ 
+   <content namespace="jetbrains">
+diff --git a/plugins/rareJavaRefactorings/resources/META-INF/plugin.xml b/plugins/rareJavaRefactorings/resources/META-INF/plugin.xml
+index 82dda2b91c..c10d0e6809 100644
+--- a/plugins/rareJavaRefactorings/resources/META-INF/plugin.xml
++++ b/plugins/rareJavaRefactorings/resources/META-INF/plugin.xml
+@@ -7,7 +7,7 @@
+   <description>
+     Provides the "Convert Raw Types to Generics", "Remove Middle Man", "Replace Temp with Query" and "Wrap Method Return Value" refactorings
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+     <module name="intellij.java.psi"/>
+diff --git a/plugins/remote-control/resources/META-INF/plugin.xml b/plugins/remote-control/resources/META-INF/plugin.xml
+index 4462c42894..a35676085c 100644
+--- a/plugins/remote-control/resources/META-INF/plugin.xml
++++ b/plugins/remote-control/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+   <description>
+     Allows opening projects, files and settings through the REST API of the built-in Web server.
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <depends>com.intellij.modules.lang</depends>
+ 
+diff --git a/plugins/repository-search/resources/META-INF/plugin.xml b/plugins/repository-search/resources/META-INF/plugin.xml
+deleted file mode 100644
+index 2ef74eb388..0000000000
+--- a/plugins/repository-search/resources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,18 +0,0 @@
+-<idea-plugin>
+-  <id>org.jetbrains.idea.reposearch</id>
+-  <name>Artifacts Repository Search</name>
+-  <vendor>JetBrains</vendor>
+-  <category>Build Tools</category>
+-  <description><![CDATA[
+-    Provides API for artifact search such as Maven/Gradle dependencies.
+-  ]]></description>
+-
+-  <content namespace="jetbrains">
+-    <module name="intellij.repository.search.common"/>
+-    <module name="intellij.repository.search.completion"/>
+-    <module name="intellij.repository.search.ultimate"/>
+-  </content>
+-  <content>
+-    <module name="intellij.libraries.kotlinx.document.store.mvstore"/>
+-  </content>
+-</idea-plugin>
+\ No newline at end of file
+diff --git a/plugins/restructuredtext/resources/META-INF/plugin.xml b/plugins/restructuredtext/resources/META-INF/plugin.xml
+index 1472a5dcc9..84e35c5658 100644
+--- a/plugins/restructuredtext/resources/META-INF/plugin.xml
++++ b/plugins/restructuredtext/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>ReStructuredText</name>
+   <id>org.jetbrains.plugins.rest</id>
+   <description>This plugin enables support for reStructuredText files (*.rst)</description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <plugin id="com.intellij.modules.lang"/>
+diff --git a/plugins/search-everywhere-lucene/resources/META-INF/plugin.xml b/plugins/search-everywhere-lucene/resources/META-INF/plugin.xml
+index 2961ca7601..f914bf671d 100644
+--- a/plugins/search-everywhere-lucene/resources/META-INF/plugin.xml
++++ b/plugins/search-everywhere-lucene/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+  <idea-plugin allow-bundled-update="true">
+   <id>com.intellij.searchEverywhereLucene</id>
+   <name>Search Everywhere Lucene</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description>Enables Lucene based Search-Everywhere Tabs</description>
+ 
+   <!-- Declare split content modules that belong to this plugin -->
+diff --git a/plugins/search-everywhere-ml/resources/META-INF/plugin.xml b/plugins/search-everywhere-ml/resources/META-INF/plugin.xml
+index cac5d99c5d..1884dc980f 100644
+--- a/plugins/search-everywhere-ml/resources/META-INF/plugin.xml
++++ b/plugins/search-everywhere-ml/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.intellij.searcheverywhere.ml</id>
+   <name>Machine Learning in Search Everywhere</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/settings-repository/resources/META-INF/plugin.xml b/plugins/settings-repository/resources/META-INF/plugin.xml
+index dc23014924..a09cdc6f5b 100644
+--- a/plugins/settings-repository/resources/META-INF/plugin.xml
++++ b/plugins/settings-repository/resources/META-INF/plugin.xml
+@@ -17,7 +17,7 @@
+   <p>Synchronization is performed automatically after successful completion of "Update Project" or "Push" actions. Also, you can do sync using VCS -> Sync Settings.</p>
+   <p>See the <a href="https://www.jetbrains.com/help/idea/sharing-your-ide-settings.html#settings-repository">Share settings through a settings repository</a> for more info.</p>
+ ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <!-- otherwise plugin will be not loaded in tests -->
+diff --git a/plugins/settings-sync/jba/resources/META-INF/plugin.xml b/plugins/settings-sync/jba/resources/META-INF/plugin.xml
+index f27ac7a1e3..d2f58f8bba 100644
+--- a/plugins/settings-sync/jba/resources/META-INF/plugin.xml
++++ b/plugins/settings-sync/jba/resources/META-INF/plugin.xml
+@@ -6,7 +6,7 @@
+     <p>Backs up and synchronizes settings across all JetBrains IDE instances using your JetBrains account.
+     The list of synced settings is customizable and includes UI, keymaps, code style, plugins, and much more.</p>
+   ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <module name="intellij.settingsSync.core"/>
+diff --git a/plugins/sh/plugin/resources/META-INF/plugin.xml b/plugins/sh/plugin/resources/META-INF/plugin.xml
+index 4cf64616d9..d57a2ee372 100644
+--- a/plugins/sh/plugin/resources/META-INF/plugin.xml
++++ b/plugins/sh/plugin/resources/META-INF/plugin.xml
+@@ -1,6 +1,6 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>com.jetbrains.sh</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <name>Shell Script</name>
+   <category>Languages</category>
+ 
+diff --git a/plugins/stats-collector/resources/META-INF/plugin.xml b/plugins/stats-collector/resources/META-INF/plugin.xml
+index e7c5533e6f..50886d45e5 100644
+--- a/plugins/stats-collector/resources/META-INF/plugin.xml
++++ b/plugins/stats-collector/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.intellij.stats.completion</id>
+   <name>Completion Stats Collector</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Platform Development</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/stream-debugger/resources/META-INF/plugin.xml b/plugins/stream-debugger/resources/META-INF/plugin.xml
+index ce87891b49..ce113f6afb 100644
+--- a/plugins/stream-debugger/resources/META-INF/plugin.xml
++++ b/plugins/stream-debugger/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>org.jetbrains.debugger.streams</id>
+   <name>Java Stream Debugger</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>JVM Tools</category>
+   <content namespace="jetbrains">
+     <module name="intellij.debugger.streams.core" loading="required"/>
+diff --git a/plugins/svn4idea/resources/META-INF/plugin.xml b/plugins/svn4idea/resources/META-INF/plugin.xml
+index 4e9ca2f004..45367ae65c 100644
+--- a/plugins/svn4idea/resources/META-INF/plugin.xml
++++ b/plugins/svn4idea/resources/META-INF/plugin.xml
+@@ -9,7 +9,7 @@
+       Requires command line svn client.
+       ]]>
+   </description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <resource-bundle>messages.SvnBundle</resource-bundle>
+ 
+   <dependencies>
+diff --git a/plugins/tasks/tasks-core/resources/META-INF/plugin.xml b/plugins/tasks/tasks-core/resources/META-INF/plugin.xml
+index 919101d157..867fe55636 100644
+--- a/plugins/tasks/tasks-core/resources/META-INF/plugin.xml
++++ b/plugins/tasks/tasks-core/resources/META-INF/plugin.xml
+@@ -11,7 +11,7 @@
+   <li>Save and switch the context for every task: bookmarks, breakpoints, and editor tabs</li>
+   </ul>
+ ]]></description>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <content namespace="jetbrains">
+     <module name="intellij.tasks.trac"/>
+diff --git a/plugins/terminal/resources/META-INF/plugin.xml b/plugins/terminal/resources/META-INF/plugin.xml
+index 886ee31df4..f34eacaa53 100644
+--- a/plugins/terminal/resources/META-INF/plugin.xml
++++ b/plugins/terminal/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Terminal</name>
+   <category>Other Tools</category>
+   <id>org.jetbrains.plugins.terminal</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     <p>
+diff --git a/plugins/testng/resources/META-INF/plugin.xml b/plugins/testng/resources/META-INF/plugin.xml
+index 2dd7e5f7a0..fea62a60a6 100644
+--- a/plugins/testng/resources/META-INF/plugin.xml
++++ b/plugins/testng/resources/META-INF/plugin.xml
+@@ -7,7 +7,7 @@
+     <p>Originally developed by Theory In Practice.</p>
+     ]]></description>
+   <category>Test Tools</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+     <module name="intellij.java.debugger.impl"/>
+diff --git a/plugins/textmate/plugin/resources/META-INF/plugin.xml b/plugins/textmate/plugin/resources/META-INF/plugin.xml
+index f12197c682..36fea24350 100644
+--- a/plugins/textmate/plugin/resources/META-INF/plugin.xml
++++ b/plugins/textmate/plugin/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>org.jetbrains.plugins.textmate</id>
+   <name>TextMate Bundles</name>
+   <category>Languages</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     Supports syntax highlighting for arbitrary file types,
+diff --git a/plugins/toml/resources/META-INF/plugin.xml b/plugins/toml/resources/META-INF/plugin.xml
+index 204b7593e8..cb834e021f 100644
+--- a/plugins/toml/resources/META-INF/plugin.xml
++++ b/plugins/toml/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin allow-bundled-update="true">
+     <id>org.toml.lang</id>
+     <name>Toml</name>
+-    <vendor>JetBrains</vendor>
++    <vendor>Picket Studio</vendor>
+     <category>Languages</category>
+ 
+     <description><![CDATA[
+diff --git a/plugins/turboComplete/resources/META-INF/plugin.xml b/plugins/turboComplete/resources/META-INF/plugin.xml
+index 202774ec04..9681510d4a 100644
+--- a/plugins/turboComplete/resources/META-INF/plugin.xml
++++ b/plugins/turboComplete/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin>
+   <id>com.intellij.turboComplete</id>
+   <name>Turbo Complete</name>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Local AI/ML Tools</category>
+ 
+   <description><![CDATA[
+diff --git a/plugins/ui-designer/resources/META-INF/plugin.xml b/plugins/ui-designer/resources/META-INF/plugin.xml
+index 8546818bbd..8e3a9350de 100644
+--- a/plugins/ui-designer/resources/META-INF/plugin.xml
++++ b/plugins/ui-designer/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <name>Swing UI Designer</name>
+   <id>com.intellij.uiDesigner</id>
+   <category>Swing</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <description>Allows to design Swing UI graphically, supports code generation/instrumentation, preview, widgets library and UI-related code inspections</description>
+   <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+   <dependencies>
+diff --git a/plugins/webp/resources/META-INF/plugin.xml b/plugins/webp/resources/META-INF/plugin.xml
+index 1573aaae51..e1263d7e49 100644
+--- a/plugins/webp/resources/META-INF/plugin.xml
++++ b/plugins/webp/resources/META-INF/plugin.xml
+@@ -1,6 +1,6 @@
+ <idea-plugin allow-bundled-update="true">
+   <id>intellij.webp</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <name>WebP</name>
+   <description><![CDATA[
+     <p>Allows viewing images in the <a href="https://developers.google.com/speed/webp">WebP</a> format in the IDE.</p>
+diff --git a/plugins/xpath/xpath-lang/resources/META-INF/plugin.xml b/plugins/xpath/xpath-lang/resources/META-INF/plugin.xml
+index ec0e7a509b..3c09a524b2 100644
+--- a/plugins/xpath/xpath-lang/resources/META-INF/plugin.xml
++++ b/plugins/xpath/xpath-lang/resources/META-INF/plugin.xml
+@@ -2,7 +2,7 @@
+   <id>XPathView</id>
+   <name>XPathView + XSLT</name>
+   <category>HTML and XML</category>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <description><![CDATA[
+     <p>Provides a possibility to evaluate XPath expressions against any XML document
+diff --git a/plugins/yaml/resources/META-INF/plugin.xml b/plugins/yaml/resources/META-INF/plugin.xml
+index 6c32c9e65e..a9435d8457 100644
+--- a/plugins/yaml/resources/META-INF/plugin.xml
++++ b/plugins/yaml/resources/META-INF/plugin.xml
+@@ -1,7 +1,7 @@
+ <idea-plugin package="org.jetbrains.yaml" allow-bundled-update="true">
+   <name>YAML</name>
+   <id>org.jetbrains.plugins.yaml</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <category>Languages</category>
+   <description><![CDATA[
+     Provides syntax highlighting and editor features for <a href="https://yaml.org/">YAML</a> language.
+diff --git a/python/ide/customization.shared/resources/META-INF/plugin.xml b/python/ide/customization.shared/resources/META-INF/plugin.xml
+index 64cae5b7df..5850ebc902 100644
+--- a/python/ide/customization.shared/resources/META-INF/plugin.xml
++++ b/python/ide/customization.shared/resources/META-INF/plugin.xml
+@@ -3,23 +3,43 @@
+ 
+   <name>PyCharm Community and Prof Customization Shared Parts</name>
+   <id>intellij.pycharm.community.customization.shared</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
++  <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
++  <dependencies>
++    <module name="intellij.platform.ide.impl"/>
++  </dependencies>
++  <!-- endregion -->
+   <content namespace="jetbrains">
+     <module name="intellij.pycharm.community.ide.impl"/>
++    <module name="intellij.pycharm.community.customization.frontend"/>
+     <module name="intellij.pycharm.community.ide.implTraining"/>
+     <module name="intellij.platform.whatsNew"/>
+     <module name="intellij.python.common.frontend"/>
+     <module name="intellij.platform.ide.nonModalWelcomeScreen"/>
+     <module name="intellij.platform.ide.nonModalWelcomeScreen.backend"/>
+     <module name="intellij.platform.ide.nonModalWelcomeScreen.frontend"/>
++    <module name="intellij.pycharm.community.newUiOnboarding"/>
++    <!-- Do not add intellij.platform.vcs.plugin as a dependency of this shared wrapper.
++         This plugin is present in JetBrains Client layouts too, while the VCS action implementation
++         is backend-only. The backend content module below registers the product-specific VCS action
++         only when intellij.platform.backend is available. -->
++    <module name="intellij.pycharm.community.customization.backend" required-if-available="intellij.platform.backend"/>
+   </content>
+ 
+   <extensions defaultExtensionNs="com.intellij">
+-    <!-- This group redefined in 3 places
++    <!-- PyCharm and its JetBrains Client get the Python group from here. The other IDEs define it in
++      [community\python\pluginCore\frontend\resources\intellij.python.community.plugin.frontend.xml]. -->
++    <groupConfigurable id="python.group.settings"
++                       parentId="root"
++                       weight="1000"
++                       bundle="messages.PycharmIdeCustomizationBundle"
++                       displayNameKey="settings.python.group.title"
++                       descriptionKey="settings.python.group.description"/>
++
++    <!-- This group redefined in 2 places
+       In [plugins\jupyter\core\resources\intellij.jupyter.core.xml] to place it in 'tools' group for all IDEs
+-      In [community\python\ide\customization.shared\resources\META-INF\plugin.xml] and
+-      [python\pycharm\frontend\split\customization\resources\META-INF\plugin.xml] to place it on top level in setting, below Python group for PyCharm.
++      In [community\python\ide\customization.shared\resources\META-INF\plugin.xml] to place it on top level in setting, below Python group for PyCharm and its JetBrains Client.
+     -->
+     <groupConfigurable id="Jupyter Settings"
+                        parentId="root"
+@@ -34,4 +54,3 @@
+ 
+ 
+ 
+-
+diff --git a/python/ide/resources/META-INF/plugin.xml b/python/ide/resources/META-INF/plugin.xml
+index 6aa556f768..19ebf566ee 100644
+--- a/python/ide/resources/META-INF/plugin.xml
++++ b/python/ide/resources/META-INF/plugin.xml
+@@ -4,7 +4,7 @@
+ 
+   <name>PyCharm Community Customization</name>
+   <id>com.jetbrains.pycharm.community.customization</id>
+-  <vendor>JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+   <resource-bundle>messages.ActionsBundle</resource-bundle>
+ 
+   <dependencies>
+@@ -13,8 +13,13 @@
+     <plugin id="intellij.pycharm.community.customization.shared"/>
+   </dependencies>
+ 
+-  <xi:include href="/META-INF/tips-pycharm-community.xml"/>
+   <content namespace="jetbrains">
+     <module name="intellij.pycharm.community.ide.impl.promotion"/> <!-- mostly promo of Pro -->
+   </content>
++
++  <extensions defaultExtensionNs="com.intellij">
++    <applicationService serviceInterface="com.intellij.platform.ide.customization.ExternalProductResourceUrls"
++                        serviceImplementation="com.intellij.pycharm.community.customization.PyCharmExternalResourceUrls"
++                        overrides="true"/>
++  </extensions>
+ </idea-plugin>
+diff --git a/python/pluginCore/resources/META-INF/plugin.xml b/python/pluginCore/resources/META-INF/plugin.xml
+index 37b3075762..dc368376fd 100644
+--- a/python/pluginCore/resources/META-INF/plugin.xml
++++ b/python/pluginCore/resources/META-INF/plugin.xml
+@@ -1,4 +1,3 @@
+-<!--suppress PluginXmlRegistrationCheck -->
+ <idea-plugin url="https://www.jetbrains.com/pycharm/" allow-bundled-update="true">
+   <!--Python community support for Pycharm, DS and IC.-->
+   <!--Include core Python functionality-->
+@@ -16,7 +15,7 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+ <a href="https://youtrack.jetbrains.com/issues/PY">Issue tracker</a><br>
+ ]]></description>
+ 
+-  <vendor url="https://www.jetbrains.com/pycharm/">JetBrains</vendor>
++  <vendor>Picket Studio</vendor>
+ 
+   <dependencies>
+     <plugin id="com.intellij.modules.lang"/>
+@@ -24,6 +23,7 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.platform.debugger.impl.shared"/>
+     <!-- region Generated dependencies - run `Generate Product Layouts` to regenerate -->
+     <plugin id="org.toml.lang"/>
++    <module name="intellij.platform.lang"/>
+     <!-- endregion -->
+   </dependencies>
+ 
+@@ -38,18 +38,45 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.python.syntax" loading="required"/>
+ 
+     <module name="intellij.python.processOutput.common"/>
+-    <module name="intellij.python.processOutput.backend"/>
+     <module name="intellij.python.processOutput.frontend"/>
++    <module name="intellij.python.community.plugin.frontend"/>
++    <module name="intellij.python.pytools.common"/>
++    <module name="intellij.python.pytools.backend"/>
++    <module name="intellij.python.pytools.backend.runtime"/>
++    <module name="intellij.python.pytools.frontend"/>
++    <module name="intellij.python.community.impl.conda.common"/>
++    <module name="intellij.python.community.impl.conda.frontend"/>
++    <module name="intellij.python.community.impl.pipenv.common"/>
++    <module name="intellij.python.community.impl.pipenv.frontend"/>
++    <module name="intellij.python.hatch.common"/>
++    <module name="intellij.python.hatch.frontend"/>
++    <module name="intellij.python.community.impl.poetry.frontend"/>
++    <module name="intellij.python.uv.frontend"/>
++    <module name="intellij.python.venv.common"/>
++    <module name="intellij.python.venv.frontend"/>
++    <module name="intellij.python.black.common"/>
++    <module name="intellij.python.black.frontend"/>
++    <module name="intellij.python.lsp.core.common"/>
++    <module name="intellij.python.lsp.core.frontend"/>
++    <module name="intellij.python.pyright.common"/>
++    <module name="intellij.python.pyright.frontend"/>
++    <module name="intellij.python.pyrefly.common"/>
++    <module name="intellij.python.pyrefly.frontend"/>
++    <module name="intellij.python.ruff.common"/>
++    <module name="intellij.python.ruff.frontend"/>
++    <module name="intellij.python.ty.common"/>
++    <module name="intellij.python.ty.frontend"/>
++    <module name="intellij.python.zuban.common"/>
++    <module name="intellij.python.zuban.frontend"/>
+ 
+     <!-- Backend-only modules: load only when intellij.platform.backend is available -->
+     <module name="intellij.python.psi"/>
+-    <module name="intellij.python.psi.impl"/>
+-    <module name="intellij.python.sdk"/>
+-    <module name="intellij.python.sdk.ui"/>
++    <module name="intellij.python.psi.impl" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.sdk.common"/>
++    <module name="intellij.python.sdk.backend"/>
++    <module name="intellij.python.sdk.frontend"/>
+     <module name="intellij.python.pyproject"/>
+-    <module name="intellij.python.sdkConfigurator.common"/>
+     <module name="intellij.python.sdkConfigurator.backend"/>
+-    <module name="intellij.python.sdkConfigurator.frontend"/>
+     <module name="intellij.python.community.impl.poetry.common"/>
+     <module name="intellij.python.community.impl.poetry.backend"/>
+     <module name="intellij.python.uv.common"/>
+@@ -60,6 +87,11 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.python.community.helpersLocator"/>
+     <module name="intellij.python.community"/>
+     <module name="intellij.python.community.impl" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.django.common" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.flask.common" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.fastapi.common" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.dbt.common" required-if-available="intellij.platform.backend"/>
++    <module name="intellij.python.community.impl.jcef"/>
+     <module name="intellij.python.community.execService"/>
+     <module name="intellij.python.community.execService.python"/>
+     <module name="intellij.python.community.impl.installer"/>
+@@ -67,12 +99,11 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.python.venv"/>
+     <module name="intellij.python.hatch"/>
+     <module name="intellij.python.packaging"/>
+-    <module name="intellij.python.requirements"/>
+-    <module name="intellij.python.pytools"/>
++    <module name="intellij.python.requirements.common"/>
++    <module name="intellij.python.requirements.backend"/>
+     <module name="intellij.python.community.services.shared"/>
+     <module name="intellij.python.community.services.internal.impl"/>
+     <module name="intellij.python.community.services.systemPython"/>
+-    <module name="intellij.python.community.interpreters"/>
+     <module name="intellij.python.community.aliasProvider"/>
+     <module name="intellij.python.externalIndex"/>
+     <!--Mini-IDes support community python only-->
+@@ -80,7 +111,6 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.python.community.plugin.minorRider"/> <!-- Python special support for Rider -->
+     <module name="intellij.python.community.communityOnly" loading="optional"/> <!-- Community-specific code-->
+     <module name="intellij.commandInterface"/> <!-- used by Django in Prof, by some plugins in community -->
+-    <module name="intellij.python.community.impl.huggingFace"/>
+     <module name="intellij.python.community.plugin.impl"/><!--Python for any IDE except PyCharm -->
+     <module name="intellij.python.community.plugin.java"/><!-- Python for Java IDE -->
+     <module name="intellij.python.copyright"/>
+@@ -88,22 +118,28 @@ The Python plug-in provides smart editing for Python scripts. The feature set of
+     <module name="intellij.python.grazie"/>
+     <module name="intellij.python.langInjection"/>
+     <module name="intellij.python.markdown"/>
++    <module name="intellij.python.minimap"/>
+     <module name="intellij.python.mcp"/>
+     <module name="intellij.python.ml.features"/>
+     <module name="intellij.python.terminal.shared"/>
+     <module name="intellij.python.terminal.backend"/>
+     <module name="intellij.python.terminal.frontend"/>
+-    <module name="intellij.python.pytools.ui"/>
+     <module name="intellij.python.black"/>
+     <module name="intellij.python.lsp.core"/>
+-    <module name="intellij.python.lsp.impl"/>
++    <module name="intellij.python.lsp.impl.frontend"/>
+     <module name="intellij.python.typeEngine"/>
++    <module name="intellij.python.typeEngine.common"/>
++    <module name="intellij.python.typeEngine.frontend"/>
+     <module name="intellij.python.ty"/>
+     <module name="intellij.python.ruff"/>
+     <module name="intellij.python.pyrefly"/>
+     <module name="intellij.python.pyright"/>
++    <module name="intellij.python.zuban"/>
+   </content>
+   <content>
++    <module name="intellij.libraries.jsr305"/>
++    <module name="intellij.libraries.libthrift"/>
++    <module name="intellij.libraries.mlapi.catboost" loading="required"/>
+     <module name="intellij.libraries.tuweni.toml"/>
+   </content>
+ </idea-plugin>
+diff --git a/tools/intellij.lambda.sampleTestsWithFixtures/plugin/testResources/META-INF/plugin.xml b/tools/intellij.lambda.sampleTestsWithFixtures/plugin/testResources/META-INF/plugin.xml
+deleted file mode 100644
+index 4c1c0afef6..0000000000
+--- a/tools/intellij.lambda.sampleTestsWithFixtures/plugin/testResources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,39 +0,0 @@
+-<idea-plugin>
+-  <id>com.intellij.lambda.sampleTestsWithFixtures.plugin</id>
+-  <vendor>JetBrains</vendor>
+-
+-  <content namespace="jetbrains">
+-    <module name="intellij.platform.testFramework"/>
+-    <module name="intellij.platform.testFramework.junit5.codeInsight"/>
+-    <module name="intellij.platform.testFramework.junit5"/>
+-    <module name="intellij.platform.testFramework.core"/>
+-    <module name="intellij.platform.testFramework.common"/>
+-    <module name="intellij.codeowners"/>
+-    <module name="intellij.codeowners.monorepo.resolver"/>
+-    <module name="intellij.codeowners.runtime.resolver"/>
+-    <module name="intellij.platform.testFramework.impl"/>
+-    <module name="intellij.platform.testFramework.teamCity"/>
+-
+-    <module name="intellij.lambda.sampleTestsWithFixtures._test"/>
+-
+-    <module name="intellij.java.rt"/>
+-
+-    <module name="intellij.libraries.junit4"/>
+-    <module name="intellij.libraries.junit5"/>
+-    <module name="intellij.libraries.junit5.jupiter"/>
+-    <module name="intellij.libraries.junit5.launcher"/>
+-    <module name="intellij.libraries.junit5.vintage"/>
+-    <module name="intellij.libraries.hamcrest"/>
+-
+-    <module name="intellij.tools.testsBootstrap"/>
+-
+-    <module name="intellij.station.comms.common.testFramework"/>
+-    <module name="intellij.station.core.tests"/>
+-  </content>
+-  <content>
+-    <module name="intellij.libraries.assertj.core"/>
+-  </content>
+-  <dependencies>
+-    <module name="intellij.lambda.testFramework"/>
+-  </dependencies>
+-</idea-plugin>
+diff --git a/tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml b/tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml
+deleted file mode 100644
+index 02a4be14a0..0000000000
+--- a/tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml
++++ /dev/null
+@@ -1,14 +0,0 @@
+-<idea-plugin>
+-  <id>com.intellij.lambda.sampleTestsWithPlugin.plugin</id>
+-  <vendor>JetBrains</vendor>
+-
+-  <content namespace="jetbrains">
+-    <module name="intellij.lambda.sampleTestsWithPlugin._test" />
+-  </content>
+-  <content>
+-    <module name="intellij.libraries.assertj.core"/>
+-  </content>
+-  <dependencies>
+-    <module name="intellij.lambda.testFramework"/>
+-  </dependencies>
+-</idea-plugin>
+\ No newline at end of file
+diff --git a/tools/intellij.lambda.testFramework/plugin/testResources/META-INF/plugin.xml b/tools/intellij.lambda.testFramework/plugin/testResources/META-INF/plugin.xml
+index f299fcad8c..459715b9ee 100644
+--- a/tools/intellij.lambda.testFramework/plugin/testResources/META-INF/plugin.xml
++++ b/tools/intellij.lambda.testFramework/plugin/testResources/META-INF/plugin.xml
+@@ -1,9 +1,180 @@
++<!-- DO NOT EDIT: This file is auto-generated from Kotlin code -->
++<!-- To regenerate, run 'Generate Product Layouts' or directly UltimateGenerator.main() -->
++<!-- Source: platform/buildScripts/src/productLayout/UltimateModuleSets.kt: UltimateModuleSets.getTestProductSpecs()["lambdaTestFixtures"], testPlugin(pluginId = "com.intellij.lambda.test.plugin") -->
+ <idea-plugin>
+   <id>com.intellij.lambda.test.plugin</id>
+-  <vendor>JetBrains</vendor>
++  <name>Lambda Test Framework</name>
++  <vendor>Picket Studio</vendor>
++
++  <dependencies>
++    <module name="intellij.libraries.asm.tools"/>
++    <module name="intellij.libraries.commons.compress"/>
++    <module name="intellij.libraries.commons.io"/>
++    <module name="intellij.libraries.fastutil"/>
++    <module name="intellij.libraries.jackson"/>
++    <module name="intellij.libraries.jackson.databind"/>
++    <module name="intellij.libraries.jackson3"/>
++    <module name="intellij.libraries.jackson3.databind"/>
++    <module name="intellij.libraries.jackson3.module.kotlin"/>
++    <module name="intellij.libraries.jetbrains.annotations"/>
++    <module name="intellij.libraries.kotlin.reflect"/>
++    <module name="intellij.libraries.kotlinx.collections.immutable"/>
++    <module name="intellij.libraries.kotlinx.coroutines.core"/>
++    <module name="intellij.libraries.kotlinx.serialization.core"/>
++    <module name="intellij.libraries.kotlinx.serialization.json"/>
++    <module name="intellij.libraries.opentelemetry"/>
++    <module name="intellij.libraries.rd.core"/>
++    <module name="intellij.libraries.rd.framework"/>
++    <module name="intellij.libraries.squareup.okio.jvm"/>
++    <module name="intellij.libraries.teamcity.service.messages"/>
++    <module name="intellij.platform.analysis"/>
++    <module name="intellij.platform.analysis.impl"/>
++    <module name="intellij.platform.backend.observation"/>
++    <module name="intellij.platform.backend.workspace"/>
++    <module name="intellij.platform.bazel.runfiles"/>
++    <module name="intellij.platform.buildScripts.downloader"/>
++    <module name="intellij.platform.codeStyle"/>
++    <module name="intellij.platform.codeStyle.impl"/>
++    <module name="intellij.platform.concurrency"/>
++    <module name="intellij.platform.consoleView"/>
++    <module name="intellij.platform.consoleView.impl"/>
++    <module name="intellij.platform.core"/>
++    <module name="intellij.platform.core.impl"/>
++    <module name="intellij.platform.core.ui"/>
++    <module name="intellij.platform.debugger"/>
++    <module name="intellij.platform.debugger.impl"/>
++    <module name="intellij.platform.diagnostic.telemetry"/>
++    <module name="intellij.platform.editor.ex"/>
++    <module name="intellij.platform.editor.ui"/>
++    <module name="intellij.platform.eel.provider"/>
++    <module name="intellij.platform.execution"/>
++    <module name="intellij.platform.execution.impl"/>
++    <module name="intellij.platform.foldings"/>
++    <module name="intellij.platform.ide"/>
++    <module name="intellij.platform.ide.bootstrap"/>
++    <module name="intellij.platform.ide.codeinsight.inline"/>
++    <module name="intellij.platform.ide.core"/>
++    <module name="intellij.platform.ide.core.impl"/>
++    <module name="intellij.platform.ide.impl"/>
++    <module name="intellij.platform.ide.observable"/>
++    <module name="intellij.platform.ide.osCertificates"/>
++    <module name="intellij.platform.ide.progress"/>
++    <module name="intellij.platform.ide.util.io.impl"/>
++    <module name="intellij.platform.ide.util.io.native"/>
++    <module name="intellij.platform.ide.util.netty"/>
++    <module name="intellij.platform.ijent"/>
++    <module name="intellij.platform.indexing"/>
++    <module name="intellij.platform.indexing.impl"/>
++    <module name="intellij.platform.lang"/>
++    <module name="intellij.platform.lang.core"/>
++    <module name="intellij.platform.lang.impl"/>
++    <module name="intellij.platform.lvcs"/>
++    <module name="intellij.platform.pluginSystem.parser.impl"/>
++    <module name="intellij.platform.projectModel"/>
++    <module name="intellij.platform.projectModel.impl"/>
++    <module name="intellij.platform.refactoring"/>
++    <module name="intellij.platform.runtime.product"/>
++    <module name="intellij.platform.serviceContainer"/>
++    <module name="intellij.platform.syntax"/>
++    <module name="intellij.platform.syntax.psi"/>
++    <module name="intellij.platform.syntax.util"/>
++    <module name="intellij.platform.usageView"/>
++    <module name="intellij.platform.usageView.impl"/>
++    <module name="intellij.platform.util.coroutines"/>
++    <module name="intellij.platform.util.ex"/>
++    <module name="intellij.platform.util.ui"/>
++    <module name="intellij.platform.workspace.jps"/>
++    <module name="intellij.platform.workspace.storage"/>
++    <module name="intellij.remoteDev.util"/>
++  </dependencies>
+ 
+   <content namespace="jetbrains">
+-    <module name="intellij.lambda.testFramework" />
++    <!-- region lambda.testFrameworkLibraries -->
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.allure.java.commons"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.byte.buddy"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.hamcrest"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit4"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit5.pioneer"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit6"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit6.jupiter"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit6.launcher"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit6.params"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.junit6.vintage"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.kodein.di.jvm"/>
++    <!-- chain: moduleSet lambda.testFrameworkLibraries -->
++    <module name="intellij.libraries.kotlinTest"/>
++    <!-- endregion -->
++
++    <!-- region platform.testFrameworks.core -->
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.codeowners"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.codeowners.monorepo.resolver"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.codeowners.runtime.resolver"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.libraries.jetcheck"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.libraries.kaml"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.platform.testFramework"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.platform.testFramework.common"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.platform.testFramework.core"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.platform.testFramework.impl"/>
++    <!-- chain: moduleSet platform.testFrameworks.core -->
++    <module name="intellij.platform.testFramework.teamCity"/>
++    <!-- endregion -->
++
++    <!-- region platform.testFrameworks.junit5 -->
++    <!-- chain: moduleSet platform.testFrameworks.junit5 -->
++    <module name="intellij.platform.testFramework.junit5"/>
++    <!-- chain: moduleSet platform.testFrameworks.junit5 -->
++    <module name="intellij.platform.testFramework.junit5.codeInsight"/>
++    <!-- chain: moduleSet platform.testFrameworks.junit5 -->
++    <module name="intellij.platform.testFramework.junit5.eel.tests"/>
++    <!-- chain: moduleSet platform.testFrameworks.junit5 -->
++    <module name="intellij.platform.testFramework.junit5.projectStructure"/>
++    <!-- chain: moduleSet platform.testFrameworks.junit5 -->
++    <module name="intellij.platform.testFramework.junit5.tests"/>
++    <!-- endregion -->
++
++  </content>
++  <!-- region additional -->
++  <content namespace="jetbrains">
++    <!-- chain: direct -->
++    <module name="intellij.java.rt"/>
++    <!-- chain: direct -->
++    <module name="intellij.lambda.testFramework"/>
++    <!-- chain: direct -->
++    <module name="intellij.tools.ide.starter"/>
++    <!-- chain: direct -->
++    <module name="intellij.tools.ide.starter.driver"/>
++    <!-- chain: direct -->
+     <module name="intellij.tools.ide.util.common"/>
++    <!-- chain: direct -->
++    <module name="intellij.tools.testsBootstrap"/>
++  </content>
++  <content>
++    <!-- chain: direct -->
++    <module name="intellij.libraries.assertj.core"/>
++    <!-- chain: intellij.platform.testFramework.core -> intellij.libraries.opentest4j -->
++    <module name="intellij.libraries.opentest4j"/>
++    <!-- chain: intellij.tools.ide.starter -> intellij.libraries.qodana.sarif -->
++    <module name="intellij.libraries.qodana.sarif"/>
+   </content>
+-</idea-plugin>
+\ No newline at end of file
++  <!-- endregion -->
++</idea-plugin>
