@@ -136,6 +136,14 @@ jobs:
           git log -1 --format='%H'
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
+          echo "== DIAG: essential/jps-absent modules in bazel graph =="
+          for q in '//java/java-impl:*' '//java/java-impl/tests:*' '//plugins/json:*' '//platform/acp/plugin:*' '//libraries/misc/plugin:*' '//plugins/mcp-server:*' '//plugins/mcp-server/intellij.mcpserver:*'; do
+            echo "--- query: $q ---"
+            ./bazel.cmd query "$q" 2>&1 | head -4
+          done
+          echo "== DIAG: java plugin BUILD glob =="
+          grep -n "resources\s*=" java/java-impl/BUILD.bazel 2>/dev/null | head -2
+          ls java/java-impl/src/META-INF/ 2>&1 | head -3
 
       - name: Dry-run complete
         if: ${{ inputs.dry_run == true }}
