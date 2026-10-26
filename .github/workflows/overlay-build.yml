@@ -78,8 +78,8 @@ jobs:
           git init -q
           git config user.email ci@local && git config user.name ci
           # product-info.json 需要 git revision：tarball 无 git 历史，
-          # 用真实上游 commit 建立 ref（默认 idea/2026.2.3 = 8062c061）
-          git update-ref refs/heads/master "${UPSTREAM_COMMIT:-8062c061ff33e22041d9f1844db5b8b8a6b5e4d7}"
+          # 用空提交提供 HEAD（message 记录上游 ref/commit，默认 idea/2026.2.3 = 8062c061）
+          git commit --allow-empty -q -m "upstream ${REF} @ ${UPSTREAM_COMMIT:-8062c061ff33e22041d9f1844db5b8b8a6b5e4d7}"
           # 统计完整性：工作树文件数（本地完整 checkout 约 30 万+）
           echo "== checkout file count =="
           find . -type f | wc -l
