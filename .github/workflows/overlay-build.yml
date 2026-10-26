@@ -156,7 +156,7 @@ jobs:
           ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml 2>&1 || true
           ls libraries/misc/plugin/resources/META-INF/plugin.xml 2>&1 || true
           echo "== DIAG: HEAD =="
-          git log -1 --format='%H'
+          git log -1 --format='%H' || echo "no commits (tarball checkout)"
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
           echo "== DIAG: java plugin targets =="
