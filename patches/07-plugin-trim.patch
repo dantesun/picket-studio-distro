@@ -8,7 +8,7 @@
  import org.jetbrains.intellij.build.BuildPaths.Companion.COMMUNITY_ROOT
  import org.jetbrains.intellij.build.impl.createBuildContext
  import org.jetbrains.intellij.build.impl.qodana.QodanaProductProperties
-@@ -16,6 +17,35 @@
+@@ -16,6 +17,34 @@
  import org.jetbrains.intellij.build.productLayout.productModules
  import java.nio.file.Path
  
@@ -16,8 +16,9 @@
 + * Picket Studio: bundled plugin trimming set (Picket Code principle).
 + * Removed: cloud/hosting integrations (GitHub/GitLab/repository search),
 + * non-essential language & framework tooling (Android, Compose, JavaFX,
-+ * Eclipse import, TextMate), test framework (TestNG, JUnit kept), and
-+ * preset/benchmark extras (performance testing, extra keymaps).
++ * Eclipse import, TextMate), test framework (TestNG), preset/benchmark extras
++ * (performance testing, extra keymaps), and modules absent from the overlay's
++ * Bazel JPS model (acp/mcp/misc-lib).
 + */
 +val CUT_BUNDLED_PLUGINS: Set<String> = setOf(
 +  "intellij.android.gradle.declarative.lang.ide",
@@ -33,8 +34,6 @@
 +  "intellij.textmate.plugin",
 +  "intellij.vcs.github",
 +  "intellij.vcs.gitlab",
-+  // Modules that never materialize in the overlay's Bazel JPS model; excluding
-+  // them from the distribution list also satisfies the plugin.xml check.
 +  "intellij.libraries.misc.plugin",
 +  "intellij.platform.acp.plugin",
 +  "intellij.mcpserver",
@@ -44,7 +43,7 @@
  val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
    "intellij.tools.jps.build.standalone",
    "intellij.devkit.jps",
-@@ -58,9 +88,14 @@
+@@ -58,9 +87,11 @@
        "intellij.idea.community.customization",
      )
  
@@ -56,9 +55,6 @@
 +    // non-essential language/framework tooling, minimal test/preset extras).
 +    productLayout.bundledPluginModules =
 +      IDEA_BUNDLED_PLUGINS.filterNot { it in CUT_BUNDLED_PLUGINS }.toPersistentList()
-+    // Some modules may not materialize in the Bazel JPS model when built from
-+    // a subset repo / overlay context; skip instead of failing (upstream switch).
-+    productLayout.skipUnresolvedContentModules = true
  
      productLayout.prepareCustomPluginRepositoryForPublishedPlugins = false
      productLayout.buildAllCompatiblePlugins = true
