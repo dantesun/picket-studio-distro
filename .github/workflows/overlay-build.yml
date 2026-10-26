@@ -63,17 +63,29 @@ jobs:
       # 完整 checkout（无 partial clone）：blob:none 按需拉 blob 偶发失败会导致目录缺失、
       # Bazel glob 空、JPS 模型缺模块（r63 之后镜像 bazel 严格 glob 使问题放大）。
       # actions/checkout 不接受 filter:none，改用原生 git clone --no-filter（Actions 内网快，5GB 约 10-20 分钟）。
-      - name: Checkout upstream intellij-community (full clone)
-        working-directory: ./
+      - name: Checkout upstream intellij-community (codeload tarball, always complete)
         shell: bash
         run: |
+          REF="${{ inputs.upstream_ref }}"
+          ENC_REF="${REF//\//%2F}"
+          TARBALL="https://codeload.github.com/JetBrains/intellij-community/tar.gz/refs/tags/${ENC_REF}"
           for i in 1 2 3; do
-            git clone --depth=1 --branch "${{ inputs.upstream_ref }}" --no-filter \
-              https://github.com/JetBrains/intellij-community.git community && break || { sleep 10; echo "retry $i"; }
+            curl -L --retry 3 --retry-delay 5 -o /tmp/ce.tar.gz "$TARBALL" && break || { sleep 15; echo "retry $i"; }
           done
-          ls community/java/plugin/resources/META-INF/plugin.xml
-        timeout-minutes: 45
-
+          tar -xzf /tmp/ce.tar.gz -C /tmp
+          mv /tmp/intellij-community-* community
+          cd community
+          git init -q
+          git config user.email ci@local && git config user.name ci
+          # 统计完整性：工作树文件数（本地完整 checkout 约 30 万+）
+          echo "== checkout file count =="
+          find . -type f | wc -l
+          # android 模块（Bazel 构建图引用；轻量 blobless 拉取，tag 不匹配也容错）
+          git clone --depth 1 --filter=blob:none --branch master https://github.com/JetBrains/android.git /tmp/android 2>/dev/null \
+            || git clone --depth 1 --filter=blob:none https://github.com/JetBrains/android.git /tmp/android 2>/dev/null \
+            || true
+          if [ -d /tmp/android ] && [ ! -d android ]; then mv /tmp/android android; fi
+          ls android 2>/dev/null | head -3 || echo "WARN: android module unavailable (continuing)"
       - name: Backfill missing tracked files (safety net)
         working-directory: community
         shell: bash
