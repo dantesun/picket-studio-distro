@@ -56,35 +56,32 @@ jobs:
         with:
           path: overlay
 
-      - name: Checkout upstream intellij-community
-        uses: actions/checkout@v5
-        with:
-          repository: JetBrains/intellij-community
-          ref: ${{ inputs.upstream_ref }}
-          path: community
-          fetch-depth: 1
-          # 完整 checkout（不做 partial clone）：否则按需拉 blob 偶发失败会导致目录缺失、
-          # Bazel glob 空、JPS 模型缺模块（r63 之后镜像 bazel 严格 glob 使问题放大）
-          filter: none
-        timeout-minutes: 40
+      # 完整 checkout（无 partial clone）：blob:none 按需拉 blob 偶发失败会导致目录缺失、
+      # Bazel glob 空、JPS 模型缺模块（r63 之后镜像 bazel 严格 glob 使问题放大）。
+      # actions/checkout 不接受 filter:none，改用原生 git clone --no-filter（Actions 内网快，5GB 约 10-20 分钟）。
+      - name: Checkout upstream intellij-community (full clone)
+        working-directory: ./
+        shell: bash
+        run: |
+          for i in 1 2 3; do
+            git clone --depth=1 --branch "${{ inputs.upstream_ref }}" --no-filter \
+              https://github.com/JetBrains/intellij-community.git community && break || { sleep 10; echo "retry $i"; }
+          done
+          ls community/java/java-impl/resources/META-INF/plugin.xml
+        timeout-minutes: 45
 
-      - name: Backfill missing tracked files (partial-clone safety net)
+      - name: Backfill missing tracked files (safety net)
         working-directory: community
         shell: bash
         run: |
-          # filter:none 已完整物化；此步仅作兜底：对仍缺失的关键文件按需补拉
+          # 完整 clone 已物化全部文件；此步仅作兜底验证关键文件
           for f in \
             tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml \
             libraries/misc/plugin/resources/META-INF/plugin.xml \
             platform/acp/plugin/resources/META-INF/plugin.xml \
             plugins/mcp-server/resources/META-INF/plugin.xml \
             java/java-impl/resources/META-INF/plugin.xml; do
-            if [ ! -f "$f" ]; then
-              echo "missing $f -> fetching blob"
-              for i in 1 2 3; do
-                git checkout HEAD -- "$f" 2>/dev/null && break || sleep 3
-              done
-            fi
+            if [ ! -f "$f" ]; then echo "MISSING $f"; else echo "OK $f"; fi
           done
           echo "=== backfill verify ==="
           ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/ 2>&1
