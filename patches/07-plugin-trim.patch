@@ -1,6 +1,14 @@
 --- a/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
 +++ b/build/src/org/jetbrains/intellij/build/IdeaCommunityProperties.kt
-@@ -16,6 +16,30 @@
+@@ -4,6 +4,7 @@
+ import kotlinx.collections.immutable.PersistentList
+ import kotlinx.collections.immutable.persistentListOf
+ import kotlinx.collections.immutable.plus
++import kotlinx.collections.immutable.toPersistentList
+ import org.jetbrains.intellij.build.BuildPaths.Companion.COMMUNITY_ROOT
+ import org.jetbrains.intellij.build.impl.createBuildContext
+ import org.jetbrains.intellij.build.impl.qodana.QodanaProductProperties
+@@ -16,6 +17,30 @@
  import org.jetbrains.intellij.build.productLayout.productModules
  import java.nio.file.Path
  
@@ -31,18 +39,18 @@
  val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
    "intellij.tools.jps.build.standalone",
    "intellij.devkit.jps",
-@@ -58,9 +82,12 @@
+@@ -58,9 +83,11 @@
        "intellij.idea.community.customization",
      )
  
+-    productLayout.bundledPluginModules = IDEA_BUNDLED_PLUGINS + sequenceOf(
+-      "intellij.javaFX.community"
+-    )
 +    // Picket Studio: plugin trimming aligned with the Picket Code principle
 +    // (offline-first minimal distribution: no cloud/vendor integrations, no
 +    // non-essential language/framework tooling, minimal test/preset extras).
-     productLayout.bundledPluginModules = IDEA_BUNDLED_PLUGINS + sequenceOf(
--      "intellij.javaFX.community"
--    )
-+      "intellij.javaFX.community",
-+    ).filterNot { it in CUT_BUNDLED_PLUGINS }
++    productLayout.bundledPluginModules =
++      IDEA_BUNDLED_PLUGINS.filterNot { it in CUT_BUNDLED_PLUGINS }.toPersistentList()
  
      productLayout.prepareCustomPluginRepositoryForPublishedPlugins = false
      productLayout.buildAllCompatiblePlugins = true

@@ -64,24 +64,28 @@ jobs:
           path: community
           fetch-depth: 1
 
-      # partial clone (blob:none) 下按需拉取 blob 偶发缺目录（tools/intellij.lambda.sampleTestsWithPlugin 的 testResources 曾缺失导致 bazel 空 glob 失败）
-      - name: Ensure missing testResources (partial-clone workaround)
+      # partial clone (blob:none) 下按需拉取 blob 会偶发缺文件（多个模块 plugin.xml 缺失导致构建校验失败），
+      # 用 codeload tarball 确定性补全工作树（保留 .git；tar 内容=同一 commit 快照）
+      - name: Backfill working tree from codeload tarball
         working-directory: community
         shell: bash
         run: |
-          TESTR="tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources"
+          git ls-files -z | xargs -0 rm -f 2>/dev/null || true
+          find . -path ./.git -prune -o -type f -print0 | xargs -0 rm -f 2>/dev/null || true
+          find . -path ./.git -prune -o -type d -empty -delete 2>/dev/null || true
           REF="${{ inputs.upstream_ref }}"
-          if [ ! -d "$TESTR" ]; then
-            echo "testResources missing, attempting git restore..."
-            git checkout HEAD -- "$TESTR" 2>&1 | tail -2 || true
-          fi
-          if [ ! -f "$TESTR/META-INF/plugin.xml" ]; then
-            echo "still missing, downloading single file via Contents API..."
-            gh api "repos/JetBrains/intellij-community/contents/$TESTR/META-INF/plugin.xml?ref=$REF" \
-              --jq '.content' | tr -d '\n' | base64 -d > "$TESTR/META-INF/plugin.xml"
-          fi
-          ls -la "$TESTR/META-INF/" 2>&1
-          find "$TESTR" -type f 2>&1
+          URL="https://codeload.github.com/JetBrains/intellij-community/tar.gz/refs/tags/${REF}"
+          echo "downloading ${URL} ..."
+          curl -fsSL "$URL" -o /tmp/up.tar.gz || {
+            URL="https://codeload.github.com/JetBrains/intellij-community/tar.gz/refs/heads/${REF}"
+            echo "fallback ${URL}"
+            curl -fsSL "$URL" -o /tmp/up.tar.gz
+          }
+          tar -xzf /tmp/up.tar.gz --strip-components=1
+          rm -f /tmp/up.tar.gz
+          echo "=== backfill verify ==="
+          ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/ 2>&1
+          ls libraries/misc/plugin/resources/META-INF/ 2>&1
 
       - name: Fetch android modules (required for IDEA distributions)
         working-directory: community
