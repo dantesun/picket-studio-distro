@@ -63,6 +63,8 @@ jobs:
           ref: ${{ inputs.upstream_ref }}
           path: community
           fetch-depth: 1
+          # partial clone (blob:none) 按需拉取 blob 会偶发缺失目录（如 lambda testResources）
+          filter: none
 
       - name: Fetch android modules (required for IDEA distributions)
         working-directory: community
@@ -84,7 +86,7 @@ jobs:
         run: |
           for p in ../overlay/patches/*.patch; do
             echo "== apply $(basename "$p") =="
-            git apply --3way "$p"
+            git apply --3way "$p" || exit 1
           done
           echo "patches applied OK"
           git status --short
