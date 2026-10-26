@@ -23,6 +23,10 @@ name: Picket Studio Overlay Build
         description: "覆盖构建号（如 262.10968.63）；空则用上游默认（SNAPSHOT）"
         default: ""
         required: false
+      apply_trim:
+        description: "应用插件裁剪 patch 07（对照实验时设为 false）"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -108,7 +112,12 @@ jobs:
         shell: bash
         run: |
           for p in ../overlay/patches/*.patch; do
-            echo "== apply $(basename "$p") =="
+            b=$(basename "$p")
+            if [ "$b" = "07-plugin-trim.patch" ] && [ "${{ inputs.apply_trim }}" != "true" ]; then
+              echo "== SKIP $b (apply_trim=false) =="
+              continue
+            fi
+            echo "== apply $b =="
             # 纯文本应用：patch 均基于 upstream tag 精确生成，不依赖 partial-clone blob（--3way 会因缺 blob 失败）
             git apply "$p" || exit 1
           done
@@ -172,6 +181,11 @@ jobs:
           df -h | tail -3
           echo "=== artifacts ==="
           ls -la out/picket-studio-ce/artifacts/ 2>&1 | head -30
+          echo "=== dev-run plugins dir ==="
+          ls out/picket-studio-ce/temp/dev-run/idea-community/plugins/ 2>&1 | head -50
+          echo "=== bundled plugin modules (effective) ==="
+          grep -rn "bundledPluginModules" out/picket-studio-ce/log/*.log 2>/dev/null | head -5 || true
+          cat out/picket-studio-ce/artifacts/IC-builtinModules.json 2>/dev/null | head -20 || true
           echo "=== logs ==="
           ls out/log/ 2>&1 | head -10
           for f in out/log/*.log out/log/*.txt; do
