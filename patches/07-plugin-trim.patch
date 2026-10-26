@@ -8,7 +8,7 @@
  import org.jetbrains.intellij.build.BuildPaths.Companion.COMMUNITY_ROOT
  import org.jetbrains.intellij.build.impl.createBuildContext
  import org.jetbrains.intellij.build.impl.qodana.QodanaProductProperties
-@@ -16,6 +17,34 @@
+@@ -16,6 +17,33 @@
  import org.jetbrains.intellij.build.productLayout.productModules
  import java.nio.file.Path
  
@@ -17,8 +17,8 @@
 + * Removed: cloud/hosting integrations (GitHub/GitLab/repository search),
 + * non-essential language & framework tooling (Android, Compose, JavaFX,
 + * Eclipse import, TextMate), test framework (TestNG), preset/benchmark extras
-+ * (performance testing, extra keymaps), and modules absent from the overlay's
-+ * Bazel JPS model (acp/mcp/misc-lib).
++ * (performance testing, extra keymaps), and AI-adjacent modules absent from the
++ * overlay's distribution (acp/mcp).
 + */
 +val CUT_BUNDLED_PLUGINS: Set<String> = setOf(
 +  "intellij.android.gradle.declarative.lang.ide",
@@ -34,7 +34,6 @@
 +  "intellij.textmate.plugin",
 +  "intellij.vcs.github",
 +  "intellij.vcs.gitlab",
-+  "intellij.libraries.misc.plugin",
 +  "intellij.platform.acp.plugin",
 +  "intellij.mcpserver",
 +)
@@ -43,7 +42,7 @@
  val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
    "intellij.tools.jps.build.standalone",
    "intellij.devkit.jps",
-@@ -58,9 +87,11 @@
+@@ -58,9 +86,15 @@
        "intellij.idea.community.customization",
      )
  
@@ -53,6 +52,10 @@
 +    // Picket Studio: plugin trimming aligned with the Picket Code principle
 +    // (offline-first minimal distribution: no cloud/vendor integrations, no
 +    // non-essential language/framework tooling, minimal test/preset extras).
++    // NOTE: intellij.libraries.misc.plugin is KEPT on purpose — it declares
++    // module intellij.libraries.lucene.common which core plugins (spellchecker,
++    // grazie, search-everywhere) reference; trimming it cascades into excluding
++    // the Java plugin set.
 +    productLayout.bundledPluginModules =
 +      IDEA_BUNDLED_PLUGINS.filterNot { it in CUT_BUNDLED_PLUGINS }.toPersistentList()
  
