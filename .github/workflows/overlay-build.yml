@@ -138,6 +138,9 @@ jobs:
           git log -1 --format='%H'
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
+          echo "== DIAG: java plugin targets =="
+          ./bazel.cmd query '//java/plugin:*' 2>&1 | head -8 || true
+          ./bazel.cmd query '//java/java-impl:*' 2>&1 | head -4 || true
 
       - name: Dry-run complete
         if: ${{ inputs.dry_run == true }}
