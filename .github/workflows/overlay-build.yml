@@ -64,28 +64,19 @@ jobs:
           path: community
           fetch-depth: 1
 
-      # partial clone (blob:none) 下按需拉取 blob 会偶发缺文件（多个模块 plugin.xml 缺失导致构建校验失败），
-      # 用 codeload tarball 确定性补全工作树（保留 .git；tar 内容=同一 commit 快照）
-      - name: Backfill working tree from codeload tarball
+      # partial clone (blob:none) 下 checkout 偶发缺目录（多个模块 resources 缺失导致 Bazel glob 空/校验失败）。
+      # 直接从对象库物化全部 tracked 文件（按需拉取缺失 blob），得到与完整 checkout 完全一致的工作树——
+      # 比 codeload tarball 更可靠：git 原生态文件，Bazel 分析/JPS 模型与 r63 成功配置一致。
+      - name: Materialize full working tree from index
         working-directory: community
         shell: bash
         run: |
-          git ls-files -z | xargs -0 rm -f 2>/dev/null || true
-          find . -path ./.git -prune -o -type f -print0 | xargs -0 rm -f 2>/dev/null || true
-          find . -path ./.git -prune -o -type d -empty -delete 2>/dev/null || true
-          REF="${{ inputs.upstream_ref }}"
-          URL="https://codeload.github.com/JetBrains/intellij-community/tar.gz/refs/tags/${REF}"
-          echo "downloading ${URL} ..."
-          curl -fsSL "$URL" -o /tmp/up.tar.gz || {
-            URL="https://codeload.github.com/JetBrains/intellij-community/tar.gz/refs/heads/${REF}"
-            echo "fallback ${URL}"
-            curl -fsSL "$URL" -o /tmp/up.tar.gz
-          }
-          tar -xzf /tmp/up.tar.gz --strip-components=1
-          rm -f /tmp/up.tar.gz
+          git read-tree HEAD
+          git checkout-index -a -f 2>&1 | tail -3
           echo "=== backfill verify ==="
           ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/ 2>&1
           ls libraries/misc/plugin/resources/META-INF/ 2>&1
+          git status --short 2>/dev/null | wc -l
 
       - name: Fetch android modules (required for IDEA distributions)
         working-directory: community
