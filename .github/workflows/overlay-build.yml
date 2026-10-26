@@ -111,7 +111,7 @@ jobs:
             git apply "$p" || exit 1
           done
           echo "patches applied OK"
-          git status --short | head -20
+          git status --short 2>/dev/null | head -20 || true
 
       - name: Override build number (optional, e.g. 262.10968.63)
         working-directory: community
