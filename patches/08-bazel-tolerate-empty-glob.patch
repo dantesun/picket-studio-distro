@@ -1,0 +1,9 @@
+--- a/.bazelrc
++++ b/.bazelrc
+@@ -17,3 +17,6 @@
+ common:teamcity --show_progress_rate_limit=30
+ 
+ try-import %workspace%/.bazelrc-user.bazelrc
++
++# Picket Studio: tolerate empty globs (partial-clone checkouts may miss dirs; restores pre-Bazel-9 behavior)
++common --incompatible_disallow_empty_glob=false
