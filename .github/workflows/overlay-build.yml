@@ -137,9 +137,9 @@ jobs:
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
           echo "== DIAG: essential/jps-absent modules in bazel graph =="
-          for q in '//java/java-impl:*' '//java/java-impl/tests:*' '//plugins/json:*' '//platform/acp/plugin:*' '//libraries/misc/plugin:*' '//plugins/mcp-server:*' '//plugins/mcp-server/intellij.mcpserver:*'; do
+          for q in '//java/java-impl:*' '//java/java-ide/impl:*' '//plugins/json:*' '//platform/acp/plugin:*' '//libraries/misc/plugin:*' '//plugins/mcp-server:*'; do
             echo "--- query: $q ---"
-            ./bazel.cmd query "$q" 2>&1 | head -4
+            ./bazel.cmd query "$q" 2>/dev/null | grep -E "intellij\.java\.plugin|intellij\.java\.ide|modules\.json|acp\.plugin|misc\.plugin|mcpserver" | head -5 || echo "(no match)"
           done
           echo "== DIAG: java plugin BUILD glob =="
           grep -n "resources\s*=" java/java-impl/BUILD.bazel 2>/dev/null | head -2
