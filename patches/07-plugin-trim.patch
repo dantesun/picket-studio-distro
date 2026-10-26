@@ -8,7 +8,7 @@
  import org.jetbrains.intellij.build.BuildPaths.Companion.COMMUNITY_ROOT
  import org.jetbrains.intellij.build.impl.createBuildContext
  import org.jetbrains.intellij.build.impl.qodana.QodanaProductProperties
-@@ -16,6 +17,30 @@
+@@ -16,6 +17,35 @@
  import org.jetbrains.intellij.build.productLayout.productModules
  import java.nio.file.Path
  
@@ -33,13 +33,18 @@
 +  "intellij.textmate.plugin",
 +  "intellij.vcs.github",
 +  "intellij.vcs.gitlab",
++  // Modules that never materialize in the overlay's Bazel JPS model; excluding
++  // them from the distribution list also satisfies the plugin.xml check.
++  "intellij.libraries.misc.plugin",
++  "intellij.platform.acp.plugin",
++  "intellij.mcpserver",
 +)
 +
 +
  val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
    "intellij.tools.jps.build.standalone",
    "intellij.devkit.jps",
-@@ -58,9 +83,14 @@
+@@ -58,9 +88,14 @@
        "intellij.idea.community.customization",
      )
  
