@@ -107,10 +107,11 @@ jobs:
         run: |
           for p in ../overlay/patches/*.patch; do
             echo "== apply $(basename "$p") =="
-            git apply --3way "$p" || exit 1
+            # 纯文本应用：patch 均基于 upstream tag 精确生成，不依赖 partial-clone blob（--3way 会因缺 blob 失败）
+            git apply "$p" || exit 1
           done
           echo "patches applied OK"
-          git status --short
+          git status --short | head -20
 
       - name: Override build number (optional, e.g. 262.10968.63)
         working-directory: community
