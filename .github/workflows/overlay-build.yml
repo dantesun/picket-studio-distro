@@ -63,20 +63,33 @@ jobs:
           ref: ${{ inputs.upstream_ref }}
           path: community
           fetch-depth: 1
+          # 完整 checkout（不做 partial clone）：否则按需拉 blob 偶发失败会导致目录缺失、
+          # Bazel glob 空、JPS 模型缺模块（r63 之后镜像 bazel 严格 glob 使问题放大）
+          filter: none
+        timeout-minutes: 40
 
-      # partial clone (blob:none) 下 checkout 偶发缺目录（多个模块 resources 缺失导致 Bazel glob 空/校验失败）。
-      # 直接从对象库物化全部 tracked 文件（按需拉取缺失 blob），得到与完整 checkout 完全一致的工作树——
-      # 比 codeload tarball 更可靠：git 原生态文件，Bazel 分析/JPS 模型与 r63 成功配置一致。
-      - name: Materialize full working tree from index
+      - name: Backfill missing tracked files (partial-clone safety net)
         working-directory: community
         shell: bash
         run: |
-          git read-tree HEAD
-          git checkout-index -a -f 2>&1 | tail -3
+          # filter:none 已完整物化；此步仅作兜底：对仍缺失的关键文件按需补拉
+          for f in \
+            tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml \
+            libraries/misc/plugin/resources/META-INF/plugin.xml \
+            platform/acp/plugin/resources/META-INF/plugin.xml \
+            plugins/mcp-server/resources/META-INF/plugin.xml \
+            java/java-impl/resources/META-INF/plugin.xml; do
+            if [ ! -f "$f" ]; then
+              echo "missing $f -> fetching blob"
+              for i in 1 2 3; do
+                git checkout HEAD -- "$f" 2>/dev/null && break || sleep 3
+              done
+            fi
+          done
           echo "=== backfill verify ==="
           ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/ 2>&1
           ls libraries/misc/plugin/resources/META-INF/ 2>&1
-          git status --short 2>/dev/null | wc -l
+          ls java/java-impl/resources/META-INF/ 2>&1 | head -3
 
       - name: Fetch android modules (required for IDEA distributions)
         working-directory: community
