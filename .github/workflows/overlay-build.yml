@@ -67,7 +67,7 @@ jobs:
             git clone --depth=1 --branch "${{ inputs.upstream_ref }}" --no-filter \
               https://github.com/JetBrains/intellij-community.git community && break || { sleep 10; echo "retry $i"; }
           done
-          ls community/java/java-impl/resources/META-INF/plugin.xml
+          ls community/java/plugin/resources/META-INF/plugin.xml
         timeout-minutes: 45
 
       - name: Backfill missing tracked files (safety net)
