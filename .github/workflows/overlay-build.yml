@@ -104,6 +104,12 @@ jobs:
         working-directory: community
         shell: bash
         run: |
+          echo "== DIAG: lambda plugin dir contents =="
+          ls -la tools/intellij.lambda.sampleTestsWithPlugin/plugin/ | head -20
+          echo "== DIAG: testResources recursive =="
+          find tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources -type f 2>&1 | head -10
+          echo "== DIAG: HEAD =="
+          git log -1 --format='%H'
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
 
