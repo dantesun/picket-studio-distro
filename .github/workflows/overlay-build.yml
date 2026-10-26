@@ -80,12 +80,17 @@ jobs:
           # 统计完整性：工作树文件数（本地完整 checkout 约 30 万+）
           echo "== checkout file count =="
           find . -type f | wc -l
-          # android 模块（Bazel 构建图引用；轻量 blobless 拉取，tag 不匹配也容错）
-          git clone --depth 1 --filter=blob:none --branch master https://github.com/JetBrains/android.git /tmp/android 2>/dev/null \
-            || git clone --depth 1 --filter=blob:none https://github.com/JetBrains/android.git /tmp/android 2>/dev/null \
-            || true
-          if [ -d /tmp/android ] && [ ! -d android ]; then mv /tmp/android android; fi
-          ls android 2>/dev/null | head -3 || echo "WARN: android module unavailable (continuing)"
+          # android 模块：与 intellij-community 同 tag（pycharm/2026.2.3 = f6325a5b），
+          # master 已重构（移除 instantapp/libraries/sqlite），必须固定匹配 commit
+          ANDROID_REF="${ANDROID_COMMIT:-f6325a5b85562e6dee0fe4857c74dd837f2f5957}"
+          git clone -q --depth 1 https://github.com/JetBrains/android.git /tmp/android 2>/dev/null || true
+          if [ -d /tmp/android ]; then
+            (cd /tmp/android && git checkout -q "$ANDROID_REF" 2>/dev/null || git fetch -q --depth 1 origin "$ANDROID_REF" && git checkout -q FETCH_HEAD) || true
+            ls /tmp/android/android/instantapp >/dev/null 2>&1 || echo "WARN: android checkout missing instantapp"
+            mv /tmp/android android
+          else
+            echo "WARN: android module unavailable (continuing)"
+          fi
       - name: Backfill missing tracked files (safety net)
         working-directory: community
         shell: bash
