@@ -158,6 +158,21 @@ jobs:
             picket_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
             -Dintellij.build.skip.build.steps=search_index
 
+      - name: Build diagnostics (always)
+        if: ${{ inputs.dry_run != true }}
+        working-directory: community
+        shell: bash
+        run: |
+          echo "=== disk ==="
+          df -h | tail -3
+          echo "=== artifacts ==="
+          ls -la out/picket-studio-ce/artifacts/ 2>&1 | head -30
+          echo "=== logs ==="
+          ls out/log/ 2>&1 | head -10
+          for f in out/log/*.log out/log/*.txt; do
+            if [ -f "$f" ]; then echo "--- $f ---"; tail -80 "$f"; fi
+          done 2>/dev/null | tail -160
+
       - name: Compute artifact name (sanitize ref)
         if: ${{ inputs.dry_run != true }}
         id: artname
