@@ -80,7 +80,8 @@ jobs:
             libraries/misc/plugin/resources/META-INF/plugin.xml \
             platform/acp/plugin/resources/META-INF/plugin.xml \
             plugins/mcp-server/resources/META-INF/plugin.xml \
-            java/java-impl/resources/META-INF/plugin.xml; do
+            java/plugin/resources/META-INF/plugin.xml \
+            java/ide-customization/resources/META-INF/plugin.xml; do
             if [ ! -f "$f" ]; then echo "MISSING $f"; else echo "OK $f"; fi
           done
           echo "=== backfill verify ==="
