@@ -39,7 +39,7 @@
  val MAVEN_ARTIFACTS_ADDITIONAL_MODULES: PersistentList<String> = persistentListOf(
    "intellij.tools.jps.build.standalone",
    "intellij.devkit.jps",
-@@ -58,9 +83,11 @@
+@@ -58,9 +83,14 @@
        "intellij.idea.community.customization",
      )
  
@@ -51,6 +51,9 @@
 +    // non-essential language/framework tooling, minimal test/preset extras).
 +    productLayout.bundledPluginModules =
 +      IDEA_BUNDLED_PLUGINS.filterNot { it in CUT_BUNDLED_PLUGINS }.toPersistentList()
++    // Some modules may not materialize in the Bazel JPS model when built from
++    // a subset repo / overlay context; skip instead of failing (upstream switch).
++    productLayout.skipUnresolvedContentModules = true
  
      productLayout.prepareCustomPluginRepositoryForPublishedPlugins = false
      productLayout.buildAllCompatiblePlugins = true
