@@ -130,22 +130,14 @@ jobs:
         working-directory: community
         shell: bash
         run: |
-          echo "== DIAG: lambda plugin dir contents =="
-          ls -la tools/intellij.lambda.sampleTestsWithPlugin/plugin/ | head -20
-          echo "== DIAG: testResources recursive =="
-          find tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources -type f 2>&1 | head -10 || true
+          echo "== DIAG: key module files (full clone sanity) =="
+          ls java/plugin/resources/META-INF/plugin.xml 2>&1 || true
+          ls tools/intellij.lambda.sampleTestsWithPlugin/plugin/testResources/META-INF/plugin.xml 2>&1 || true
+          ls libraries/misc/plugin/resources/META-INF/plugin.xml 2>&1 || true
           echo "== DIAG: HEAD =="
           git log -1 --format='%H'
           ./bazel.cmd query //build:idea_community >/dev/null
           echo "build target //build:idea_community resolves OK"
-          echo "== DIAG: essential/jps-absent modules in bazel graph =="
-          for q in '//java/java-impl:*' '//java/java-ide/impl:*' '//plugins/json:*' '//platform/acp/plugin:*' '//libraries/misc/plugin:*' '//plugins/mcp-server:*'; do
-            echo "--- query: $q ---"
-            ./bazel.cmd query "$q" 2>/dev/null | grep -E "intellij\.java\.plugin|intellij\.java\.ide|modules\.json|acp\.plugin|misc\.plugin|mcpserver" | head -5 || echo "(no match)"
-          done
-          echo "== DIAG: java plugin BUILD glob =="
-          grep -n "resources\s*=" java/java-impl/BUILD.bazel 2>/dev/null | head -2
-          ls java/java-impl/src/META-INF/ 2>&1 | head -3
 
       - name: Dry-run complete
         if: ${{ inputs.dry_run == true }}
