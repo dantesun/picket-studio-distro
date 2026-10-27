@@ -41,6 +41,7 @@ permissions:
 
 jobs:
   overlay-build:
+    if: ${{ inputs.publish_only != true }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     steps:
