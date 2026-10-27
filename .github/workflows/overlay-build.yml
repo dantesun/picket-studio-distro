@@ -192,11 +192,13 @@ jobs:
             picket_build_env -Dintellij.build.target.os=${{ inputs.os_target }} \
             -Dintellij.build.skip.build.steps=search_index
 
-      - name: Build diagnostics (always)
+      - name: Build diagnostics (always, non-blocking)
         if: ${{ inputs.dry_run != true }}
+        continue-on-error: true
         working-directory: community
         shell: bash
         run: |
+          set +e
           echo "=== disk ==="
           df -h | tail -3
           echo "=== artifacts ==="
@@ -207,10 +209,11 @@ jobs:
           grep -rn "bundledPluginModules" out/picket-studio-ce/log/*.log 2>/dev/null | head -5 || true
           cat out/picket-studio-ce/artifacts/IC-builtinModules.json 2>/dev/null | head -20 || true
           echo "=== logs ==="
-          ls out/log/ 2>&1 | head -10
+          ls out/log/ 2>&1 | head -10 || true
           for f in out/log/*.log out/log/*.txt; do
             if [ -f "$f" ]; then echo "--- $f ---"; tail -80 "$f"; fi
-          done 2>/dev/null | tail -160
+          done 2>/dev/null | tail -160 || true
+          echo "=== diagnostics done ==="
 
       - name: Compute artifact name (sanitize ref)
         if: ${{ inputs.dry_run != true }}
