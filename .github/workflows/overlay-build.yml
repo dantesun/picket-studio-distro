@@ -27,14 +27,6 @@ name: Picket Studio Overlay Build
         description: "应用插件裁剪 patch 07（对照实验时设为 false）"
         type: boolean
         default: true
-      publish_only:
-        description: "仅把指定 run 的 artifact 发布为 GitHub Release（跳过构建）"
-        type: boolean
-        default: false
-      source_run_id:
-        description: "publish_only=true 时来源 run ID（如 40433113376）"
-        default: ""
-        required: false
 
 permissions:
   contents: write
@@ -43,52 +35,6 @@ jobs:
   overlay-build:
     runs-on: ubuntu-latest
     timeout-minutes: 360
-  publish-only:
-    runs-on: ubuntu-latest
-    timeout-minutes: 120
-    if: ${{ inputs.publish_only == true }}
-    permissions:
-      contents: write
-      actions: read
-    steps:
-      - name: Download artifact from source run
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -e
-          gh run download "${{ inputs.source_run_id }}" --repo "${{ github.repository }}" --dir dist --pattern '*linux*' || true
-          ls -la dist/ 2>/dev/null || echo "no artifacts matched; trying name-based download"
-          if ! ls dist/*.zip >/dev/null 2>&1; then
-            gh run download "${{ inputs.source_run_id }}" --repo "${{ github.repository }}" --dir dist || true
-            ls -la dist/
-          fi
-      - name: Unpack assets
-        run: |
-          cd dist
-          for z in *.zip; do unzip -o "$z"; done 2>/dev/null || true
-          mkdir -p assets
-          find . -maxdepth 5 \( -name '*.tar.gz' -o -name '*.sha256' -o -name '*.product-info.json' \) -exec cp {} assets/ \; 2>/dev/null || true
-          echo "=== staged assets ==="
-          ls -la assets/
-      - name: Publish GitHub Release (trimmed)
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: picket-studio-2026.2.3-trimmed
-          name: Picket Studio 2026.2.3 (trimmed)
-          body: |
-            Picket Studio 裁剪版（基于 IntelliJ Platform Community，遵循 Picket Code 原则）
-            - 上游: ${{ inputs.upstream_ref }}
-            - 构建号: ${{ inputs.build_number }}
-            - 裁剪: 移除云/托管集成（GitHub、GitLab、仓库搜索）、非必要语言与框架工具（Android、Compose、JavaFX、Eclipse、TextMate）、测试框架（TestNG）、预设/基准（performance testing、附加键位）与 AI 相邻模块（acp/mcp）
-            - 品牌: vendor 名称、图标路径、更新通道均已替换为 Picket Studio（vendor=Picket Studio, updates URL=本仓库 updates.xml）
-            - 构建: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ inputs.source_run_id }}
-            - 许可: Apache 2.0（见发行包内 LICENSE/NOTICE），非 JetBrains 官方产品，未受 JetBrains 背书
-          files: |
-            dist/assets/*.tar.gz
-            dist/assets/*.sha256
-            dist/assets/*.product-info.json
-          fail_on_unmatched_assertions: false
-
     steps:
       - name: Free disk space
         shell: bash
